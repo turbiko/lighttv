@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static  wagtailimages_tags%}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+home content<br><br><br><br><br><br><br><br><br>
+
+
+{# big slider start#}
+    {% for slider_image in page.slider_images.all %}
+        {% if slider_image.project.image %}
+        {% image slider_image.project.image width-920 as img_url %}
+        <div class="swiper-slide"
+             style="background-image: url('{{ img_url.url }}'); background-size: cover; background-position: center;">
+            <h3>{{ slider_image.project.title }}</h3>
+        </div>
+        {% endif %}
+    {% endfor %}
+{# big slider end#}
+
+{# tv-chart today slider#}
+<br/><br/><br/><br/><br/><br>
+{# tv-chart today slider end#}
+<br/><br/><br/><br/><br/><br>
+{# about-block#}
+<br/><br/><br/><br/><br/><br>
+{# about-block end#}
+
+{# manusl #}
+{# manusl end#}
+
+{# broadcasters#}
+{# broadcasters end#}
+
+{% endblock content %}

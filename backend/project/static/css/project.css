@@ -1,0 +1,122 @@
+.project-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat;
+}
+
+.project-breadcrump-line {
+  width: 1040px;
+  margin: 25px auto;
+  display: flex;
+  gap: 5px;
+}
+.project-breadcrump-icon {
+}
+.project-breadcrump-parent-page {
+    color: #6C5282;
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.project-breadcrump-page-title {
+    color: #6C5282;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.project-image-wrapper {
+    max-width:1440px;
+    margin: 20px auto;
+
+}
+.project-image-block {
+    width: 100%;
+    aspect-ratio: 1380 / 551;
+    flex-shrink: 0;
+    border-radius: 20px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.project-image-text-container {
+    width:1040px;
+    margin-inline: auto;
+    color: #ffffff;
+}
+.project-image-text-block {
+
+    margin-top: 80%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.project-content-block {
+    width:1040px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 33px;
+}
+.project-title {
+    color: #1B1B1B;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.project-tags {
+    display: flex;
+    gap: 0.5em;
+}
+.project-date {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    align-items: center;
+    justify-content:center;
+    border-radius: 60px;
+    border: 1px solid rgba(166, 104, 127, 0.20);
+}
+.project-genre {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    border: 1px solid rgba(166, 104, 127, 0.20);
+}
+.project-duration {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 60px;
+    border: 1px solid rgba(166, 104, 127, 0.20);
+}
+.project-description-block {
+    display: flex;
+    max-width: 1040px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    align-self: stretch;
+    color: var(--text, #4E4E4E);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 162.5% */
+}
+.project-read-more {}

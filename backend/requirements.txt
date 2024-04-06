@@ -1,0 +1,5 @@
+Django>=4.2,<5.1
+wagtail>=6.0,<6.1
+python-decouple==3.8
+django-extensions==3.2.3
+wagtail-modeladmin==2.0.0

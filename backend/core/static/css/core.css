@@ -1,0 +1,57 @@
+:root {
+  --main-color1: #6c5282;
+  --main-color2: #ffffff;
+  --tvchart-color: #d89c9c; /*text-color, title-button */
+  --tvchart-day-title-color: #f2e9e9;
+  --page-text-color: #4e4e4e;
+  --page-title-text-color: #1b1b1b;
+  --page-title-link-color: #534372; /* home page manual block */
+  --page-title-projects-back-color: #e8e6ea;
+  --page-tag-color: #a5a5a5;
+  /* #010101 #15394C #20BEC6 #53C4CC #757575 #A4A4A4 #D8271C #F2E3D0 #F5F5F5 #F6BF48   */
+  --content-max-width: 1440px;
+}
+/* reset */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: var(--main-color2);
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  min-height: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 16px;
+  color: var(--page-color);
+  color: var(--page-title-text-color);
+}
+body._lock {
+  overflow: hidden;
+}
+

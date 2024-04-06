@@ -1,0 +1,200 @@
+footer {
+  width: 100%;
+  height: 401px;
+  margin-top: 70px;
+  background-color: var(--main-color1);
+  color: var(--main-color2);
+  padding-top: 70px;
+}
+.footer-wrapper {
+  width: 1040px;
+  height: 261px;
+  position: relative;
+  margin-inline: auto;
+  flex-shrink: 0;
+}
+.footer-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.footer-social {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  left: 0;
+  bottom: 0px;
+}
+.footer-contact-block {
+  position: absolute;
+  height: 261px;
+  width: 684px;
+  display: flex;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* footer address block */
+.footer-address-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  width: 175px;
+}
+.footer-address-block1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+.footer-address-block1-a1 {
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.footer-address-block1-a2 {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.footer-address-block2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  align-self: stretch;
+}
+.footer-address-block2-a1 {
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.footer-address-block2-a2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  align-self: stretch;
+}
+.footer-address-block2-a2-b1 {
+  align-self: stretch;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* footer contact form */
+.footer-form {
+  display: flex;
+  width: 417px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.footer-form-title {
+  align-self: stretch;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.footer-form-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+.footer-form-fields-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+.footer-form-name {
+  width: 203.5px;
+  height: 50px;
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+}
+.footer-field-string {
+  color: #757575;
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24.5px;
+  word-wrap: break-word;
+}
+
+.footer-form-email {
+  width: 203.5px;
+  height: 50px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  border-radius: 20px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.footer-form-fields-data {
+  width: 417px;
+  height: 50px;
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+}
+
+.footer-form-button {
+  width: 417px;
+  height: 51px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 70px;
+  border: 1px white solid;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+}
+.footer-form-button-name {
+  color: white;
+  background-color:unset;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 600;
+  word-wrap: break-word;
+
+}

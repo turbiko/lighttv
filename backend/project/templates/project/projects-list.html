@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags  %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projects-list.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="projects-title-block">
+    <div class="projects-title-wrapper">
+    <div class="projects-title-block-content">
+        <div class="projects-page-title-block">
+            Проекти
+        </div>
+        <div class="projects-page-buttons-block">
+            <a href="{% pageurl page %}">
+            <div class="projects-type-button"> Всі проекти</div>
+                </a>
+            {% for project_type in project_types %}
+             <a href="{% pageurl page %}?type={{ project_type.id }}">
+            <div class="projects-type-button"> {{ project_type.name }}</div>
+             </a>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+</section>
+<section class="projects-list-block-wrapper">
+    <div class="projects-list-block">
+        <div class="projects-list">
+            {% for item in projects %}
+            <div class="project-list-block-element">
+                <div class="project-list-element-picture"
+                     {% image item.feed_image width-328 as img_url %}
+                     style="background: url({{img_url.url}}) lightgray -6.203px 0px / 120.911% 100% no-repeat;"></div>
+                <div class="project-list-text-block">
+                     <a href="{% pageurl item %}">
+                    <div class="project-list-element-title">
+                        {{item.title}}
+                    </div>
+                     </a>
+                    <div class="project-list-element-type">
+                        {{item.project_type}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="projects-list-button-block">
+            Показати більше
+        </div>
+    </div>
+</section>
+{% endblock content %}

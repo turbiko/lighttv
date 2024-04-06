@@ -1,0 +1,112 @@
+.projects-title-block {
+    width: 1380px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #E8E6EA;
+    margin: 30px auto;
+}
+.projects-title-wrapper {
+        width: 1040px;
+        min-height: 132px;
+        margin: 0 auto;
+}
+.projects-title-block-content {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+.projects-type-button {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 60px;
+    border: 1px solid #6C5282;
+    color: #6C5282;
+}
+
+.projects-page-title-block {
+    color: #1B1B1B;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.projects-page-buttons-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.projects-list-block-wrapper {
+    width:1040px;
+    margin: 0 auto;
+}
+.projects-list-block {
+    width:100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+.projects-list {
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 28px;
+}
+.projects-list-button-block {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 60px;
+    border: 1px solid #6C5282;
+}
+.project-list-block-element {
+    width:328px;
+    height:274px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+.project-list-element-picture {
+    width: 328px;
+height: 207px;
+    border-radius: 20px;
+
+}
+.project-list-text-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.project-list-element-title {
+    color: #1B1B1B;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.project-list-element-type {
+    color: #A5A5A5;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
