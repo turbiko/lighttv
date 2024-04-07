@@ -4,11 +4,13 @@ services:
   svitloweb:
     build: .
     container_name: svitlo-backend
-    command: sh entrypoint.prod.sh
+    command: sh /app/entrypoint.prod.sh
     volumes:
-      - .:/usr/src/app/
+      - .:/app/
     expose:
       - 8000
+    ports:
+      - "8096:8000"
     env_file:
       - .env.dev
     depends_on:
