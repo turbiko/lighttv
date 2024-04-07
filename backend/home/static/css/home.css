@@ -39,12 +39,17 @@
   height: 49px;
   left: 0px;
   top: 0px;
-
   position: absolute;
   border-radius: 9999px;
   border: 1px rgba(255, 255, 255, 0.3) solid;
+  background-color: var(--icon-bg);
 }
 
+.soc-icon-rounded:hover {
+  background-color: var(--icon-bg-hover);
+}
+
+/* Project block */
 .project-image-wrapper {
     max-width:1440px;
     margin: 20px auto;
@@ -60,19 +65,20 @@
     background-size: cover;
     background-position: center center;
 }
+
 .swiper-slide {
-  color: #ffffff;
+  color: var(--main-color2);
   width: 100%;
   height: 100%;
 }
 
 /* ABOUT */
 .home-about {
-  width: 1040px;
+  max-width: 1040px;
   margin: 70px auto 70px auto;
 }
 .home-about-wrapper {
-  width: 1040px;
+  max-width: 1040px;
   display: inline-flex;
   align-items: center;
   gap: 89px;
@@ -91,7 +97,7 @@
   align-self: stretch;
 }
 .home-about-small-text {
-  color: #a5a5a5;
+  color: var(--page-tag-color);
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
@@ -100,7 +106,7 @@
   text-transform: uppercase;
 }
 .home-about-title {
-  color: #1b1b1b;
+  color: var(--page-title-text-color);
   font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
@@ -117,7 +123,7 @@
 }
 .home-about-text-content {
   align-self: stretch;
-  color: var(--text, #4e4e4e);
+  color: var(--text, var(--page-text-color));
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -129,7 +135,7 @@
 
 /* MANUAL */
 .home-manual {
-  width: 1040px;
+  max-width: 1040px;
   margin: 70px auto 70px auto;
 }
 .home-manual-wrapper {
@@ -140,7 +146,7 @@
 }
 .home-manual-title-block {
   display: flex;
-  width: 1040px;
+  max-width: 1040px;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
@@ -152,7 +158,7 @@
   gap: 15px;
 }
 .home-manual-block-a-line1 {
-  color: #4e4e4e;
+  color:  var(--page-text-color);
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
@@ -162,7 +168,7 @@
 }
 .home-manual-title {
   width: 782px;
-  color: #1b1b1b;
+  color: var(--page-title-text-color);
   font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
@@ -171,7 +177,7 @@
 }
 
 .chapter-additional {
-  color: #534372;
+  color: var(--page-title-link-color);
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
@@ -182,7 +188,7 @@
 .chapter-title {
 }
 .home-manual-title-astericks {
-  color: var(--text, #4e4e4e);
+  color: var(--text, var(--page-text-color));
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -210,7 +216,7 @@
 }
 .home-manual-pick-text {
   width: 192px;
-  color: #1b1b1b;
+  color: var(--page-title-text-color);
   text-align: center;
   font-family: Montserrat;
   font-size: 15px;
@@ -220,7 +226,7 @@
 }
 /* Broadcasters */
 .home-broadcasters {
-  width: 1040px;
+  max-width: 1040px;
   margin: 70px auto 70px auto;
 }
 .home-broadcasters-wrapper {
@@ -236,7 +242,7 @@
   gap: 15px;
 }
 .home-broadcasters-text-breadcrumb {
-  color: #a5a5a5;
+  color:  var(--page-tag-color);
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
@@ -246,14 +252,14 @@
 }
 .home-broadcasters-title-block {
   display: flex;
-  width: 1040px;
+  max-width: 1040px;
   flex-direction: column;
   align-items: flex-start;
   gap: 35px;
 }
 .home-broadcasters-title {
   width: 682px;
-  color: #1b1b1b;
+  color: var(--page-title-text-color);
   font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
@@ -262,7 +268,7 @@
 }
 .home-broadcasters-text {
   width: 682px;
-  color: var(--text, #4e4e4e);
+  color: var(--text, var(--page-text-color));
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;

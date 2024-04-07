@@ -47,7 +47,7 @@
     background-position: center center;
 }
 .project-image-text-container {
-    width:1040px;
+    max-width:1040px;
     margin-inline: auto;
     color: #ffffff;
 }
@@ -61,7 +61,7 @@
 }
 
 .project-content-block {
-    width:1040px;
+    max-width:1040px;
     margin: 0 auto;
     display:flex;
     flex-direction: column;

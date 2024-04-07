@@ -10,6 +10,10 @@
   --page-tag-color: #a5a5a5;
   /* #010101 #15394C #20BEC6 #53C4CC #757575 #A4A4A4 #D8271C #F2E3D0 #F5F5F5 #F6BF48   */
   --content-max-width: 1040px;
+  --icon-fill: var(--main-color2);
+  --icon-bg: var(--main-color1); /* Assuming black is your initial background color */
+  --icon-fill-hover: var(--main-color1);
+  --icon-bg-hover: var(--main-color2);
 }
 /* reset */
 *,

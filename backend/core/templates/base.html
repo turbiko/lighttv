@@ -313,6 +313,52 @@
             </svg>
           </a>
         </div>
+          
+        <div class="footer-contact-block">
+          <div class="footer-address-block">
+            <div class="footer-address-block1">
+              <div class="footer-address-block1-a1">документи</div>
+              <div class="footer-address-block1-a2">Структура власності</div>
+            </div>
+            <div class="footer-address-block2">
+              <div class="footer-address-block2-a1">контакти</div>
+
+              <div class="footer-address-block2-a2">
+                <div class="footer-address-block2-a2-b1">+38 044 000 00 00</div>
+                <div class="footer-address-block2-a2-b1">info@svitlo.tv</div>
+                <div class="footer-address-block2-a2-b1">
+                  Київ, вул. Миколи Закревського, 22
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-form">
+            <form method="post">
+          {% csrf_token %}
+              <div class="footer-form-title">
+                Є питання? <br />Зв’яжіться з нами!
+              </div>
+              <div class="footer-form-fields">
+                <div class="footer-form-fields-contact">
+                  <div class="footer-form-name">
+                    {{ form.name }}
+                  </div>
+                  <div class="footer-form-email">
+                    {{ form.email }}
+                  </div>
+                </div>
+                <div class="footer-form-fields-data">
+                  {{ form.message }}
+                </div>
+                <div class="footer-form-button">
+                  <button type="submit" class="footer-form-button-name">Надіслати</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+          
         <div class="footer-social">
             <div class="social-icons-block">
                     <!-- 1 facebook-->
@@ -386,76 +432,9 @@
                             <div class="soc-icon-rounded"></div>
                         </a>
                     </div>
-                    {% comment %}...<!-- 4 youtube-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.youtube }}">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
-                    </div>{% endcomment %}
                   </div>
         </div>
-
-        <div class="footer-contact-block">
-          <div class="footer-address-block">
-            <div class="footer-address-block1">
-              <div class="footer-address-block1-a1">документи</div>
-              <div class="footer-address-block1-a2">Структура власності</div>
-            </div>
-            <div class="footer-address-block2">
-              <div class="footer-address-block2-a1">контакти</div>
-
-              <div class="footer-address-block2-a2">
-                <div class="footer-address-block2-a2-b1">+38 044 000 00 00</div>
-                <div class="footer-address-block2-a2-b1">info@svitlo.tv</div>
-                <div class="footer-address-block2-a2-b1">
-                  Київ, вул. Миколи Закревського, 22
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-form">
-            <form method="post">
-          {% csrf_token %}
-              <div class="footer-form-title">
-                Є питання? <br />Зв’яжіться з нами!
-              </div>
-              <div class="footer-form-fields">
-                <div class="footer-form-fields-contact">
-                  <div class="footer-form-name">
-                    {{ form.name }}
-                  </div>
-                  <div class="footer-form-email">
-                    {{ form.email }}
-                  </div>
-                </div>
-                <div class="footer-form-fields-data">
-                  {{ form.message }}
-                </div>
-                <div class="footer-form-button">
-                  <button type="submit" class="footer-form-button-name">Надіслати</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
+          
       </div>
     </footer>
 </div>

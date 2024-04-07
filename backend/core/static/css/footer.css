@@ -7,7 +7,7 @@ footer {
   padding-top: 70px;
 }
 .footer-wrapper {
-  width: 1040px;
+  max-width: 1040px;
   height: 261px;
   position: relative;
   margin-inline: auto;
@@ -60,7 +60,7 @@ footer {
   text-transform: uppercase;
 }
 .footer-address-block1-a2 {
-  color: #fff;
+  color: var(--main-color2);
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -92,7 +92,7 @@ footer {
 }
 .footer-address-block2-a2-b1 {
   align-self: stretch;
-  color: #fff;
+  color: var(--main-color2);
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -110,7 +110,7 @@ footer {
 }
 .footer-form-title {
   align-self: stretch;
-  color: #fff;
+  color: var(--main-color2);
   font-family: Montserrat;
   font-size: 25px;
   font-style: normal;
@@ -134,7 +134,7 @@ footer {
   width: 203.5px;
   height: 50px;
   padding: 20px;
-  background: white;
+  background: var(--main-color2);
   border-radius: 20px;
   justify-content: flex-start;
   align-items: center;
@@ -159,7 +159,7 @@ footer {
   gap: 10px;
   flex: 1 0 0;
   border-radius: 20px;
-  background: #fff;
+  background: var(--main-color2);
   overflow: hidden;
 }
 
@@ -167,7 +167,7 @@ footer {
   width: 417px;
   height: 50px;
   padding: 20px;
-  background: white;
+  background: var(--main-color2);
   border-radius: 20px;
   justify-content: flex-start;
   align-items: center;
@@ -183,18 +183,17 @@ footer {
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 70px;
-  border: 1px white solid;
+  border: 1px var(--main-color2) solid;
   justify-content: center;
   align-items: center;
   gap: 10px;
   display: inline-flex;
 }
 .footer-form-button-name {
-  color: white;
+  color: var(--main-color2);
   background-color:unset;
   font-size: 16px;
   font-family: Montserrat;
   font-weight: 600;
   word-wrap: break-word;
-
 }

@@ -1,5 +1,5 @@
 .projects-title-block {
-    width: 1380px;
+    max-width: 1380px;
     padding-top: 80px;
     padding-bottom: 80px;
     flex-shrink: 0;
@@ -8,7 +8,7 @@
     margin: 30px auto;
 }
 .projects-title-wrapper {
-        width: 1040px;
+        max-width: 1040px;
         min-height: 132px;
         margin: 0 auto;
 }
@@ -48,7 +48,7 @@
 }
 
 .projects-list-block-wrapper {
-    width:1040px;
+    max-width:1040px;
     margin: 0 auto;
 }
 .projects-list-block {
