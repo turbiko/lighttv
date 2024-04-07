@@ -4,7 +4,7 @@ services:
   svitloweb:
     build: .
     container_name: svitlo-backend
-    command: sh /app/entrypoint.prod.sh
+    command: sh entrypoint.prod.sh
     volumes:
       - .:/app/
     expose:
