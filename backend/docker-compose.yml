@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  svitloweb:
+    build: .
+    container_name: svitlo-backend
+    command: sh entrypoint.prod.sh
+    volumes:
+      - .:/usr/src/app/
+    expose:
+      - 8000
+    env_file:
+      - .env.dev
+    depends_on:
+      - svitlodbd
+      - svitloredis
+
+  svitlodbd:
+    image: postgres
+    volumes:
+      - ./.postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    env_file:
+      - .env.db
+
+  svitlonginx:
+    image: library/nginx:latest
+    container_name: docker-svitlo-nginx
+    ports:  # host-port 8085 (:) container-port 8090
+      - "8095:8090"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/static
+      - ./media:/media
+    depends_on:
+      - svitlodbd
+      - svitloweb
+
+  svitloredis:
+    image: redis:latest
+    container_name: docker-svitlo-redis
+    ports:
+      - "16379:6379"
