@@ -9,7 +9,7 @@
   --page-title-projects-back-color: #e8e6ea;
   --page-tag-color: #a5a5a5;
   /* #010101 #15394C #20BEC6 #53C4CC #757575 #A4A4A4 #D8271C #F2E3D0 #F5F5F5 #F6BF48   */
-  --content-max-width: 1440px;
+  --content-max-width: 1040px;
 }
 /* reset */
 *,
@@ -22,12 +22,12 @@
 }
 a {
   text-decoration: none;
-  color: var(--main-color2);
 }
 ul,
 ol,
 li {
   list-style: none;
+  margin-bottom: 0;
 }
 img {
   vertical-align: top;

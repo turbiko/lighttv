@@ -1,5 +1,5 @@
-{% load static wagtailcore_tags %}
-
+{% load static wagtailcore_tags menus_tags %}
+{% get_menu "topmenu" as navigation %}
 <!DOCTYPE html>
 <html lang="uk">
     <head>
@@ -47,7 +47,7 @@
       <header class="header">
         <div class="header__container">
           <div>
-            <a href="" class="header__logo">
+            <a href="/" class="header__logo">
               <div class="logo">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,33 +97,19 @@
             </div>
             <nav class="menu__body">
               <ul class="menu__list">
-                                  <li>
-                  <a
-                    data-goto=".page__anchor_projects"
-                    href="/"
-                    class="menu__link"
-                    >Головна</a
-                  >
-                </li>
-                <li>
-                  <a
-                    data-goto=".page__anchor_projects"
-                    href="/projects-list"
-                    class="menu__link"
-                    >ПРОЄКТИ</a
-                  >
-                </li>
-                <li>
-                  <a
-                    data-goto=".page__anchor_tvchart"
-                    href="/"
-                    class="menu__link"
-                    >ТЕЛЕПРОГРАМА</a
-                  >
-                </li>
+                   {% for item in navigation.menu_items.all %}
+                  <li>
+                  <a data-goto="{{item.goto_tag}}"
+                    href="{{ item.link }}"
+                    class="menu__link">
+                      {{ item.title }}
+                  </a>
+                  </li>
+                  {% endfor %}
+
                 <li id="top-menu-social1">
                   <div class="social-icons-block">
- <!-- 1 facebook-->
+                    <!-- 1 facebook-->
                     <div style="width: 49px; height: 49px; position: relative">
                       <div class="soc-icon">
                         <div class="soc-icon-position">
@@ -141,7 +127,7 @@
                           </svg>
                         </div>
                       </div>
-                        <a href="{{ settings.home.SocialMediaSettings.facebook }}">
+                        <a href="{{ settings.home.SocialMediaSettings.facebook }}" target="_blank">
                             <div class="soc-icon-rounded"></div>
                         </a>
                     </div>
@@ -169,7 +155,7 @@
                           </svg>
                         </div>
                       </div>
-                        <a href="{{ settings.home.SocialMediaSettings.instagram }}">
+                        <a href="{{ settings.home.SocialMediaSettings.instagram }}" target="_blank">
                             <div class="soc-icon-rounded"></div></a>
                     </div>
                     <!-- 3 tiktok-->
@@ -190,32 +176,11 @@
                           </svg>
                         </div>
                       </div>
-                        <a href="{{ settings.home.SocialMediaSettings.tiktok }}">
+                        <a href="{{ settings.home.SocialMediaSettings.tiktok }}" target="_blank">
                             <div class="soc-icon-rounded"></div>
                         </a>
                     </div>
-                      {% comment %}...<!-- 4 youtube-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.youtube }}">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
-                    </div>{% endcomment %}
+
                   </div>
                 </li>
 
@@ -295,28 +260,7 @@
                             <div class="soc-icon-rounded"></div>
                         </a>
                     </div>
-                      {% comment %}...<!-- 4 youtube-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.youtube }}">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
-                    </div>{% endcomment %}
+
                   </div>
           </div>
         </div>

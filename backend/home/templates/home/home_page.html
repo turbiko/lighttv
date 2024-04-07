@@ -8,33 +8,167 @@
 {% endblock extra_css %}
 
 {% block content %}
-home content<br><br><br><br><br><br><br><br><br>
-
 
 {# big slider start#}
     {% for slider_image in page.slider_images.all %}
-        {% if slider_image.project.image %}
-        {% image slider_image.project.image width-920 as img_url %}
-        <div class="swiper-slide"
-             style="background-image: url('{{ img_url.url }}'); background-size: cover; background-position: center;">
-            <h3>{{ slider_image.project.title }}</h3>
-        </div>
+        {% if slider_image.project.image_slider_big %}
+        {% image slider_image.project.image_slider_big original as img_url %}
+            <a href="{{ slider_image.project.url }}">
+                <div class="swiper-slide project-image-block"
+                            style="background-image: url('{{ img_url.url }}');
+                            background-size: cover; background-position: center;">
+                </div>
+            </a>
         {% endif %}
     {% endfor %}
 {# big slider end#}
 
 {# tv-chart today slider#}
-<br/><br/><br/><br/><br/><br>
+
+
+
+
 {# tv-chart today slider end#}
-<br/><br/><br/><br/><br/><br>
+
 {# about-block#}
-<br/><br/><br/><br/><br/><br>
+    <section class="home-about">
+      <div class="home-about-wrapper">
+        <div class="home-about-text-block">
+          <div class="home-about-title-block">
+            <div class="home-about-small-text">знайомство</div>
+            <div class="home-about-title">Про нас</div>
+          </div>
+          <div class="home-about-text">
+            <p class="home-about-text-content">
+              Телеканал «Світло»”  — це розважально-пізнавальний український
+              телеканал, розрахований на широку сімейну аудиторію. 
+            </p>
+            <p class="home-about-text-content">
+              Телеканал демонструє серіали, художні та документальні фільми,
+              тревел та реаліті-шоу, анімацію для дітей, а також шоу з простими
+              та практичними порадами для глядачів з різними інтересами та
+              захопленнями, а також іноземний документальний контент.
+            </p>
+            <p class="home-about-text-content">
+              Місія телеканалу «Світло» — щодня допомагати глядачеві бути ближче
+              до того, що приносить задоволення.
+            </p>
+          </div>
+        </div>
+        <div class="home-about-pic-block">
+          <img src="img/home-about.png" alt="" />
+        </div>
+      </div>
+    </section>
+
 {# about-block end#}
 
 {# manusl #}
+    <section class="home-manual">
+      <div class="home-manual-wrapper">
+        <div class="home-manual-title-block">
+          <div class="home-manual-title-block-a">
+            <div class="home-manual-block-a-line1">
+              <span class="chapter-title">Шукай телеканал</span>
+              <span class="chapter-additional">
+                «Світло» у Т2 з 01 квітня!</span
+              >
+            </div>
+            <div class="home-manual-title">
+              Інструкція з пошуку телеканалу «Світло» на вашому телевізорі чи
+              тюнері Т2:
+            </div>
+          </div>
+          <div class="home-manual-title-astericks">
+            * на деяких моделях телевізорів та тюнерів назви пунктів меню можуть
+            відрізнятись.
+          </div>
+        </div>
+        <div class="home-manual-text">
+          <div class="home-manual-block-pick">
+            <div class="home-manual-pick">
+              <img src="img/manual-pic1.png" alt="" />
+            </div>
+            <div class="home-manual-pick-text">Натисніть кнопку «МЕНЮ»</div>
+          </div>
+          <div class="home-manual-block-pick">
+            <div class="home-manual-pick">
+              <img src="img/manual-pic2.png" alt="" />
+            </div>
+            <div class="home-manual-pick-text">
+              Оберіть «НАЛАШТУВАННЯ»→ «ПОШУК КАНАЛІВ»
+            </div>
+          </div>
+          <div class="home-manual-block-pick">
+            <div class="home-manual-pick">
+              <img src="img/manual-pic3.png" alt="" />
+            </div>
+            <div class="home-manual-pick-text">
+              Виберіть «Автоматичний пошук каналів» та натисніть кнопку «ОК»
+            </div>
+          </div>
+
+          <div class="home-manual-block-pick">
+            <div class="home-manual-pick">
+              <img src="img/manual-pic4.png" alt="" />
+            </div>
+            <div class="home-manual-pick-text">
+              Після завершення процесу сканування  підтвердьте зміни натиснувши
+              «ОК»
+            </div>
+          </div>
+
+          <div class="home-manual-block-pick">
+            <div class="home-manual-pick">
+              <img src="img/manual-pic5.png" alt="" />
+            </div>
+            <div class="home-manual-pick-text">
+               Занурюйтесь у вир емоцій та корисного контенту з телеканалом
+              «Світло»!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 {# manusl end#}
 
 {# broadcasters#}
+    <section class="home-broadcasters">
+      <div class="home-broadcasters-wrapper">
+        <div class="home-broadcasters-text-block">
+          <div class="home-broadcasters-text-breadcrumb">онлайн трансляції</div>
+          <div class="home-broadcasters-title-block">
+            <div class="home-broadcasters-title">
+              Користуєтесь іншими типами прийому?
+            </div>
+            <div class="home-broadcasters-text">
+              Якщо ви не користуєтесь Т2, не пропустіть можливість
+              насолоджуватися контентом телеканалу 'Світло' - знаходьте нас на
+              різних платформах онлайн-трансляцій або запитуйте свого провайдера
+              про доступність нашого каналу.
+            </div>
+          </div>
+        </div>
+        <div class="home-broadcasters-list-block">
+          <div class="home-broadcaster-pic">
+            <img src="img/megogo-pic.png" alt="" />
+          </div>
+          <div class="home-broadcaster-pic">
+            <img src="img/sveet-tv-pic.png" alt="" />
+          </div>
+          <div class="home-broadcaster-pic">
+            <img src="img/triolan-pic.png" alt="" />
+          </div>
+          <div class="home-broadcaster-pic">
+            <img src="img/kyivstar-pic.png" alt="" />
+          </div>
+          <div class="home-broadcaster-pic">
+            <img src="img/volia-pic.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
 {# broadcasters end#}
 
 {% endblock content %}

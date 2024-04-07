@@ -12,7 +12,7 @@
     <div class="projects-title-wrapper">
     <div class="projects-title-block-content">
         <div class="projects-page-title-block">
-            Проекти
+            {{ self.title }}
         </div>
         <div class="projects-page-buttons-block">
             <a href="{% pageurl page %}">
@@ -49,7 +49,7 @@
             {% endfor %}
 
         </div>
-        <div class="projects-list-button-block">
+        <div class="projects-list-button-block" style="display:none;">
             Показати більше
         </div>
     </div>
