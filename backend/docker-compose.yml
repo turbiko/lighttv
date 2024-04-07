@@ -26,20 +26,6 @@ services:
     env_file:
       - .env.db
 
-  svitlonginx:
-    image: library/nginx:latest
-    container_name: docker-svitlo-nginx
-    ports:  # host-port 8085 (:) container-port 8090
-      - "8095:8090"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./static:/static
-      - ./media:/media
-    depends_on:
-      - svitlodbd
-      - svitloweb
-
   svitloredis:
     image: redis:latest
     container_name: docker-svitlo-redis
