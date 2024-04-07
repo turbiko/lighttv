@@ -2,6 +2,7 @@
 DEBUG=True
 SECRET_KEY=a_secret-string-many-chars-long-think-about-security
 ENVIRONMENT=NOT_PRODUCTION
+ALLOWED_HOSTS=localhost, 127.0.0.1
 
 EMAIL_HOST=mail.domain.tld
 EMAIL_PORT=465
