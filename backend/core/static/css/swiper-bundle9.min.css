@@ -17,7 +17,8 @@
   font-style: normal;
 }
 :root {
-  --swiper-theme-color: #007aff;
+  /*--swiper-theme-color: #007aff;*/
+  --swiper-theme-color: #FFFFFF;
 }
 .swiper,
 swiper-container {
@@ -330,10 +331,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-  bottom: var(--swiper-pagination-bottom, 8px);
+  /*bottom: var(--swiper-pagination-bottom, 8px);*/
+  bottom: 40px;
   top: var(--swiper-pagination-top, auto);
-  left: 0;
-  width: 100%;
+  /*left: 0;*/
+  left: 170px;
+  /*width: 100%;*/
+  width: 170px;
 }
 .swiper-pagination-bullets-dynamic {
   overflow: hidden;
