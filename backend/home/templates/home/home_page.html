@@ -4,32 +4,86 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
+
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/big-slider.css' %}">
+<link rel="stylesheet" href="{% static 'css/swiper-bundle9.min.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
 
+    <div class="swiper BigSwiper">
+        <div class="swiper-wrapper">
 {# big slider start#}
-    {% for slider_image in page.slider_images.all %}
-        {% if slider_image.project.image_slider_big %}
-        {% image slider_image.project.image_slider_big original as img_url %}
-            <a href="{{ slider_image.project.url }}">
-                <div class="swiper-slide project-image-block"
-                            style="background-image: url('{{ img_url.url }}');
-                            background-size: cover; background-position: center;">
-                </div>
-            </a>
-        {% endif %}
-    {% endfor %}
+                {% for slider_image in page.slider_images.all %}
+                    {% if slider_image.project.image_slider_big %}
+                    {% image slider_image.project.image_slider_big original as img_url %}
+                    {# <a href="{{ slider_image.project.url }}"> #}
+                    <div class="swiper-slide project-image-block"
+                                style="background-image: url('{{ img_url.url }}');
+                                background-size: cover; background-position: center;">
+                    </div>
+                    {#</a> #}
+                    {% endif %}
+                {% endfor %}
 {# big slider end#}
 
+        </div>
+    <style>
+        .swiper-button-prev {
+            background-image: url('{% static "img/nav-grey-left.svg" %}');
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            cursor: pointer;
+            }
+            .swiper-button-prev:hover {
+                background-image: url('{% static "img/nav-grey-left-active.svg" %}');
+            }
+
+        .swiper-button-next {
+            background-image: url('{% static "img/nav-grey-right.svg" %}');
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            cursor: pointer;
+            }
+            .swiper-button-next:hover {
+                background-image: url('{% static "img/nav-grey-right-active.svg" %}');
+            }
+    </style>
+    <div class="swiper-button-next" >
+
+    </div>
+    <div class="swiper-button-prev" >
+
+    </div>
+    <div class="swiper-pagination"></div>
+    </div>
 {# tv-chart today slider#}
 
-
-
-
 {# tv-chart today slider end#}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".BigSwiper", {
+      loop: true,
+        slidesPerView: 1,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        bulletClass: "pagination__button",
+        bulletActiveClass: "pagination__button--active",
+        clickable: true,
+      },
+      mousewheel: true,
+      keyboard: true,
+    });
+  </script>
 {# about-block#}
     <section class="home-about">
       <div class="home-about-wrapper">

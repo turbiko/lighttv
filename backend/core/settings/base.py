@@ -10,6 +10,10 @@ from django.utils.translation import gettext_lazy as _
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+DEBUG = config('DEBUG', default=False, cast=bool)
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config("SECRET_KEY", "not-loaded-secret-key-ryu_zr&i&2ne6kXt9uib5oy8rca6ygb5tv!5hb#po-%%9hn2_43k")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -185,3 +189,51 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
+
+
+# Wagtail settings options
+# https://docs.wagtail.org/en/stable/reference/settings.html
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='')
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = config('WAGTAILADMIN_NOTIFICATION_FROM_EMAIL', default='')
+WAGTAILUSERS_PASSWORD_REQUIRED = config('WAGTAILUSERS_PASSWORD_REQUIRED', default=True, cast=bool)
+WAGTAILADMIN_NOTIFICATION_USE_HTML = config('WAGTAILADMIN_NOTIFICATION_USE_HTML', default=True, cast=bool)
+WAGTAILADMIN_NOTIFICATION_INCLUDE_SUPERUSERS = config('WAGTAILADMIN_NOTIFICATION_INCLUDE_SUPERUSERS',
+                                                      default=False,
+                                                      cast=bool
+                                                      )
+
+# EMAIL settings
+EMAIL_HOST = config('EMAIL_HOST', default='localhost')
+EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+EMAIL_SUBJECT_PREFIX = config('EMAIL_SUBJECT_PREFIX', default='a-email:')
+
+ADMINS = [('asite admin1', 'a.voznyuk@film.ua'), ('asite admin2', 'andreyv@ukr.net')]
+DEFAULT_FROM_EMAIL = "asite <noreply@argentum.ua>"
+# Email address used to send error messages to ADMINS.
+SERVER_EMAIL = f"asite Error {DEFAULT_FROM_EMAIL}"
+
+# A list in the same format as ADMINS that specifies who should get broken link
+# (404) notifications when BrokenLinkEmailsMiddleware is enabled.
+MANAGERS = ADMINS
+
+# frontend login settings
+# https://learnwagtail.com/tutorials/adding-user-authentication-registration-and-login-your-wagtail-website/
+LOGIN_URL = config('LOGIN_URL', default='/login_/')
+ACCOUNT_LOGOUT_REDIRECT_URL = config('ACCOUNT_LOGOUT_REDIRECT_URL', default='/login_/')
+LOGIN_REDIRECT_URL = config('LOGIN_REDIRECT_URL', default='/_/')
+
+ACCOUNT_AUTHENTICATION_METHOD = config('ACCOUNT_AUTHENTICATION_METHOD', default="username_email")
+ACCOUNT_CONFIRM_EMAIL_ON_GET = config('ACCOUNT_CONFIRM_EMAIL_ON_GET', default=False, cast=bool)
+ACCOUNT_EMAIL_REQUIRED = config('ACCOUNT_EMAIL_REQUIRED', default=True, cast=bool)
+ACCOUNT_EMAIL_VERIFICATION = config('ACCOUNT_EMAIL_VERIFICATION', default="optional")
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = config('ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION', default=True, cast=bool)
+ACCOUNT_LOGOUT_ON_GET = config('ACCOUNT_LOGOUT_ON_GET', default=True, cast=bool)
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = config('ACCOUNT_LOGIN_ON_PASSWORD_RESET', default=True, cast=bool)
+ACCOUNT_PRESERVE_USERNAME_CASING = config('ACCOUNT_PRESERVE_USERNAME_CASING', default=False, cast=bool)
+ACCOUNT_SESSION_REMEMBER = config('ACCOUNT_SESSION_REMEMBER', default=True, cast=bool)
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = config('ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE', default=False, cast=bool)
+ACCOUNT_USERNAME_BLACKLIST = config('ACCOUNT_USERNAME_BLACKLIST', default=["admin1", "root1"])
+ACCOUNT_USERNAME_MIN_LENGTH = config('ACCOUNT_USERNAME_MIN_LENGTH', default=4, cast=int)

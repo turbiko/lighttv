@@ -252,7 +252,8 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 .swiper-button-next,
 .swiper-button-prev {
   position: absolute;
-  top: var(--swiper-navigation-top-offset, 50%);
+  /*top: var(--swiper-navigation-top-offset, 50%);*/
+  bottom: 40px;
   /*width: calc(var(--swiper-navigation-size) / 44 * 27);*/
   width: 44px;
   /*height: var(--swiper-navigation-size);*/
@@ -292,8 +293,8 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 }
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
-  left: var(--swiper-navigation-sides-offset, 10px);
-  right: auto;
+  right: var(--swiper-navigation-sides-offset, 220px);
+  left: auto;
 }
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
@@ -301,7 +302,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 }
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-  right: var(--swiper-navigation-sides-offset, 10px);
+  right: var(--swiper-navigation-sides-offset, 170px);
   left: auto;
 }
 .swiper-button-next:after,

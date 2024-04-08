@@ -1,0 +1,99 @@
+/* big swiper buttons */
+.swiper {
+      max-width: var(--big-slider-max-width);
+      height: 100%;
+    }
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ /* nav buttons https://github.com/nolimits4web/swiper/discussions/4998*/
+
+/*-- big slider carousel buttons demo --*/
+
+      .big-section__button {
+        display: none;
+      }
+      @media screen and (min-width: 768px) {
+        .big-section__button {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+      .carousel-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        fill: var(--color-primary-dark);
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 50%;
+        border: 1px solid var(--color-primary-dark);
+        cursor: pointer;
+      }
+      .carousel-button:hover {
+        background-color: var(--color-primary-dark);
+        fill: var(--color-primary-light);
+      }
+      .carousel-button.next {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      /* pagination */
+      .slider-nav-block {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1040px;
+        margin: 0 auto 40px auto;
+      }
+      .slider-nav-buttons {
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+
+        margin: 0 auto;
+      }
+      .pagination {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: flex-start;
+        gap: 5px;
+      }
+      .pagination__button {
+        width: 6px;
+        height: 6px;
+        padding: 0;
+        background-color: var(--color-secondary-dark);
+        border-radius: 50%;
+      }
+      .pagination__button--active {
+        background-color: var(--color-brand-normal);
+      }
