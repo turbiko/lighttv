@@ -26,7 +26,7 @@ modeladmin_register(ProjectTypeAdmin)
 class ChartLineAdmin(ModelAdmin):
     model = ChartLine
     menu_icon = 'pick'
-    menu_label = 'ChartLine'
+    menu_label = 'Стрічка ТВ програми'
     menu_order = 210
     add_to_settings_menu = False
     exclude_from_explorer = False
