@@ -152,3 +152,4 @@ cython_debug/
 .idea/
 .postgres_data
 backend/static
+backend/media
