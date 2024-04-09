@@ -1,5 +1,7 @@
 import os
 import logging
+from datetime import datetime
+import datetime as dt
 from django.db import models
 from django.db.models import Count
 from django.utils.translation import activate, gettext_lazy as _, get_language
@@ -23,8 +25,8 @@ class Project(Page):
     template = 'project' + os.sep + 'project-page.html'
     parent_page_types = ['Projects_List']
 
-    date_production = models.DateField(blank=True, null=True)
-    chart_name_short = models.CharField(max_length=30,blank=True, null=True)
+    date_production = models.DateField(_('дата релізу'), blank=True, null=True)
+    chart_name_short = models.CharField(_('Коротка назва для тв-програми'), max_length=30,blank=True, null=True)
     duration_minutes = models.IntegerField(_('Хронометраж, хв.'), blank=True, null=True)
     project_type = models.ForeignKey(ProjectType, null=True, on_delete=models.SET_NULL)
     image_slider_big = models.ForeignKey(  # post image big slider
@@ -102,3 +104,4 @@ class Projects_List(Page):
         context['project_types'] = project_types
         context['projects'] = projects
         return context
+

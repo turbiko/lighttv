@@ -1,0 +1,242 @@
+.tvchart-title-block {
+    max-width: 1380px;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #F2E9E9;
+    margin: 30px auto;
+}
+.tvchart-title-wrapper {
+    max-width: 1040px;
+    min-height: 228px;
+    margin: 0 auto;
+}
+.tvchart-title-block-content {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+.tvchart-page-title-block {
+    color: #1B1B1B;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.tvchart-header-block {
+    max-width: var(--big-slider-max-width);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+.tvchart-header-title-block {
+    color: #1B1B1B;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.tvchart-chart-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.tvchart-title-block-content {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+
+}
+.tvchart-days-buttons-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+.tvchart-day-button {
+    display: flex;
+    width: 135.714px;
+    padding: 40px 25px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    border-radius: 20px;
+}
+.tvchart-day-button:hover {
+    border: 1px solid #6C5282;
+}
+.tvchart-today {
+    border-radius: 20px;
+    background: #D89C9C;
+}
+.tvchart-day-name {
+    color: #D89C9C;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+
+}
+.tvchart-day-name-today {
+    color: #FFF;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.tvchart-day-date {
+    color: #D89C9C;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.tvchart-day-date-today {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+/* Day chart list  */
+.tvchart-day-list {
+    display: flex;
+    width: 1040px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin:30px auto;
+}
+.tvchart-chart-line {
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+.tvchart-chart-line-time {
+    display: flex;
+    width: 130px;
+    padding: 15px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+}
+.tvchart-time {
+    width: 125px;
+    flex-shrink: 0;
+    color: #1B1B1B;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.tvchart-time-now {
+    width: 125px;
+    flex-shrink: 0;
+    color: #D89C9C;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.tvchart-now {
+    position: absolute;
+    left: 8px;
+    top: 49.5px;
+    color: #D89C9C;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.tvchart-chart-line-pict {
+    display: flex;
+    width: 308px;
+    height: 190px;
+    padding: 15px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+}
+.tvchart-image {
+    width: 308px;
+    height: 190px;
+    border-radius: 20px;
+/*background: url(<path-to-image>) lightgray 50% / cover no-repeat;*/
+    background-color: green;
+}
+.tvchart-chart-line-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+.tvchart-chart-line-title {
+    color: #1B1B1B;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.tvchart-chart-line-title-now {
+color: #D89C9C;
+font-family: Montserrat;
+font-size: 25px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.tvchart-chart-line-text {
+    width: 506px;
+    color: var(--text, #4E4E4E);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 162.5% */
+}

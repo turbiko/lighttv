@@ -1,6 +1,7 @@
 header {
   width: 100%;
-  z-index: 10;
+  margin-bottom: 30px;
+  /*z-index: 10;*/
   background-color: var(--main-color1);
   color: var(--main-color2);
 }
@@ -8,13 +9,13 @@ header {
 /* header block */
 
 .header__container {
-
   max-width: var(--content-max-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 80px;
+  padding-inline: 30px;
 }
 .header__logo {
   color: var(--main-color2);
@@ -144,6 +145,7 @@ body._touch .menu__list > li._active .menu__arrow {
 @media (max-width: 767px) {
   #top-menu-social1 {
     visibility: visible;
+
   }
   #top-menu-social2 {
     display: none;

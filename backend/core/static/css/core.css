@@ -28,6 +28,9 @@
 
 }
 /* reset */
+.hidden-command {
+    display: none !important;
+}
 *,
 *::before,
 *::after {

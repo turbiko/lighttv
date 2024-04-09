@@ -1,0 +1,15 @@
+<!-- tvweek/templates/tvweek/upload_chart.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload TV Chart</title>
+</head>
+<body>
+    <h2>Upload TV Chart</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

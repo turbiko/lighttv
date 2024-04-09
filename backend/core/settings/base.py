@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 DEBUG = config('DEBUG', default=False, cast=bool)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY", "not-loaded-secret-key-ryu_zr&i&2ne6kXt9uib5oy8rca6ygb5tv!5hb#po-%%9hn2_43k")
-
+print(f"{SECRET_KEY=}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     # src
     "menus.apps.MenusConfig",
     "project.apps.ProjectConfig",
-    "tvchart.apps.TvchartConfig",
+    "tvweek.apps.TvweekConfig",
 ]
 
 MIDDLEWARE = [
@@ -126,8 +126,8 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ('uk', _('Ukrainian')),
     ('en', _('English')),
 ]
-
-TIME_ZONE = "UTC"
+USE_TZ = True
+TIME_ZONE = 'Europe/Kyiv'
 
 USE_I18N = True
 

@@ -21,33 +21,14 @@
 .social-icons-block {
   width: 200px;
 }
-.soc-icon {
-  width: 24px;
-  height: 24px;
-  left: 12px;
-  top: 12px;
-  position: absolute;
-}
+
 .soc-icon-position {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.soc-icon-rounded {
-  width: 49px;
-  height: 49px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  border-radius: 9999px;
-  border: 1px rgba(255, 255, 255, 0.3) solid;
-  background-color: var(--icon-bg);
-}
 
-.soc-icon-rounded:hover {
-  background-color: var(--icon-bg-hover);
-}
 
 /* Project block */
 .project-image-wrapper {
@@ -121,7 +102,7 @@
   gap: 10px;
   align-self: stretch;
 }
-.home-about-text-content {
+.home-about-text p {
   align-self: stretch;
   color: var(--text, var(--page-text-color));
   font-family: Montserrat;

@@ -68,9 +68,10 @@
 {# tv-chart today slider#}
 
 {# tv-chart today slider end#}
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
   <!-- Initialize Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".BigSwiper", {
       loop: true,
@@ -82,7 +83,6 @@
       pagination: {
         el: ".swiper-pagination",
       },
-      mousewheel: true,
       keyboard: true,
     });
   </script>
@@ -91,28 +91,17 @@
       <div class="home-about-wrapper">
         <div class="home-about-text-block">
           <div class="home-about-title-block">
-            <div class="home-about-small-text">знайомство</div>
-            <div class="home-about-title">Про нас</div>
+            <div class="home-about-small-text">{{ self.about_name }}</div>
+            <div class="home-about-title">{{ self.about_title }}</div>
           </div>
           <div class="home-about-text">
-            <p class="home-about-text-content">
-              Телеканал «Світло»”  — це розважально-пізнавальний український
-              телеканал, розрахований на широку сімейну аудиторію. 
-            </p>
-            <p class="home-about-text-content">
-              Телеканал демонструє серіали, художні та документальні фільми,
-              тревел та реаліті-шоу, анімацію для дітей, а також шоу з простими
-              та практичними порадами для глядачів з різними інтересами та
-              захопленнями, а також іноземний документальний контент.
-            </p>
-            <p class="home-about-text-content">
-              Місія телеканалу «Світло» — щодня допомагати глядачеві бути ближче
-              до того, що приносить задоволення.
-            </p>
+              {{ self.about_description | safe}}
+
           </div>
         </div>
         <div class="home-about-pic-block">
-          <img src="img/home-about.png" alt="" />
+            {% image self.about_picture original as about_img_url %}
+          <img src="{{ about_img_url.url }}" alt="{{ self.about_title }}" />
         </div>
       </div>
     </section>
@@ -125,64 +114,26 @@
         <div class="home-manual-title-block">
           <div class="home-manual-title-block-a">
             <div class="home-manual-block-a-line1">
-              <span class="chapter-title">Шукай телеканал</span>
-              <span class="chapter-additional">
-                «Світло» у Т2 з 01 квітня!</span
-              >
+                {{ self.manual_name | safe }}
             </div>
             <div class="home-manual-title">
-              Інструкція з пошуку телеканалу «Світло» на вашому телевізорі чи
-              тюнері Т2:
+                {{ self.manual_title }}
             </div>
           </div>
           <div class="home-manual-title-astericks">
-            * на деяких моделях телевізорів та тюнерів назви пунктів меню можуть
-            відрізнятись.
+              {{ self.manual_text }}
           </div>
         </div>
         <div class="home-manual-text">
+{% for manual_step in self.manual_step.all %}
+{% image manual_step.step_picture original as manual_pic %}
           <div class="home-manual-block-pick">
             <div class="home-manual-pick">
-              <img src="{% static 'img/manual-pic1.png' %}" alt="" />
+              <img src="{{ manual_pic.url }}" alt="" />
             </div>
-            <div class="home-manual-pick-text">Натисніть кнопку «МЕНЮ»</div>
+            <div class="home-manual-pick-text">{{ manual_step.about_name }}</div>
           </div>
-          <div class="home-manual-block-pick">
-            <div class="home-manual-pick">
-              <img src="{% static 'img/manual-pic2.png' %}" alt="" />
-            </div>
-            <div class="home-manual-pick-text">
-              Оберіть «НАЛАШТУВАННЯ»→ «ПОШУК КАНАЛІВ»
-            </div>
-          </div>
-          <div class="home-manual-block-pick">
-            <div class="home-manual-pick">
-              <img src="{% static 'img/manual-pic3.png' %}" alt="" />
-            </div>
-            <div class="home-manual-pick-text">
-              Виберіть «Автоматичний пошук каналів» та натисніть кнопку «ОК»
-            </div>
-          </div>
-
-          <div class="home-manual-block-pick">
-            <div class="home-manual-pick">
-              <img src="{% static 'img/manual-pic4.png' %}" alt="" />
-            </div>
-            <div class="home-manual-pick-text">
-              Після завершення процесу сканування  підтвердьте зміни натиснувши
-              «ОК»
-            </div>
-          </div>
-
-          <div class="home-manual-block-pick">
-            <div class="home-manual-pick">
-              <img src="{% static 'img/manual-pic5.png' %}" alt="" />
-            </div>
-            <div class="home-manual-pick-text">
-               Занурюйтесь у вир емоцій та корисного контенту з телеканалом
-              «Світло»!
-            </div>
-          </div>
+{% endfor %}
         </div>
       </div>
     </section>
@@ -193,12 +144,12 @@
     <section class="home-broadcasters">
       <div class="home-broadcasters-wrapper">
         <div class="home-broadcasters-text-block">
-          <div class="home-broadcasters-text-breadcrumb">онлайн трансляції</div>
+          <div class="home-broadcasters-text-breadcrumb">{{ self.online_name }}онлайн трансляції</div>
           <div class="home-broadcasters-title-block">
-            <div class="home-broadcasters-title">
+            <div class="home-broadcasters-title">{{ self.online_title }}
               Користуєтесь іншими типами прийому?
             </div>
-            <div class="home-broadcasters-text">
+            <div class="home-broadcasters-text">{{ self.online_text }}
               Якщо ви не користуєтесь Т2, не пропустіть можливість
               насолоджуватися контентом телеканалу 'Світло' - знаходьте нас на
               різних платформах онлайн-трансляцій або запитуйте свого провайдера
@@ -207,21 +158,13 @@
           </div>
         </div>
         <div class="home-broadcasters-list-block">
+            {% for online_tv in self.online_tv.all %}
+
+{% image online_tv.logo_provider original as provider_logo %}
           <div class="home-broadcaster-pic">
-            <img src="{% static 'img/megogo-pic.png' %}" alt="" />
+            <img src="{{ provider_logo.url }}" alt="" />
           </div>
-          <div class="home-broadcaster-pic">
-            <img src="{% static 'img/sveet-tv-pic.png' %}" alt="" />
-          </div>
-          <div class="home-broadcaster-pic">
-            <img src="{% static 'img/triolan-pic.png' %}" alt="" />
-          </div>
-          <div class="home-broadcaster-pic">
-            <img src="{% static 'img/kyivstar-pic.png' %}" alt="" />
-          </div>
-          <div class="home-broadcaster-pic">
-            <img src="{% static 'img/volia-pic.png' %}" alt="" />
-          </div>
+            {% endfor %}
         </div>
       </div>
     </section>

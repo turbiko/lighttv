@@ -11,7 +11,7 @@ footer {
   height: 261px;
   position: relative;
   margin-inline: auto;
-  flex-shrink: 0;
+  padding-bottom: 30px;
 }
 .footer-logo {
   position: absolute;
@@ -43,6 +43,14 @@ footer {
   align-items: flex-start;
   gap: 50px;
   width: 175px;
+}
+.footer-address-block-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  width: 175px;
+  display: none;
 }
 .footer-address-block1 {
   display: flex;
@@ -196,4 +204,52 @@ footer {
   font-family: Montserrat;
   font-weight: 600;
   word-wrap: break-word;
+}
+@media (max-width: 900px) {
+  footer {
+    height: auto;
+  }
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: auto;
+}
+  .footer-logo,
+  .footer-contact-block,
+  .footer-social {
+    position: relative;
+    margin-inline: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .projects-page-buttons-block {
+    flex-wrap: wrap;
+    margin-inline: 0;
+  }
+  .footer-contact-block {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    gap: 30px;
+  }
+  .footer-address-block {
+display:none
+  }
+  .footer-address-block-2 {
+    display:flex;
+    margin-inline:auto
+  }
+  .footer-form {
+
+  }
+  .footer-form-title {
+    text-align: center;
+  }
+
+  .social-icon-block {
+    position: absolute;
+    top: 50%;
+  }
 }

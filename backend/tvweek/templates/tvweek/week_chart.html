@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags  %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/week-chart.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="tvchart-title-block">
+    <div class="tvchart-title-wrapper">
+    <div class="tvchart-title-block-content">
+        <div class="tvchart-page-title-block">
+            {{ self.title }}
+        </div>
+        <div class="tvchart-days-buttons-block">
+
+                <div class="tvchart-day-button">
+                    <div class="tvchart-day-name">To</div>
+                    <div class="tvchart-day-date">12/04</div>
+                </div>
+
+            <div class="tvchart-day-button tvchart-today">
+                <div class="tvchart-day-name-today">To</div>
+                <div class="tvchart-day-date-today">12/04</div>
+            </div>
+            <div class="tvchart-day-button">
+
+                <div class="tvchart-day-name">To</div>
+                <div class="tvchart-day-date">12/04</div>
+            </div>
+            <div class="tvchart-day-button">
+
+                <div class="tvchart-day-name">To</div>
+                <div class="tvchart-day-date">12/04</div>
+            </div>
+            <div class="tvchart-day-button">
+
+                <div class="tvchart-day-name">To</div>
+                <div class="tvchart-day-date">12/04</div>
+            </div>
+            <div class="tvchart-day-button">
+
+                <div class="tvchart-day-name">To</div>
+                <div class="tvchart-day-date">12/04</div>
+            </div>
+            <div class="tvchart-day-button">
+
+                <div class="tvchart-day-name">To</div>
+                <div class="tvchart-day-date">12/04</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+    <section class="tvchart-day-list">
+
+    <div class="tvchart-chart-line">
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+    <div class="tvchart-chart-line">
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+    <div class="tvchart-chart-line">
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+    <div class="tvchart-chart-line">
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+    <div class="tvchart-chart-line">
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+    <div class="tvchart-chart-line">
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+    <div class="tvchart-chart-line">
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+    <div class="tvchart-chart-line">
+        <span class="tvchart-now">Зараз в ефірі</span>
+        <div class="tvchart-chart-line-time">
+            <span class="tvchart-time-now">16:00</span>
+        </div>
+        <div class="tvchart-chart-line-pict">
+            <div class="tvchart-image"></div>
+        </div>
+        <div class="tvchart-chart-line-text-block">
+            <div class="tvchart-chart-line-title-now">Жіночий лікар</div>
+            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+        </div>
+    </div>
+
+    </section>
+
+{% endblock content %}
