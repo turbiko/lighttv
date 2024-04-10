@@ -175,7 +175,10 @@ STORAGES = {
 
 
 # Wagtail settings
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.svitlo.tv',
+    'http://10.1.100.173',
+]
 WAGTAIL_SITE_NAME = config('WAGTAIL_SITE_NAME', default="core")
 
 # Search
@@ -211,7 +214,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_SUBJECT_PREFIX = config('EMAIL_SUBJECT_PREFIX', default='a-email:')
 
 ADMINS = [('asite admin1', 'a.voznyuk@film.ua'), ('asite admin2', 'andreyv@ukr.net')]
-DEFAULT_FROM_EMAIL = "asite <noreply@argentum.ua>"
+
 # Email address used to send error messages to ADMINS.
 SERVER_EMAIL = f"asite Error {DEFAULT_FROM_EMAIL}"
 

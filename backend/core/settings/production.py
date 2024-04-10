@@ -7,11 +7,11 @@ ALLOWED_HOSTS = [
     "10.1.100.173",
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://selected12309.svitlo.tv/',
-    'http://10.1.100.173:8111/',
+    'https://*.svitlo.tv',
+    'http://10.1.100.173',
 ]
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 
 try:
