@@ -126,7 +126,7 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ('uk', _('Ukrainian')),
     ('en', _('English')),
 ]
-USE_TZ = True
+
 TIME_ZONE = 'Europe/Kyiv'
 
 USE_I18N = True
@@ -176,7 +176,7 @@ STORAGES = {
 
 # Wagtail settings
 
-WAGTAIL_SITE_NAME = "core"
+WAGTAIL_SITE_NAME = config('WAGTAIL_SITE_NAME', default="core")
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
@@ -188,7 +188,7 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://example.com"
+WAGTAILADMIN_BASE_URL = config('WAGTAILADMIN_BASE_URL', default='https://svitlo.tv/')
 
 
 # Wagtail settings options
