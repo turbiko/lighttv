@@ -11,38 +11,13 @@ from django.db.models.functions import ExtractWeek, ExtractYear
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 from wagtail.models import Page
-
+from .tools import get_current_week_range
 
 class ChartLine(models.Model):
     start_time = models.DateTimeField(_("Час початку"), blank=True, null=True) #  datetime when program started
     program_title = models.CharField(_("Назва програми"), max_length=200)
     program_genre = models.CharField(_("Жанр програми"), max_length=100, blank=True, null=True)
     project_of_program = models.ForeignKey('project.Project', blank=True, on_delete=models.SET_NULL, null=True)
-
-
-def chart_context(request):
-    context = {}
-    now = timezone.now()
-    start_of_week = now - dt.timedelta(days=now.weekday())
-    end_of_week = start_of_week + dt.timedelta(days=6)
-    # Extract the week number and year from the current date
-    current_week_number = ExtractWeek(F('start_time'))
-    current_year = ExtractYear(F('start_time'))
-    # Filter ChartLines for the current week
-    lines_in_current_week = ChartLine.objects.annotate(
-        week_number=current_week_number,
-        year=current_year
-    ).filter(week_number=now.isocalendar()[1], year=now.year).order_by('start_time')# Organize ChartLines by date
-    chart_lines_by_date = {}
-    for line in lines_in_current_week:
-        date_key = line.start_time.date()
-        if date_key not in chart_lines_by_date:
-            chart_lines_by_date[date_key] = []
-        chart_lines_by_date[date_key].append(line)
-    context['chart_lines_by_date'] = chart_lines_by_date
-    context['start_of_week'] = start_of_week
-
-    return context
 
 
 class TVChart(models.Model):
@@ -66,5 +41,9 @@ class WeekChart(Page):
         day_of_week = now.weekday()
         week_number = now.isocalendar().week
         year = now.year
-        context.update(chart_context(request))
+
+        start_week, end_week = get_current_week_range()
+        chart_lines = ChartLine.objects.filter(start_time__date__range=(start_week, end_week))
+        context['chart_lines'] = chart_lines
+        print(f"{chart_lines=}")
         return context

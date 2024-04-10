@@ -10,7 +10,7 @@ from django.utils import timezone
 
 from .forms import TVChartUploadForm
 
-from .models import chart_context, ChartLine
+from .models import ChartLine
 from project.models import Project
 from .tools import get_date_from_cell_0
 
@@ -78,7 +78,7 @@ def upload_chart(request):
         form = TVChartUploadForm()
 
     # clear chart_line table from old elements
-    threshold_date = timezone.now() - dt.timedelta(days=60)
+    threshold_date = timezone.now() - dt.timedelta(days=60)  #TODO: hardcoded move to site settings
     ChartLine.objects.filter(start_time__lt=threshold_date).delete()
     print(f"chart_page complete {timezone.now()}")
     return render(request, 'tvweek/upload_chart.html', {'form': form})
