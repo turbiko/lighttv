@@ -64,6 +64,8 @@ def upload_chart(request):
                         chart_line_project_of_program = related_projects.first()
 
                     # finalize process by saving chart_line model element
+                    chart_line_weekday = selected_date.weekday()
+
                     chart_line_date = timezone.make_aware(datetime.combine(selected_date,
                                                                            row.iloc[0]),
                                                           timezone.get_default_timezone())
