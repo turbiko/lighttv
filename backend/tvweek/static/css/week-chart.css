@@ -206,7 +206,6 @@
     width: 308px;
     height: 190px;
     border-radius: 20px;
-/*background: url(<path-to-image>) lightgray 50% / cover no-repeat;*/
     background-color: green;
 }
 .tvchart-chart-line-text-block {
