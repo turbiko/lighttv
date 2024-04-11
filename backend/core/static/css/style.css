@@ -13,50 +13,23 @@ main {
   margin: 0px auto;
 }
 
-/* ------------------ */
-
-.social-icons-block {
-  display: flex;
-  justify-content: space-between;
+/*-- social block --*/
+.social {
 }
-.social-circle {
-  width: 30px;
-  height: 30px;
-  font-size: 25px;
-  border: 3px var(--main-color2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
+.social-icons-block {
+  display: inline-flex;
+align-items: flex-start;
+gap: 13px;
 }
 
-.social-icons-block {
-  width: 200px;
-}
-.soc-icon {
-  width: 24px;
-  height: 24px;
-  left: 12px;
-  top: 12px;
-  position: absolute;
-}
 .soc-icon-position {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.soc-icon-rounded {
-  width: 49px;
-  height: 49px;
-  left: 0px;
-  top: 0px;
 
-  position: absolute;
-  border-radius: 9999px;
-  border: 1px rgba(255, 255, 255, 0.3) solid;
-}
+
 /* -- announce block -- */
 .announce-block {
   width: 100%;

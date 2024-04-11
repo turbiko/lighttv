@@ -116,7 +116,9 @@ footer {
   align-items: flex-start;
   gap: 20px;
 }
+
 .footer-form-title {
+  margin-bottom: 20px;
   align-self: stretch;
   color: var(--main-color2);
   font-family: Montserrat;
@@ -175,6 +177,7 @@ footer {
   width: 417px;
   height: 50px;
   padding: 20px;
+  margin-bottom: 10px;
   background: var(--main-color2);
   border-radius: 20px;
   justify-content: flex-start;

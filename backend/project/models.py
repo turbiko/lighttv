@@ -14,18 +14,30 @@ from wagtail.fields import RichTextField
 logger = logging.getLogger('svitlo')
 
 
+class Genre(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class ProjectGenres(Orderable):
+    genre = models.ForeignKey(Genre, related_name='+', null=True, on_delete=models.SET_NULL)
+    page = ParentalKey('project.Project', related_name='project_genres')
+    panels = [
+        FieldPanel('genre'),
+    ]
 class ProjectType(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
 
-
 class Project(Page):
     template = 'project' + os.sep + 'project-page.html'
     parent_page_types = ['Projects_List']
-
-    date_production = models.DateField(_('дата релізу'), blank=True, null=True)
+    date_production = models.DateField(_('дата релізу'), blank=True, null=True)  # TODO: use YEAR only
     chart_name_short = models.CharField(_('Коротка назва для тв-програми'), max_length=30,blank=True, null=True)
     duration_minutes = models.IntegerField(_('Хронометраж, хв.'), blank=True, null=True)
     project_type = models.ForeignKey(ProjectType, null=True, on_delete=models.SET_NULL)
@@ -61,6 +73,10 @@ class Project(Page):
         FieldPanel('image_slider_mobile'),
         FieldPanel('feed_image'),
         FieldPanel('description'),
+        MultiFieldPanel(
+                [InlinePanel("project_genres", label=_("Жанр"))],
+                heading=_("Додаткова інформація"),
+        ),
 
     ]
 

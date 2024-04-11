@@ -1,5 +1,6 @@
-{% load static wagtailcore_tags menus_tags %}
+{% load static wagtailcore_tags menus_tags wagtailsettings_tags  %}
 {% get_menu "topmenu" as navigation %}
+{% get_settings %}
 <!DOCTYPE html>
 <html lang="uk">
     <head>
@@ -109,160 +110,36 @@
                   {% endfor %}
 
                 <li id="top-menu-social1">
-                  <div class="social-icons-block">
-                    <!-- 1 facebook-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.facebook }}" target="_blank">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
+                    <div class="social-icons-block">
+                    {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
+                        {% if link %}
+                        <!--{{ link.name }}-->
+                            <a href="{{ link.url }}" >
+                                <div class="social-icon-wrapper" >
+                                    {{ link.get_svg_code|safe }}
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
                     </div>
-                    <!-- 2 instagram-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M12 8.75C11.138 8.75 10.3114 9.09241 9.7019 9.7019C9.09241 10.3114 8.75 11.138 8.75 12C8.75 12.862 9.09241 13.6886 9.7019 14.2981C10.3114 14.9076 11.138 15.25 12 15.25C12.862 15.25 13.6886 14.9076 14.2981 14.2981C14.9076 13.6886 15.25 12.862 15.25 12C15.25 11.138 14.9076 10.3114 14.2981 9.7019C13.6886 9.09241 12.862 8.75 12 8.75Z"
-                              fill="white"
-                            />
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M6.76982 3.08194C10.2458 2.69664 13.7538 2.69664 17.2298 3.08194C19.1288 3.29394 20.6598 4.78894 20.8828 6.69494C21.295 10.2196 21.295 13.7803 20.8828 17.3049C20.6598 19.2109 19.1288 20.7059 17.2308 20.9189C13.7545 21.3043 10.2462 21.3043 6.76982 20.9189C4.87082 20.7059 3.33982 19.2109 3.11682 17.3059C2.70455 13.781 2.70455 10.2199 3.11682 6.69494C3.33982 4.78894 4.87082 3.29394 6.76982 3.08194ZM16.9998 5.99994C16.7346 5.99994 16.4802 6.1053 16.2927 6.29284C16.1052 6.48037 15.9998 6.73473 15.9998 6.99994C15.9998 7.26516 16.1052 7.51951 16.2927 7.70705C16.4802 7.89459 16.7346 7.99994 16.9998 7.99994C17.265 7.99994 17.5194 7.89459 17.7069 7.70705C17.8945 7.51951 17.9998 7.26516 17.9998 6.99994C17.9998 6.73473 17.8945 6.48037 17.7069 6.29284C17.5194 6.1053 17.265 5.99994 16.9998 5.99994ZM7.24982 11.9999C7.24982 10.7402 7.75027 9.53198 8.64106 8.64119C9.53186 7.75039 10.74 7.24994 11.9998 7.24994C13.2596 7.24994 14.4678 7.75039 15.3586 8.64119C16.2494 9.53198 16.7498 10.7402 16.7498 11.9999C16.7498 13.2597 16.2494 14.4679 15.3586 15.3587C14.4678 16.2495 13.2596 16.7499 11.9998 16.7499C10.74 16.7499 9.53186 16.2495 8.64106 15.3587C7.75027 14.4679 7.24982 13.2597 7.24982 11.9999Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.instagram }}" target="_blank">
-                            <div class="soc-icon-rounded"></div></a>
-                    </div>
-                    <!-- 3 tiktok-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.tiktok }}" target="_blank">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
-                    </div>
-
-                  </div>
                 </li>
 
               </ul>
             </nav>
           </div>
-          <div id="top-menu-social2" class="social-icons-block">
-                  <div class="social-icons-block">
-                    <!-- 1 facebook-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.facebook }}">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
-                    </div>
-                    <!-- 2 instagram-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M12 8.75C11.138 8.75 10.3114 9.09241 9.7019 9.7019C9.09241 10.3114 8.75 11.138 8.75 12C8.75 12.862 9.09241 13.6886 9.7019 14.2981C10.3114 14.9076 11.138 15.25 12 15.25C12.862 15.25 13.6886 14.9076 14.2981 14.2981C14.9076 13.6886 15.25 12.862 15.25 12C15.25 11.138 14.9076 10.3114 14.2981 9.7019C13.6886 9.09241 12.862 8.75 12 8.75Z"
-                              fill="white"
-                            />
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M6.76982 3.08194C10.2458 2.69664 13.7538 2.69664 17.2298 3.08194C19.1288 3.29394 20.6598 4.78894 20.8828 6.69494C21.295 10.2196 21.295 13.7803 20.8828 17.3049C20.6598 19.2109 19.1288 20.7059 17.2308 20.9189C13.7545 21.3043 10.2462 21.3043 6.76982 20.9189C4.87082 20.7059 3.33982 19.2109 3.11682 17.3059C2.70455 13.781 2.70455 10.2199 3.11682 6.69494C3.33982 4.78894 4.87082 3.29394 6.76982 3.08194ZM16.9998 5.99994C16.7346 5.99994 16.4802 6.1053 16.2927 6.29284C16.1052 6.48037 15.9998 6.73473 15.9998 6.99994C15.9998 7.26516 16.1052 7.51951 16.2927 7.70705C16.4802 7.89459 16.7346 7.99994 16.9998 7.99994C17.265 7.99994 17.5194 7.89459 17.7069 7.70705C17.8945 7.51951 17.9998 7.26516 17.9998 6.99994C17.9998 6.73473 17.8945 6.48037 17.7069 6.29284C17.5194 6.1053 17.265 5.99994 16.9998 5.99994ZM7.24982 11.9999C7.24982 10.7402 7.75027 9.53198 8.64106 8.64119C9.53186 7.75039 10.74 7.24994 11.9998 7.24994C13.2596 7.24994 14.4678 7.75039 15.3586 8.64119C16.2494 9.53198 16.7498 10.7402 16.7498 11.9999C16.7498 13.2597 16.2494 14.4679 15.3586 15.3587C14.4678 16.2495 13.2596 16.7499 11.9998 16.7499C10.74 16.7499 9.53186 16.2495 8.64106 15.3587C7.75027 14.4679 7.24982 13.2597 7.24982 11.9999Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.instagram }}">
-                            <div class="soc-icon-rounded"></div></a>
-                    </div>
-                    <!-- 3 tiktok-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.tiktok }}">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
-                    </div>
-
-                  </div>
+          <div id="top-menu-social2" >
+              <div class="social-icons-block">
+                    {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
+                        {% if link %}
+                        <!--{{ link.name }}-->
+                            <a href="{{ link.url }}" >
+                                <div class="social-icon-wrapper" >
+                                    {{ link.get_svg_code|safe }}
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+              </div>          
           </div>
         </div>
       </header>
@@ -324,13 +201,13 @@
             <div class="footer-address-block2">
               <div class="footer-address-block2-a1">контакти</div>
 
-              <div class="footer-address-block2-a2">
+              <address class="footer-address-block2-a2">
                 <div class="footer-address-block2-a2-b1">+38 044 000 00 00</div>
                 <div class="footer-address-block2-a2-b1">info@svitlo.tv</div>
                 <div class="footer-address-block2-a2-b1">
-                  Київ, вул. Миколи Закревського, 22
+                  Київ, вул. Миколи Закревського, 22
                 </div>
-              </div>
+              </address>
             </div>
           </div>
 
@@ -371,87 +248,53 @@
                 <div class="footer-address-block2-a2-b1">+38 044 000 00 00</div>
                 <div class="footer-address-block2-a2-b1">info@svitlo.tv</div>
                 <div class="footer-address-block2-a2-b1">
-                  Київ, вул. Миколи Закревського, 22
+                  Київ, вул. Миколи Закревського, 22
                 </div>
               </div>
             </div>
           </div>
         </div>
-          
+          <style>
+            .social-icon-wrapper {
+                display: inline-block;
+                width: 50px; 
+                height: 50px;
+                border-radius: 50%;
+                color:var(--main-color2);
+                background-color: var(--main-color1); /* Спочатку встановлюємо основний колір */
+                transition: background-color 0.3s, fill 0.3s;
+                cursor: pointer;                    
+            }
+        
+            .social-icon-wrapper:hover {
+                color:var(--main-color1);
+                background-color: white; /* При наведенні фон стає білим */
+            }
+        
+            .social-icon-wrapper svg {
+                fill: var(--main-color1); /* За замовчуванням колір SVG - білий */
+                width: 100%;
+                height: auto;
+                transition: fill 0.3s;
+            }
+        
+            .social-icon-wrapper:hover svg {
+                fill: var(--main-color2); /* При наведенні колір SVG змінюється на основний колір */
+            }
+          </style>
         <div class="footer-social">
             <div class="social-icons-block">
-                    <!-- 1 facebook-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.facebook }}">
-                            <div class="soc-icon-rounded"></div>
+                {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
+                    {% if link %}
+                    <!--{{ link.name }}-->
+                        <a href="{{ link.url }}" >
+                            <div class="social-icon-wrapper" >
+                                {{ link.get_svg_code|safe }}
+                            </div>
                         </a>
-                    </div>
-                    <!-- 2 instagram-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M12 8.75C11.138 8.75 10.3114 9.09241 9.7019 9.7019C9.09241 10.3114 8.75 11.138 8.75 12C8.75 12.862 9.09241 13.6886 9.7019 14.2981C10.3114 14.9076 11.138 15.25 12 15.25C12.862 15.25 13.6886 14.9076 14.2981 14.2981C14.9076 13.6886 15.25 12.862 15.25 12C15.25 11.138 14.9076 10.3114 14.2981 9.7019C13.6886 9.09241 12.862 8.75 12 8.75Z"
-                              fill="white"
-                            />
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M6.76982 3.08194C10.2458 2.69664 13.7538 2.69664 17.2298 3.08194C19.1288 3.29394 20.6598 4.78894 20.8828 6.69494C21.295 10.2196 21.295 13.7803 20.8828 17.3049C20.6598 19.2109 19.1288 20.7059 17.2308 20.9189C13.7545 21.3043 10.2462 21.3043 6.76982 20.9189C4.87082 20.7059 3.33982 19.2109 3.11682 17.3059C2.70455 13.781 2.70455 10.2199 3.11682 6.69494C3.33982 4.78894 4.87082 3.29394 6.76982 3.08194ZM16.9998 5.99994C16.7346 5.99994 16.4802 6.1053 16.2927 6.29284C16.1052 6.48037 15.9998 6.73473 15.9998 6.99994C15.9998 7.26516 16.1052 7.51951 16.2927 7.70705C16.4802 7.89459 16.7346 7.99994 16.9998 7.99994C17.265 7.99994 17.5194 7.89459 17.7069 7.70705C17.8945 7.51951 17.9998 7.26516 17.9998 6.99994C17.9998 6.73473 17.8945 6.48037 17.7069 6.29284C17.5194 6.1053 17.265 5.99994 16.9998 5.99994ZM7.24982 11.9999C7.24982 10.7402 7.75027 9.53198 8.64106 8.64119C9.53186 7.75039 10.74 7.24994 11.9998 7.24994C13.2596 7.24994 14.4678 7.75039 15.3586 8.64119C16.2494 9.53198 16.7498 10.7402 16.7498 11.9999C16.7498 13.2597 16.2494 14.4679 15.3586 15.3587C14.4678 16.2495 13.2596 16.7499 11.9998 16.7499C10.74 16.7499 9.53186 16.2495 8.64106 15.3587C7.75027 14.4679 7.24982 13.2597 7.24982 11.9999Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.instagram }}">
-                            <div class="soc-icon-rounded"></div></a>
-                    </div>
-                    <!-- 3 tiktok-->
-                    <div style="width: 49px; height: 49px; position: relative">
-                      <div class="soc-icon">
-                        <div class="soc-icon-position">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M16.6002 5.82C15.9166 5.03962 15.5399 4.03743 15.5402 3H12.4502V15.4C12.4263 16.071 12.143 16.7066 11.6599 17.1729C11.1768 17.6393 10.5316 17.8999 9.86016 17.9C8.44016 17.9 7.26016 16.74 7.26016 15.3C7.26016 13.58 8.92016 12.29 10.6302 12.82V9.66C7.18016 9.2 4.16016 11.88 4.16016 15.3C4.16016 18.63 6.92016 21 9.85016 21C12.9902 21 15.5402 18.45 15.5402 15.3V9.01C16.7932 9.90985 18.2975 10.3926 19.8402 10.39V7.3C19.8402 7.3 17.9602 7.39 16.6002 5.82Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                        <a href="{{ settings.home.SocialMediaSettings.tiktok }}">
-                            <div class="soc-icon-rounded"></div>
-                        </a>
-                    </div>
-                  </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
           
       </div>

@@ -2,26 +2,50 @@ import os
 import logging
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from modelcluster.fields import ParentalKey
+from modelcluster.models import ClusterableModel
+
 from wagtail.contrib.settings.models import BaseSiteSetting
 from wagtail.contrib.settings.registry import register_setting
 from wagtail.models import Page, Orderable
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
 
+from core.settings import base as core_base
+
 logger = logging.getLogger('lighttv')
 
 
+class SocialMediaLink(Orderable):
+    site_setting = ParentalKey('SocialMediaSettings', related_name='social_media_links')
+    name = models.CharField(max_length=255, help_text='Назва соціальної мережі')
+    logotype = models.FileField(max_length=255, help_text='Завантажте логотип соціальної мережі')
+    url = models.URLField(help_text='URL посилання на соціальну мережу')
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('logotype'),
+        FieldPanel('url'),
+    ]
+
+    def get_svg_code(self):
+        if not self.logotype:
+            return ""
+
+        svg_path = os.path.join(core_base.MEDIA_ROOT, self.logotype.name)
+        try:
+            with open(svg_path, 'r') as file:
+                return file.read()
+        except IOError:
+            return ""
+
+
 @register_setting
-class SocialMediaSettings(BaseSiteSetting):
-    facebook = models.URLField(
-        help_text='Facebook URL', default='#')
-    instagram = models.URLField(
-        help_text='Instagram URL', default='#')
-    tiktok = models.URLField(
-        help_text='Tiktok URL', default='#')
-    youtube = models.URLField(
-        help_text='YouTube URL', default='#')
+class SocialMediaSettings(BaseSiteSetting, ClusterableModel):
+    panels = [
+        InlinePanel('social_media_links', label="Соціальні мережі"),
+    ]
 
 
 class HomePageSliderImages(Orderable):
@@ -43,7 +67,7 @@ class HomeTvManualStep(Orderable):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('малюнок дло блоку Про нас')
+        help_text=_('Малюнок дло блоку Про нас')
     )
 
 

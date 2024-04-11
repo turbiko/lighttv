@@ -6,13 +6,13 @@ from wagtail_modeladmin.options import (
 )
 from wagtail.admin.menu import MenuItem
 
-from .models import ProjectType
+from .models import ProjectType, Genre
 from tvweek.models import ChartLine
 
 
-class ProjectTypeAdmin(ModelAdmin):
-    model = ProjectType
-    menu_label = 'Типи проєктів'
+class GenreAdmin(ModelAdmin):
+    model = Genre
+    menu_label = 'Жанр'
     menu_icon = 'pick'
     menu_order = 200
     add_to_settings_menu = False
@@ -21,7 +21,23 @@ class ProjectTypeAdmin(ModelAdmin):
     list_filter = ("name",)
     search_fields = ("name",)
 
+modeladmin_register(GenreAdmin)
+
+
+class ProjectTypeAdmin(ModelAdmin):
+    model = ProjectType
+    menu_label = 'Типи проєктів'
+    menu_icon = 'pick'
+    menu_order = 205
+    add_to_settings_menu = False
+    exclude_from_explorer = False
+    list_display = ("name",)
+    list_filter = ("name",)
+    search_fields = ("name",)
+
+
 modeladmin_register(ProjectTypeAdmin)
+
 
 class ChartLineAdmin(ModelAdmin):
     model = ChartLine
@@ -36,3 +52,5 @@ class ChartLineAdmin(ModelAdmin):
 
 
 modeladmin_register(ChartLineAdmin)
+
+
