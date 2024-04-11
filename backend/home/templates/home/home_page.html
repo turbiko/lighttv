@@ -147,7 +147,7 @@
           <div class="home-broadcasters-text-breadcrumb">{{ self.online_name }}</div>
           <div class="home-broadcasters-title-block">
             <div class="home-broadcasters-title">{{ self.online_title }}</div>
-            <div class="home-broadcasters-text">{{ self.online_text }}</div>
+            <div class="home-broadcasters-text">{{ self.online_text | safe }}</div>
           </div>
         </div>
         <div class="home-broadcasters-list-block">
