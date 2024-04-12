@@ -12,13 +12,7 @@ from .forms import TVChartUploadForm
 
 from .models import ChartLine
 from project.models import Project
-from .tools import get_date_from_cell_0
-
-
-def chart_page(request):
-    print(f"chart_page started {timezone.now()}")
-
-    return render(request, 'tvweek/week_chart.html', chart_context(request))
+from .tools import get_date_from_cell_0, generate_week_dict
 
 
 def upload_chart(request):
@@ -71,6 +65,7 @@ def upload_chart(request):
                                                           timezone.get_default_timezone())
                     chart_line, _temp = ChartLine.objects.update_or_create(
                         start_time=chart_line_date,
+                        day_of_week=chart_line_weekday,
                         program_title=row.iloc[1].strip(),
                         program_genre=row.iloc[2].strip() if pd.notnull(row.iloc[2]) else '',
                         project_of_program=chart_line_project_of_program
@@ -84,3 +79,16 @@ def upload_chart(request):
     ChartLine.objects.filter(start_time__lt=threshold_date).delete()
     print(f"chart_page complete {timezone.now()}")
     return render(request, 'tvweek/upload_chart.html', {'form': form})
+
+
+def chart_page(request):
+    print(f"chart_page started {timezone.now()}")
+    context = {}
+    now_day_is = datetime.datetime.now()
+    print(f"{now_day_is=}")
+    # week days dict {week_day_name: Пн Вт Ср Чт Пт Сб Нд, detestamp}
+    week_days = generate_week_dict(now_day_is)
+    context['week_days'] = week_days
+
+    print(f"chart_page finished {timezone.now()}")
+    return render(request, 'tvweek/week_chart.html', context)

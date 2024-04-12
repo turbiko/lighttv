@@ -15,11 +15,15 @@
             {{ self.title }}
         </div>
         <div class="tvchart-days-buttons-block">
-
-                <div class="tvchart-day-button">
-                    <div class="tvchart-day-name">To</div>
-                    <div class="tvchart-day-date">12/04</div>
-                </div>
+            {% for day in week_days %}
+                {{ day.day_name }}
+                {{ day.day_date }}
+                {{ day.is_today }}
+            {% endfor %}
+            <div class="tvchart-day-button">
+                <div class="tvchart-day-name">To</div>
+                <div class="tvchart-day-date">12/04</div>
+            </div>
 
             <div class="tvchart-day-button tvchart-today">
                 <div class="tvchart-day-name-today">To</div>
@@ -68,6 +72,7 @@
             <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
         </div>
     </div>
+
     <div class="tvchart-chart-line">
         <div class="tvchart-chart-line-time">
             <span class="tvchart-time">16:00</span>

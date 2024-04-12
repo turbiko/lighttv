@@ -11,7 +11,8 @@ from django.db.models.functions import ExtractWeek, ExtractYear
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 from wagtail.models import Page
-from .tools import get_current_week_range
+from .tools import get_current_week_range, generate_week_dict
+
 
 class ChartLine(models.Model):
     day_of_week = models.IntegerField(_("День тижня (1-Пн,7-Нд"), blank=True, null=True)
@@ -21,12 +22,7 @@ class ChartLine(models.Model):
     project_of_program = models.ForeignKey('project.Project', blank=True, on_delete=models.SET_NULL, null=True)
 
 
-def get_today_week():
-    now = datetime.now()
-    day_of_week = now.weekday()
-    week_number = now.isocalendar().week
-    year = now.year
-    return {"year": year, "week_number":week_number, "day_of_week":day_of_week}
+
 
 
 class TVChart(models.Model):
@@ -43,11 +39,15 @@ class WeekChart(Page):
         day_of_week = now.weekday()
         week_number = now.isocalendar().week
         year = now.year
+        # get week titles
+        start_week, end_week, week_day = get_current_week_range(now)
 
-        start_week, end_week = get_current_week_range()
+
         chart_lines = ChartLine.objects.filter(start_time__date__range=(start_week, end_week))
+
+        context['week_days'] = generate_week_dict(now)
         context['chart_lines'] = chart_lines
-        print(f"{chart_lines=}")
+
         return context
 
     def get_day_chart(self, day_date: datetime.date):
