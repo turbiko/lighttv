@@ -180,6 +180,9 @@
     font-weight: 800;
     line-height: normal;
 }
+.selected-day { /* when clicked day block selected */
+    border: 2px solid var(--main-color1);
+}
 .tvchart-now {
     position: absolute;
     left: 8px;

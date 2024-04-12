@@ -16,7 +16,7 @@
         </div>
         <div class="tvchart-days-buttons-block">
             {% for day in week_days %}
-            <div class="tvchart-day-button {% if day.is_today %} tvchart-today{% endif %}">
+            <div class="tvchart-day-button {% if day.is_today %} tvchart-today{% endif %}"  data-day="{{ day.day_date|date:'Ymd' }}">
                 <div class="tvchart-day-name{% if day.is_today %}-today{% endif %}">{{ day.day_name }}</div>
                 <div class="tvchart-day-date{% if day.is_today %}-today{% endif %}">{{ day.day_date|date:"j E" }}</div>
             </div>
@@ -27,8 +27,10 @@
 </section>
 
 {% for day in days_of %}
-<!-- {{ day.day_date|date:"j E" }} -->
-<section class="tvchart-day-list">
+<!-- {{ day.day_date|date:"j E" }} | {{day.is_today }} -->
+<!-- {% if day.is_today == False %} not today{% elif day.is_today == True %} is today {% endif %}-->
+<section class="tvchart-day-list"  id="day-{{ day.day_date|date:'Ymd' }}"
+        {% if day.is_today == False %} style="display: none;"{% endif %}>
 {% for chart_line in day.chart_lines %}
     <div class="tvchart-chart-line">
         <div class="tvchart-chart-line-time">
@@ -55,4 +57,16 @@
 </section>
 {% endfor %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.tvchart-day-button').click(function() {
+        var dayId = $(this).data('day');
+        $('.tvchart-day-button').removeClass('selected-day');
+        $(this).addClass('selected-day');
+        $('.tvchart-day-list').hide(); // Приховуємо всі дні
+        $('#day-' + dayId).show(); // Показуємо потрібний день
+    });
+});
+</script>
 {% endblock content %}

@@ -43,10 +43,12 @@ class WeekChart(Page):
         chart_lines = ChartLine.objects.filter(start_time__date__range=(start_week, end_week))
 
         this_week_days = [{
+            'is_today': week_day_number == now_day.weekday(),
             'day_name': (start_week + dt.timedelta(days=week_day_number)).strftime('%A'),
             'day_date': (start_week + dt.timedelta(days=week_day_number)),
             'chart_lines': []
         } for week_day_number in range(7)]
+        print(f'{this_week_days=}')
 
         for line_temp in chart_lines:
             weekday_index = line_temp.start_time.weekday()
