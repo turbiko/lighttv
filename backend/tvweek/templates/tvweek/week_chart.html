@@ -21,8 +21,6 @@
                 <div class="tvchart-day-date{% if day.is_today %}-today{% endif %}">{{ day.day_date|date:"j E" }}</div>
             </div>
             {% endfor %}
-        
-
         </div>
     </div>
     </div>
@@ -34,8 +32,11 @@
             <span class="tvchart-time">{{ chart_line.start_time|date:"H:i"  }}</span>
         </div>
         <div class="tvchart-chart-line-pict">
-            {% image  project_of_program.feed_image original as line_picture %}
-            <div class="tvchart-image">{{ line_picture.url }}</div>
+{% image chart_line.project_of_program.specific.feed_image original as line_image %}
+            <div class="tvchart-image" >
+<img src="{{ line_image.url}}" style="width: 100%;height: 100%;border-radius: 20px;"/>
+            </div>
+
         </div>
         <div class="tvchart-chart-line-text-block">
             <div class="tvchart-chart-line-title">{{ chart_line.program_title }}</div>

@@ -22,9 +22,6 @@ class ChartLine(models.Model):
     project_of_program = models.ForeignKey('project.Project', blank=True, on_delete=models.SET_NULL, null=True)
 
 
-
-
-
 class TVChart(models.Model):
     tv_chart_file = models.FileField(max_length=255)
 

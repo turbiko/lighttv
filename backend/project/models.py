@@ -62,6 +62,7 @@ class Project(Page):
         on_delete=models.PROTECT,
         related_name='+',
     )
+    description_short = models.TextField(null=True, blank=True,)
     description = RichTextField(null=True, blank=True,)
 
     content_panels = Page.content_panels + [
@@ -72,6 +73,7 @@ class Project(Page):
         FieldPanel('image_slider_big'),
         FieldPanel('image_slider_mobile'),
         FieldPanel('feed_image'),
+        FieldPanel('description_short'),
         FieldPanel('description'),
         MultiFieldPanel(
                 [InlinePanel("project_genres", label=_("Жанр"))],
