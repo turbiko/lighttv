@@ -114,7 +114,7 @@
                     {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
                         {% if link %}
                         <!--{{ link.name }}-->
-                            <a href="{{ link.url }}" >
+                            <a href="{{ link.url }}" target="_blank" >
                                 <div class="social-icon-wrapper" >
                                     {{ link.get_svg_code|safe }}
                                 </div>
@@ -132,7 +132,7 @@
                     {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
                         {% if link %}
                         <!--{{ link.name }}-->
-                            <a href="{{ link.url }}" >
+                            <a href="{{ link.url }}" target="_blank" >
                                 <div class="social-icon-wrapper" >
                                     {{ link.get_svg_code|safe }}
                                 </div>
@@ -287,7 +287,7 @@
                 {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
                     {% if link %}
                     <!--{{ link.name }}-->
-                        <a href="{{ link.url }}" >
+                        <a href="{{ link.url }}" target="_blank" >
                             <div class="social-icon-wrapper" >
                                 {{ link.get_svg_code|safe }}
                             </div>
