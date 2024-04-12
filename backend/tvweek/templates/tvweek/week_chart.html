@@ -25,8 +25,11 @@
     </div>
     </div>
 </section>
+
+{% for day in days_of %}
+<!-- {{ day.day_date|date:"j E" }} -->
 <section class="tvchart-day-list">
-{% for chart_line in chart_lines %}
+{% for chart_line in day.chart_lines %}
     <div class="tvchart-chart-line">
         <div class="tvchart-chart-line-time">
             <span class="tvchart-time">{{ chart_line.start_time|date:"H:i"  }}</span>
@@ -50,5 +53,6 @@
     </div>
 {% endfor %}
 </section>
+{% endfor %}
 
 {% endblock content %}
