@@ -40,7 +40,9 @@
         </div>
         <div class="tvchart-chart-line-text-block">
             <div class="tvchart-chart-line-title">{{ chart_line.program_title }}</div>
-            <div class="tvchart-chart-line-text">У барі Родіонов знайомиться з яскравою дівчиною Кариною. Родіонов прощається і їде на роботу. Для нього ця дівчина - одна з багатьох. Але з'ясовується, що Карина - новий адміністратор клініки...</div>
+            <div class="tvchart-chart-line-text">
+                {{ chart_line.description_short | safe }}
+            </div>
         </div>
     </div>
 {% endfor %}
