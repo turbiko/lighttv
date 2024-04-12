@@ -35,9 +35,6 @@ def generate_week_dict(current_chart_date):
     current_date = start_week
 
     while current_date <= end_week:
-        print(f'{current_chart_date.date()=}')
-        print(f'{current_date.date()=}')
-
         day_info = {
             'day_name': days_names[current_date.weekday()],
             'day_date': current_date,  #
@@ -46,9 +43,8 @@ def generate_week_dict(current_chart_date):
             'is_today': int(current_chart_date.date() == current_date.date())
         }
         days_info.append(day_info)
-        print(f'{day_info=}')
-        current_date += timedelta(days=1)  # наступний день
 
+        current_date += timedelta(days=1)  # наступний день
 
     return days_info
 
