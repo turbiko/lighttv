@@ -41,7 +41,7 @@
         <div class="tvchart-chart-line-text-block">
             <div class="tvchart-chart-line-title">{{ chart_line.program_title }}</div>
             <div class="tvchart-chart-line-text">
-                {{ chart_line.description_short | safe }}
+                {{ chart_line.project_of_program.specific.description_short | safe }}
             </div>
         </div>
     </div>
