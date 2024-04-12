@@ -34,12 +34,17 @@ def upload_chart(request):
                     past_time = False  # for new day reset next day checker
                     string_dict_date = get_date_from_cell_0(row.iloc[0])
                     selected_date = datetime.strptime(string_dict_date['date_str'].strip(), '%d.%m.%Y').date()
+                    print(f'{selected_date=}')
                     continue
                 if isinstance(row.iloc[0], dt.time):
                     if not past_time:
                         past_time = row.iloc[0]
-                    if past_time > row.iloc[0]:
+                    elif past_time < row.iloc[0]:
+                        past_time = row.iloc[0]
+                    elif past_time > row.iloc[0]:
+                        past_time = row.iloc[0]
                         selected_date += dt.timedelta(days=1)
+                        print(f' {past_time=} {row.iloc[0]=} {selected_date=}')
 
                     if pd.isnull(row.iloc[1]) and pd.isnull(row.iloc[2]):  # when time exist but other data not exist
                         continue
