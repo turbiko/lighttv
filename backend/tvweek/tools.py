@@ -35,16 +35,20 @@ def generate_week_dict(current_chart_date):
     current_date = start_week
 
     while current_date <= end_week:
-        print(f'{current_date=} {current_date.weekday()=}')
+        print(f'{current_chart_date.date()=}')
+        print(f'{current_date.date()=}')
+
         day_info = {
             'day_name': days_names[current_date.weekday()],
-            'day_date': current_date.strftime("%d %B"),  # Форматування дати українською мовою
+            'day_date': current_date,  #
             'weekday_number': current_date.weekday(),
-            'full_date': current_date.isoformat(),  # Дата у форматі YYYY-MM-DD
-            'is_today': int(current_date == datetime.now(pytz.timezone("Europe/Kiev")).date())
+            'full_date': current_date,
+            'is_today': int(current_chart_date.date() == current_date.date())
         }
         days_info.append(day_info)
+        print(f'{day_info=}')
         current_date += timedelta(days=1)  # наступний день
+
 
     return days_info
 
