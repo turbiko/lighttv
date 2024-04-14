@@ -5,31 +5,10 @@
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-<link rel="stylesheet" href="{% static 'css/big-slider.css' %}">
-<link rel="stylesheet" href="{% static 'css/swiper-bundle9.min.css' %}">
-{% endblock extra_css %}
-
-{% block content %}
-
-    <div class="swiper BigSwiper">
-        <div class="swiper-wrapper">
-{# big slider start#}
-            {% for slider_image in page.slider_images.all %}
-                {% if slider_image.project.image_slider_big %}
-                {% image slider_image.project.image_slider_big original as img_url %}
-                {# <a href="{{ slider_image.project.url }}"> #}
-                <div class="swiper-slide project-image-block"
-                            style="background-image: url('{{ img_url.url }}');
-                            background-size: cover; background-position: center;">
-                </div>
-                {#</a> #}
-                {% endif %}
-            {% endfor %}
-{# big slider end#}
-
-        </div>
-    <style>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/big-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle9.min.css' %}">
+    <style> {# big slider styles #}
         .swiper-button-prev {
             background-image: url('{% static "img/nav-grey-left.svg" %}');
             width: 50px;
@@ -61,6 +40,28 @@
             }
         }
     </style>
+{% endblock extra_css %}
+
+{% block content %}
+
+    <div class="swiper BigSwiper">
+        <div class="swiper-wrapper">
+{# big slider start#}
+            {% for slider_image in page.slider_images.all %}
+                {% if slider_image.project.image_slider_big %}
+                {% image slider_image.project.image_slider_big original as img_url %}
+                {# <a href="{{ slider_image.project.url }}"> #}
+                <div class="swiper-slide project-image-block"
+                            style="background-image: url('{{ img_url.url }}');
+                            background-size: cover; background-position: center;">
+                </div>
+                {#</a> #}
+                {% endif %}
+            {% endfor %}
+{# big slider end#}
+
+        </div>
+
     <div class="swiper-button-next" ></div>
     <div class="swiper-button-prev" ></div>
     <div class="swiper-pagination"></div>
@@ -68,8 +69,6 @@
 {# tv-chart today slider#}
 
 {# tv-chart today slider end#}
-
-
   <!-- Initialize Swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
@@ -101,7 +100,7 @@
         </div>
         <div class="home-about-pic-block">
             {% image self.about_picture original as about_img_url %}
-          <img src="{{ about_img_url.url }}" alt="{{ self.about_title }}" />
+          <img src="{{ about_img_url.url }}" alt="{{ self.about_title }}">
         </div>
       </div>
     </section>
@@ -129,7 +128,7 @@
 {% image manual_step.step_picture original as manual_pic %}
           <div class="home-manual-block-pick">
             <div class="home-manual-pick">
-              <img src="{{ manual_pic.url }}" alt="" />
+              <img src="{{ manual_pic.url }}" alt="">
             </div>
             <div class="home-manual-pick-text">{{ manual_step.about_name }}</div>
           </div>
@@ -155,7 +154,7 @@
 
 {% image online_tv.logo_provider original as provider_logo %}
           <div class="home-broadcaster-pic">
-            <img src="{{ provider_logo.url }}" alt="" />
+            <img src="{{ provider_logo.url }}" alt="">
           </div>
             {% endfor %}
         </div>
