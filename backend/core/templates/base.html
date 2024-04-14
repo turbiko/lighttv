@@ -30,11 +30,38 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200..900&display=swap"
       rel="stylesheet">
     
-    <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
-
+        <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+        <style>
+            .social-icon-wrapper {
+                display: inline-block;
+                width: 50px; 
+                height: 50px;
+                border-radius: 50%;
+                color:var(--main-color2);
+                background-color: var(--main-color1); /* Спочатку встановлюємо основний колір */
+                transition: background-color 0.3s, fill 0.3s;
+                cursor: pointer;                    
+            }
+        
+            .social-icon-wrapper:hover {
+                color:var(--main-color1);
+                background-color: white; /* При наведенні фон стає білим */
+            }
+        
+            .social-icon-wrapper svg {
+                fill: var(--main-color1);
+                width: 100%;
+                height: auto;
+                transition: fill 0.3s;
+            }
+        
+            .social-icon-wrapper:hover svg {
+                fill: var(--main-color2); 
+            }
+          </style>
         {% block extra_css %}
         {% endblock extra_css %}
     </head>
@@ -249,34 +276,7 @@
             </div>
           </div>
         </div>
-          <style>
-            .social-icon-wrapper {
-                display: inline-block;
-                width: 50px; 
-                height: 50px;
-                border-radius: 50%;
-                color:var(--main-color2);
-                background-color: var(--main-color1); /* Спочатку встановлюємо основний колір */
-                transition: background-color 0.3s, fill 0.3s;
-                cursor: pointer;                    
-            }
-        
-            .social-icon-wrapper:hover {
-                color:var(--main-color1);
-                background-color: white; /* При наведенні фон стає білим */
-            }
-        
-            .social-icon-wrapper svg {
-                fill: var(--main-color1); /* За замовчуванням колір SVG - білий */
-                width: 100%;
-                height: auto;
-                transition: fill 0.3s;
-            }
-        
-            .social-icon-wrapper:hover svg {
-                fill: var(--main-color2); /* При наведенні колір SVG змінюється на основний колір */
-            }
-          </style>
+
         <div class="footer-social">
             <div class="social-icons-block">
                 {% for link in settings.home.SocialMediaSettings.social_media_links.all %}
