@@ -1,5 +1,7 @@
 import os
 import logging
+from datetime import datetime
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -12,6 +14,7 @@ from wagtail.models import Page, Orderable
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
 
+import tvweek.models
 from core.settings import base as core_base
 
 logger = logging.getLogger('lighttv')
@@ -123,5 +126,19 @@ class HomePage(Page):
     def get_context(self, request):
         logger.info(f'Homepage (get_context) was accessed by {request.user} ')
         context = super().get_context(request)
+        now = datetime.now()
+        chart_lines_today = tvweek.models.ChartLine.objects.filter(
+            start_time__date=now.date(),
+            start_time__gt=now
+        ).select_related('project_of_program').order_by('start_time')
+
+        context['chart_lines'] = [
+            {
+                'time': line.start_time.strftime('%H:%M'),
+                'program_title': line.program_title,
+                'project_title': line.project_of_program.title if line.project_of_program else None
+            }
+            for line in chart_lines_today
+        ]
 
         return context

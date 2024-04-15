@@ -32,6 +32,8 @@
 
 .projects-page-title-block {
     color: #1B1B1B;
+}
+.projects-page-title-block h1 {
     leading-trim: both;
     text-edge: cap;
     font-family: Montserrat;
@@ -82,9 +84,8 @@
 }
 .project-list-element-picture {
     width: 328px;
-height: 207px;
+    height: 207px;
     border-radius: 20px;
-
 }
 .project-list-text-block {
     width: 100%;
@@ -94,6 +95,8 @@ height: 207px;
     gap: 10px;
 }
 .project-list-element-title {
+}
+.project-list-element-title h2 {
     color: #1B1B1B;
     font-family: Montserrat;
     font-size: 18px;

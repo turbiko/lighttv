@@ -6,8 +6,8 @@
 {% block extra_css %}
 
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chart-slider.css' %}">
     <link rel="stylesheet" href="{% static 'css/big-slider.css' %}">
-    <link rel="stylesheet" href="{% static 'css/swiper-bundle9.min.css' %}">
     <style> {# big slider styles #}
         .swiper-button-prev {
             background-image: url('{% static "img/nav-grey-left.svg" %}');
@@ -39,14 +39,31 @@
                 display: none;
             }
         }
+        .chart-arrow-prev {
+            background-image: url('{% static "img/chart-arrow-left.svg" %}');
+            background-size: cover;
+        }
+        .chart-arrow-prev:hover {
+            background-image: url('{% static "img/chart-arrow-left-active.svg" %}');
+            background-color: var(--tvchart-color);
+        }
+        .chart-arrow-next {
+            background-image: url('{% static "img/chart-arrow-right.svg" %}');
+            background-size: cover;
+        }
+        .chart-arrow-next:hover {
+            background-image: url('{% static "img/chart-arrow-right-active.svg" %}');
+            background-color: var(--tvchart-color);
+        }
+
     </style>
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle9.min.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
-
-    <div class="swiper BigSwiper">
+    <section class="swiper BigSwiper">
         <div class="swiper-wrapper">
-{# big slider start#}
+{# big slider content start#}
             {% for slider_image in page.slider_images.all %}
                 {% if slider_image.project.image_slider_big %}
                 {% image slider_image.project.image_slider_big original as img_url %}
@@ -58,21 +75,63 @@
                 {#</a> #}
                 {% endif %}
             {% endfor %}
-{# big slider end#}
-
+{# big slider content end#}
         </div>
-
-    <div class="swiper-button-next" ></div>
-    <div class="swiper-button-prev" ></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
-    </div>
-{# tv-chart today slider#}
+    </section>
 
-{# tv-chart today slider end#}
+{# Chart Slider start #}{# tv-chart today slider#}
+     <section class="formats-section section" id="formats-section">
+        <div class="slider-title">
+            <div class="chart-slider-title"><h2>Сьогодні в ефірі</h2></div>
+          <div class="chart-link">
+              <span>Телепрограма</span>
+              <img src="{% static 'img/arrow-right-thin.png' %}">
+          </div>
+        </div>
+        <div class="container">
+
+          <div class="formats-section__slider">
+            <button
+              class="chart-arrow chart-arrow-prev"
+              type="button" >
+            </button>
+            <div class="formats-section__container swiper-container">
+              <ul class="formats-section__list swiper-wrapper">
+                  {% for line in chart_lines %}
+                  <li class="swiper-slide">
+                  <article class="format-card">
+                    <div class="format-card__title">
+                    <h3 >{{ line.time }}</h3>
+                    </div>
+                    <div class="format-card__text">
+                        <p>{{ line.program_title }}</p>
+                    </div>
+                  </article>
+                </li>
+                  {% endfor %}
+              </ul>
+
+            </div>
+            <button
+              class="chart-arrow chart-arrow-next"
+              type="button"
+            >
+
+            </button>
+          </div>
+        </div>
+      </section>
+
+{# Chart Slider end #}{# tv-chart today slider end#}
+
   <!-- Initialize Swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {# Big Slider start #}
   <script>
-    var swiper = new Swiper(".BigSwiper", {
+    var swiper1 = new Swiper(".BigSwiper", {
       loop: true,
         slidesPerView: 1,
         navigation: {
@@ -84,18 +143,50 @@
       },
       keyboard: true,
     });
-  </script>
+  </script> {# Big Slider end #}
+
+
+  <script>
+    const swiper2 = new Swiper('.swiper-container', {
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 20,
+  breakpoints: {
+	200: {
+      slidesPerView: 1,
+    },
+	420: {
+      slidesPerView: 2,
+    },
+	640: {
+      slidesPerView: 3,
+    },
+	860: {
+      slidesPerView: 4,
+    },
+    1080: {
+      slidesPerView: 5,
+    },
+  },
+  navigation: {
+    nextEl: '.chart-arrow-next',
+    prevEl: '.chart-arrow-prev',
+  },
+});
+
+  </script> {# Chart Slider end #}
+
+
 {# about-block#}
     <section class="home-about">
       <div class="home-about-wrapper">
         <div class="home-about-text-block">
           <div class="home-about-title-block">
             <div class="home-about-small-text">{{ self.about_name }}</div>
-            <div class="home-about-title">{{ self.about_title }}</div>
+            <div class="home-about-title"><h2>{{ self.about_title }}</h2></div>
           </div>
           <div class="home-about-text">
               {{ self.about_description | safe}}
-
           </div>
         </div>
         <div class="home-about-pic-block">
@@ -107,7 +198,7 @@
 
 {# about-block end#}
 
-{# manusl #}
+{# manual #}
     <section class="home-manual">
       <div class="home-manual-wrapper">
         <div class="home-manual-title-block">
@@ -116,7 +207,7 @@
                 {{ self.manual_name | safe }}
             </div>
             <div class="home-manual-title">
-                {{ self.manual_title }}
+                <h2>{{ self.manual_title }}</h2>
             </div>
           </div>
           <div class="home-manual-title-astericks">
@@ -137,7 +228,7 @@
       </div>
     </section>
 
-{# manusl end#}
+{# manual end#}
 
 {# broadcasters#}
     <section class="home-broadcasters">
@@ -145,7 +236,7 @@
         <div class="home-broadcasters-text-block">
           <div class="home-broadcasters-text-breadcrumb">{{ self.online_name }}</div>
           <div class="home-broadcasters-title-block">
-            <div class="home-broadcasters-title">{{ self.online_title }}</div>
+            <div class="home-broadcasters-title"><h2>{{ self.online_title }}</h2></div>
             <div class="home-broadcasters-text">{{ self.online_text | safe }}</div>
           </div>
         </div>

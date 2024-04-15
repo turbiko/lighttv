@@ -29,7 +29,7 @@ swiper-container {
   list-style: none;
   padding: 0;
   z-index: 1;
-  display: block;
+  /*display: block;*/
 }
 .swiper-vertical > .swiper-wrapper {
   flex-direction: column;
@@ -64,7 +64,7 @@ swiper-slide {
   height: 100%;
   position: relative;
   transition-property: transform;
-  display: block;
+  /*display: block;*/
 }
 .swiper-slide-invisible-blank {
   visibility: hidden;

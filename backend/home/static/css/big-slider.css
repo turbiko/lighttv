@@ -1,12 +1,15 @@
 /* big swiper buttons */
 .swiper {
+    display: flex;
+    }
+.BigSwiper {
       max-width: var(--big-slider-max-width);
       height: 100%;
-    }
+}
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    /*background: #fff;*/
     display: flex;
     justify-content: center;
     align-items: center;

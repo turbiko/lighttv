@@ -56,7 +56,7 @@
   line-height: normal;
   text-transform: uppercase;
 }
-.home-about-title {
+.home-about-title h2{
   color: var(--page-title-text-color);
   font-family: Montserrat;
   font-size: 45px;
@@ -124,7 +124,7 @@
   line-height: normal;
   text-transform: uppercase;
 }
-.home-manual-title {
+.home-manual-title h2{
   width: 782px;
   color: var(--page-title-text-color);
   font-family: Montserrat;
@@ -215,7 +215,7 @@
   align-items: flex-start;
   gap: 35px;
 }
-.home-broadcasters-title {
+.home-broadcasters-title h2{
   width: 682px;
   color: var(--page-title-text-color);
   font-family: Montserrat;
