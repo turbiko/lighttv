@@ -48,7 +48,6 @@ class WeekChart(Page):
             'day_date': (start_week + dt.timedelta(days=week_day_number)),
             'chart_lines': []
         } for week_day_number in range(7)]
-        print(f'{this_week_days=}')
 
         for line_temp in chart_lines:
             weekday_index = line_temp.start_time.weekday()
@@ -57,9 +56,7 @@ class WeekChart(Page):
         context['week_days'] = generate_week_dict(now_day)
         context['days_of'] = this_week_days
         for oker in context['days_of']:
-            print(f'{oker=}')
+            print(f'days_of {oker=}')
 
         return context
 
-    def get_day_chart(self, day_date: datetime.date):
-        ...

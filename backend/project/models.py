@@ -15,8 +15,8 @@ logger = logging.getLogger('svitlo')
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
+    name = models.CharField(_('Назва жанру'),max_length=100)
+    description = models.TextField(_('Опис жанру'), blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -29,15 +29,16 @@ class ProjectGenres(Orderable):
         FieldPanel('genre'),
     ]
 class ProjectType(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(_('Тип проєкту'), max_length=255)
 
     def __str__(self):
         return self.name
 
+
 class Project(Page):
     template = 'project' + os.sep + 'project-page.html'
     parent_page_types = ['Projects_List']
-    date_production = models.DateField(_('дата релізу'), blank=True, null=True)  # TODO: use YEAR only
+    date_production = models.DateField(_('Дата релізу'), blank=True, null=True)  # TODO: use YEAR only
     chart_name_short = models.CharField(_('Коротка назва для тв-програми'), max_length=30,blank=True, null=True)
     duration_minutes = models.IntegerField(_('Хронометраж, хв.'), blank=True, null=True)
     project_type = models.ForeignKey(ProjectType, null=True, on_delete=models.SET_NULL)
@@ -79,11 +80,20 @@ class Project(Page):
                 [InlinePanel("project_genres", label=_("Жанр"))],
                 heading=_("Додаткова інформація"),
         ),
-
     ]
 
+    def get_context(self, request):
+        context = super().get_context(request)
 
-class Projects_List(Page):
+        if self.project_type:
+            # Exclude the current project from the queryset
+            similar_projects = Project.objects.live().filter(project_type=self.project_type).exclude(pk=self.pk)
+            context['similar_projects'] = similar_projects
+            print(f"{similar_projects.count()=}")
+        return context
+
+
+class Projects_List(Page):  # noqa
     template = 'project' + os.sep + 'projects-list.html'
     subpage_types = ['Project']
     parent_page_types = ['home.HomePage']

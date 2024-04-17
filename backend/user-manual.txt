@@ -15,9 +15,26 @@ python manage.py createsuperuser
 python manage.py collectstatic
 gunicorn core.wsgi:application -b :8081  --workers=5   --timeout=190 --graceful-timeout=100 --log-level=DEBUG
 
-### Docker run
+### Docker workflow
 git pull
 docker compose up  --build
+docker-compose exec web python manage.py migrate --noinput
+
+## daemonize
+docker-compose up -d --build
+# Docker additional
+sudo docker run -p 8100:8100 name_cont
+# Flag value	Description
+-p 8080:80	Map TCP port 80 in the container to port 8080 on the Docker host.
+-p 192.168.1.100:8080:80	Map TCP port 80 in the container to port 8080 on the Docker host for connections to host IP 192.168.1.100.
+-p 8080:80/udp	Map UDP port 80 in the container to port 8080 on the Docker host.
+-p 8080:80/tcp -p 8080:80/udp	Map TCP port 80 in the container to TCP port 8080 on the Docker host, and map UDP port 80 in the container to UDP port 8080 on the Docker host.
+sudo docker container ls
+sudo docker exec -it 8836acc8f963 /bin/bash
+docker-compose down
+docker ps --all
+$ docker kill <name>
+docker volume prune
 
 ### ubuntu system DateTime
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-time-synchronization-on-ubuntu-18-04

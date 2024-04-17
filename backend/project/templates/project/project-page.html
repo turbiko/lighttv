@@ -5,6 +5,25 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/project.css' %}">
+    <link rel="stylesheet" href="{% static 'css/similar-pr.css' %}">
+    <style>
+        .chart-arrow-prev {
+            background-image: url('{% static "img/chart-arrow-left.svg" %}');
+            background-size: cover;
+        }
+        .chart-arrow-prev:hover {
+            background-image: url('{% static "img/chart-arrow-left-active.svg" %}');
+            background-color: var(--tvchart-color);
+        }
+        .chart-arrow-next {
+            background-image: url('{% static "img/chart-arrow-right.svg" %}');
+            background-size: cover;
+        }
+        .chart-arrow-next:hover {
+            background-image: url('{% static "img/chart-arrow-right-active.svg" %}');
+            background-color: var(--tvchart-color);
+        }
+    </style>
 {% endblock extra_css %}
 
 {% block content %}
@@ -96,4 +115,57 @@
     </div>
 
 </section>
+
+{# Slider similar projects start #}
+     <section class="similar-section section" id="similar-section">
+        <div class="slider-title">
+            <div class="chart-slider-title"><h2>Схожі проєкти</h2></div>
+          <div class="chart-link">
+              <span>Всі проєкти</span>
+              <img src="{% static 'img/arrow-right-thin.png' %}">
+          </div>
+        </div>
+        <div class="container">
+
+          <div class="similar-section__slider">
+            <button
+              class="chart-arrow chart-arrow-prev"
+              type="button" >
+            </button>
+            <div class="formats-section__container swiper-container">
+              <ul class="formats-section__list swiper-wrapper">
+                   {% for project in similar_projects %}
+                  <li class="swiper-slide">
+                  <article class="format-card">
+                      <div class="">
+                          {% if project.feed_image %}
+                              {% image slider_image.project.feed_image original as img_url %}
+                              {{ img_url.url }}
+                          {% endif %}
+                      </div>
+                    <div class="format-card__title">
+                    <a href="{% pageurl project %}">
+                        <h3 >{{ project.title }}</h3>
+                    </a>
+                    </div>
+                    <div class="format-card__text">
+                        <p>{{ project.project_type }}</p>
+                    </div>
+                  </article>
+                </li>
+                  {% endfor %}
+              </ul>
+
+            </div>
+            <button
+              class="chart-arrow chart-arrow-next"
+              type="button"
+            >
+
+            </button>
+          </div>
+        </div>
+      </section>
+
+{# Slider similar projects end #}
 {% endblock content %}

@@ -55,9 +55,28 @@ class HomePageSliderImages(Orderable):
     """big slider images for slider on home page"""
     page = ParentalKey('wagtailcore.Page', related_name='slider_images')
     project = models.ForeignKey('project.Project', null=True, blank=True, on_delete=models.CASCADE)
+    desktop_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Малюнок слайдеру десктоп версія')
+    )
+    mobile_picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('Малюнок слайдеру мобільна версія')
+    )
+
 
     panels = [
         PageChooserPanel('project', 'project.Project'),
+        FieldPanel('desktop_picture'),
+        FieldPanel('mobile_picture')
     ]
 
 
@@ -74,7 +93,7 @@ class HomeTvManualStep(Orderable):
     )
 
 
-class HomeOnlineTv(Orderable):
+class HomeOnlineTv(Orderable):  # Online providers section
     page = ParentalKey('wagtailcore.Page', related_name='online_tv')
     online_provider_url = models.URLField(default="#")
     logo_provider = models.ForeignKey(
@@ -88,9 +107,9 @@ class HomeOnlineTv(Orderable):
 
 
 class HomePage(Page):
-    about_name = models.CharField(max_length=50, blank=True,null=True)
-    about_title = models.CharField(max_length=50, blank=True,null=True)
-    about_description = RichTextField( blank=True,null=True)
+    about_name = models.CharField(_('Про нас назва блоку'), max_length=50, blank=True,null=True)
+    about_title = models.CharField(_('Про нас заголовок'), max_length=50, blank=True,null=True)
+    about_description = RichTextField(_('Про нас текст опису'), blank=True, null=True)
     about_picture = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -99,12 +118,12 @@ class HomePage(Page):
         related_name='+',
         help_text=_('малюнок дло блоку Про нас')
     )
-    manual_name = models.CharField(max_length=150, blank=True,null=True)
-    manual_title = models.CharField(max_length=250, blank=True,null=True)
-    manual_text = models.CharField(max_length=550, blank=True,null=True)
-    online_name = models.CharField(max_length=150, blank=True,null=True)
-    online_title = models.CharField(max_length=250, blank=True,null=True)
-    online_text = RichTextField( blank=True,null=True)
+    manual_name = models.CharField(_('Налаштування приймача'), max_length=150, blank=True,null=True)
+    manual_title = models.CharField(_('Заголовок блоку налаштування'), max_length=250, blank=True,null=True)
+    manual_text = models.CharField(_('Текст налаштувань'), max_length=550, blank=True,null=True)
+    online_name = models.CharField(_('Онлайн провайдери назва блоку'), max_length=150, blank=True,null=True)
+    online_title = models.CharField(_('Онлайн провайдери заголовок'), max_length=250, blank=True,null=True)
+    online_text = RichTextField(_('Онлайн провайдери опис'), blank=True,null=True)
 
 
     content_panels = Page.content_panels + [
@@ -132,6 +151,7 @@ class HomePage(Page):
             start_time__gt=now
         ).select_related('project_of_program').order_by('start_time')
 
+        # check lines
         context['chart_lines'] = [
             {
                 'time': line.start_time.strftime('%H:%M'),
