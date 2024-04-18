@@ -1,15 +1,16 @@
 <!-- tvweek/templates/tvweek/upload_chart.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Upload TV Chart</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static  wagtailimages_tags%}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
     <h2>Upload TV Chart</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Upload</button>
     </form>
-</body>
-</html>
+{% endif %}
+{% endblock content %}
