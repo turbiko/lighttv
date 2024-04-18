@@ -37,9 +37,14 @@
             <span class="tvchart-time">{{ chart_line.start_time|date:"H:i"  }}</span>
         </div>
         <div class="tvchart-chart-line-pict">
-            {% image chart_line.project_of_program.specific.feed_image original as line_image %}
+
             <div class="tvchart-image" >
-                <img src="{{ line_image.url}}" style="width: 100%;height: 100%;border-radius: 20px;">
+                <img src="{% if chart_line.project_of_program.specific.feed_image %}
+            {% image chart_line.project_of_program.specific.feed_image original as line_image %}
+            {{ line_image.url}}
+            {% else %}
+                {% static 'img/default_308х190.png' %}
+            {% endif %}" style="width: 100%;height: 100%;border-radius: 20px;">
             </div>
         </div>
         <div class="tvchart-chart-line-text-block">
