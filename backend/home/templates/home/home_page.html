@@ -67,12 +67,11 @@
             {% for slider_image in page.slider_images.all %}
                 {% if slider_image.project.image_slider_big %}
                 {% image slider_image.project.image_slider_big original as img_url %}
-                {# <a href="{{ slider_image.project.url }}"> #}
                 <div class="swiper-slide project-image-block"
                             style="background-image: url('{{ img_url.url }}');
                             background-size: cover; background-position: center;">
+                {{ slider_image.project.title }}
                 </div>
-                {#</a> #}
                 {% endif %}
             {% endfor %}
 {# big slider content end#}
@@ -81,7 +80,7 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
     </section>
-{# Chart Slider start #}{# tv-chart today slider#}
+{# tv-chart today slider#}
      <section class="formats-section section" id="formats-section">
         <div class="slider-title">
             <div class="chart-slider-title"><h2>Сьогодні в ефірі</h2></div>
@@ -91,7 +90,6 @@
           </div>
         </div>
         <div class="container">
-
           <div class="formats-section__slider">
             <button
               class="chart-arrow chart-arrow-prev"
@@ -114,19 +112,16 @@
                 </li>
                   {% endfor %}
               </ul>
-
             </div>
             <button
               class="chart-arrow chart-arrow-next"
               type="button"
             >
-
             </button>
           </div>
         </div>
       </section>
-
-{# Chart Slider end #}{# tv-chart today slider end#}
+    {# tv-chart today slider end#}
 
   <!-- Initialize Swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -145,35 +140,33 @@
       keyboard: true,
     });
   </script> {# Big Slider end #}
-
-
-  <script>
+  <script> {# Chart Slider end #}
     const swiper2 = new Swiper('.swiper-container', {
-  loop: true,
-  slidesPerView: 1,
-  spaceBetween: 20,
-  breakpoints: {
-	200: {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+    200: {
       slidesPerView: 1,
     },
-	420: {
+    420: {
       slidesPerView: 2,
     },
-	640: {
+    640: {
       slidesPerView: 3,
     },
-	860: {
+    860: {
       slidesPerView: 4,
     },
     1080: {
       slidesPerView: 5,
     },
-  },
-  navigation: {
+    },
+    navigation: {
     nextEl: '.chart-arrow-next',
     prevEl: '.chart-arrow-prev',
-  },
-});
+    },
+    });
 
   </script> {# Chart Slider end #}
 
