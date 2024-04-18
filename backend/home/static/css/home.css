@@ -49,7 +49,6 @@
 }
 .home-about-small-text {
   color: var(--page-tag-color);
-  font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -58,14 +57,12 @@
 }
 .home-about-title h2{
   color: var(--page-title-text-color);
-  font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
 .home-about-text {
-  width: 445px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -75,7 +72,6 @@
 .home-about-text p {
   align-self: stretch;
   color: var(--text, var(--page-text-color));
-  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -117,7 +113,6 @@
 }
 .home-manual-block-a-line1 {
   color:  var(--page-text-color);
-  font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -125,9 +120,8 @@
   text-transform: uppercase;
 }
 .home-manual-title h2{
-  width: 782px;
+  max-width: 782px;
   color: var(--page-title-text-color);
-  font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
   font-weight: 700;
@@ -136,7 +130,6 @@
 
 .chapter-additional {
   color: var(--page-title-link-color);
-  font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -147,7 +140,6 @@
 }
 .home-manual-title-astericks {
   color: var(--text, var(--page-text-color));
-  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -176,7 +168,6 @@
   width: 192px;
   color: var(--page-title-text-color);
   text-align: center;
-  font-family: Montserrat;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;
@@ -201,7 +192,6 @@
 }
 .home-broadcasters-text-breadcrumb {
   color:  var(--page-tag-color);
-  font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -216,18 +206,16 @@
   gap: 35px;
 }
 .home-broadcasters-title h2{
-  width: 682px;
+  max-width: 682px;
   color: var(--page-title-text-color);
-  font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
 .home-broadcasters-text {
-  width: 682px;
+  max-width: 682px;
   color: var(--text, var(--page-text-color));
-  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -246,3 +234,7 @@
   flex-shrink: 0;
   border-radius: 20px;
 }
+@media (max-width: 768px) {
+  
+}
+

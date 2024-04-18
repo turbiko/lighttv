@@ -46,7 +46,6 @@ header {
 .menu__link {
   text-decoration: none;
   color: var(--main-color2);
-  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 800;
@@ -126,7 +125,7 @@ body._touch .menu__list > li._active .menu__arrow {
   visibility: visible;
 }
 /* ----------------------- */
-@media (min-width: 767px) {
+@media (min-width: 820px) {
   .menu__list {
     display: flex;
     align-items: center;
@@ -142,7 +141,7 @@ body._touch .menu__list > li._active .menu__arrow {
     transition: all 0.3s ease 0s;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 820px) {
   #top-menu-social1 {
     visibility: visible;
 
@@ -213,7 +212,6 @@ body._touch .menu__list > li._active .menu__arrow {
 
   .menu__body::before {
     content: "";
-    position: fixed;
     width: 100%;
     top: 0;
     left: 0;

@@ -36,7 +36,6 @@
 .projects-page-title-block h1 {
     leading-trim: both;
     text-edge: cap;
-    font-family: Montserrat;
     font-size: 60px;
     font-style: normal;
     font-weight: 800;
@@ -98,7 +97,6 @@
 }
 .project-list-element-title h2 {
     color: #1B1B1B;
-    font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -106,7 +104,6 @@
 }
 .project-list-element-type {
     color: #A5A5A5;
-    font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

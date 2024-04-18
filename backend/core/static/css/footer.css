@@ -60,7 +60,6 @@ footer {
 }
 .footer-address-block1-a1 {
   color: rgba(255, 255, 255, 0.3);
-  font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -69,7 +68,6 @@ footer {
 }
 .footer-address-block1-a2 {
   color: var(--main-color2);
-  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -84,7 +82,6 @@ footer {
 }
 .footer-address-block2-a1 {
   color: rgba(255, 255, 255, 0.3);
-  font-family: Montserrat;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -101,7 +98,6 @@ footer {
 .footer-address-block2-a2-b1 {
   align-self: stretch;
   color: var(--main-color2);
-  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -121,7 +117,6 @@ footer {
   margin-bottom: 20px;
   align-self: stretch;
   color: var(--main-color2);
-  font-family: Montserrat;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -154,7 +149,6 @@ footer {
 .footer-field-string {
   color: #757575;
   font-size: 14px;
-  font-family: Montserrat;
   font-weight: 400;
   line-height: 24.5px;
   word-wrap: break-word;
@@ -204,7 +198,6 @@ footer {
   color: var(--main-color2);
   background-color:unset;
   font-size: 16px;
-  font-family: Montserrat;
   font-weight: 600;
   word-wrap: break-word;
 }
@@ -254,5 +247,30 @@ display:none
   .social-icon-block {
     position: absolute;
     top: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  .footer-form{
+    width: 100%;
+  }
+  .footer-form-fields-contact {
+    flex-direction: column;
+  }
+  .footer-form-name,
+  .footer-form-email,
+  .footer-form-fields-data,
+  .footer-form-button {
+    width: 100%;
+  }
+  .footer-address-block-2,
+  .footer-address-block1,
+  .footer-address-block1-a1 {
+    width: auto;
+    text-align: center;
+    margin-inline:auto;
+  }
+  .footer-address-block2-a1 {
+    margin-inline:auto;
   }
 }

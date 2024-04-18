@@ -94,7 +94,6 @@ flex: 1 0 0;
 .similar-card__text {
     color: #1B1B1B;
     text-align: center;
-    font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -167,7 +166,6 @@ flex: 1 0 0;
 }
 .chart-slider-title {
   color: #1b1b1b;
-  font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
   font-weight: 700;
@@ -181,7 +179,6 @@ flex: 1 0 0;
 
 .chart-link span {
     color: #D89C9C;
-    font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;

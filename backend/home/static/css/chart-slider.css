@@ -4,9 +4,6 @@ ul {
   padding: 0;
   list-style-type: none;
 }
-.text-uppercase {
-  text-transform: uppercase;
-}
 .visually-hidden {
   position: absolute;
   left: -10000px;
@@ -19,6 +16,7 @@ ul {
   overflow: hidden;
 }
 .button {
+    width:54px; height:54px;
   display: block;
   padding: 10px 24px;
   font-weight: 600;
@@ -41,6 +39,7 @@ ul {
     border-radius: 50px;
     cursor: pointer;
     background-color: var(--main-color2);
+    flex-shrink: 0;
 }
 .chart-arrow-next {}
 .chart-arrow-prev {}
@@ -96,7 +95,6 @@ background: #F2E9E9;
 .format-card__text {
     color: #1B1B1B;
     text-align: center;
-    font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -158,9 +156,9 @@ background: #F2E9E9;
   }
 }
 
-
 .slider-title {
-  width: 1040px;
+  max-width: 1040px;
+    min-width: 580px;
   height: 55px;
   display: flex;
   align-items: center;
@@ -169,7 +167,6 @@ background: #F2E9E9;
 }
 .chart-slider-title {
   color: #1b1b1b;
-  font-family: Montserrat;
   font-size: 45px;
   font-style: normal;
   font-weight: 700;
@@ -183,7 +180,6 @@ background: #F2E9E9;
 
 .chart-link span {
     color: #D89C9C;
-    font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;

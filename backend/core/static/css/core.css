@@ -41,6 +41,7 @@
 }
 a {
   text-decoration: none;
+  color: inherit;
 }
 ul,
 ol,
@@ -67,8 +68,6 @@ body {
   font-weight: 700;
   line-height: 1;
   font-size: 16px;
-  color: var(--page-color);
-  color: var(--page-title-text-color);
 }
 body._lock {
   overflow: hidden;

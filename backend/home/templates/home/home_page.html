@@ -35,7 +35,9 @@
             .swiper-button-next,
             .swiper-button-next:hover,
             .swiper-button-prev,
-            .swiper-button-prev:hover {
+            .swiper-button-prev:hover,
+            .chart-arrow-prev,
+            .chart-arrow-next {
                 display: none;
             }
         }
@@ -85,7 +87,7 @@
         <div class="slider-title">
             <div class="chart-slider-title"><h2>Сьогодні в ефірі</h2></div>
           <div class="chart-link">
-              <span>Телепрограма</span>
+              <span><a href="teleprograma/"  >Телепрограма</a></span>
               <img src="{% static 'img/arrow-right-thin.png' %}">
           </div>
         </div>
@@ -104,8 +106,8 @@
                     <h3 >{{ line.time }}</h3>
                     </div>
                     <div class="format-card__text">
-                        <p>{{ line.program_title }}</p>
-                        <hr>
+{#                        <p>{{ line.program_title }}</p>#}
+
                         <p>{{ line.project_title }}</p>
                     </div>
                   </article>

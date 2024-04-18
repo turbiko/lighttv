@@ -66,7 +66,7 @@
         {% endblock extra_css %}
     </head>
     <body class="{% block body_class %}{% endblock %}">
-<div class="wrapper">
+<div class="wrapper-header">
     <!-- header -->
       <header class="header">
         <div class="header__container">
@@ -165,9 +165,12 @@
           </div>
         </div>
       </header>
-
+</div>
+<div class="wrapper-content">
     {% block content %}
     {% endblock content %}
+</div>
+<div class="wrapper-footer">
     <footer>
       <div class="footer-wrapper">
         <div class="footer-logo">
