@@ -89,7 +89,9 @@ class Project(Page):
             # Exclude the current project from the queryset
             similar_projects = Project.objects.live().filter(project_type=self.project_type).exclude(pk=self.pk)
             context['similar_projects'] = similar_projects
-            print(f"{similar_projects.count()=}")
+            for pr1 in similar_projects:
+                print(f"{pr1.feed_image}")
+
         return context
 
 

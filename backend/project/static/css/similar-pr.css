@@ -66,34 +66,32 @@ ul {
   fill: var(--color-primary-light);
 }
 .swiper-slide {}
-.format-card {
+.similar-card {
 display: flex;
-padding: 45px 25px;
 flex-direction: column;
 align-items: center;
 gap: 20px;
 flex: 1 0 0;
     border-radius: 20px;
-background: #F2E9E9;
+
 }
-.format-card__title {
-    background-color: var(--tvchart-color);
-    color: var(--main-color2);
-    display: flex;
-    padding: 15px 20px;
-    align-items: flex-start;
-    gap: 10px;
+.similar-card__image {
+    width: 100%;   /
+    height: auto;
+    display: block;
     border-radius: 50px;
 }
-.format-card__title timer {
+.similar-card__image {
+
+    border-radius: 50px;
+}
+.similar-card__title {
     display: flex;
-    padding: 15px 20px;
     align-items: flex-start;
     gap: 10px;
-    border-radius: 50px;
-    background: #D89C9C;
-    }
-.format-card__text {
+}
+
+.similar-card__text {
     color: #1B1B1B;
     text-align: center;
     font-family: Montserrat;
@@ -134,6 +132,8 @@ background: #F2E9E9;
     margin: 0 auto;
 }
 .similar-section__slider {
+    max-width:1040px;
+    margin: 10px auto;
     display: flex;
     align-items: center;
     gap: 20px;

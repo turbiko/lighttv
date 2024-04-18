@@ -24,6 +24,7 @@
             background-color: var(--tvchart-color);
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 {% endblock extra_css %}
 
 {% block content %}
@@ -132,24 +133,29 @@
               class="chart-arrow chart-arrow-prev"
               type="button" >
             </button>
-            <div class="formats-section__container swiper-container">
-              <ul class="formats-section__list swiper-wrapper">
-                   {% for project in similar_projects %}
+            <div class="similar-section__container swiper-container">
+              <ul class="similar-section__list swiper-wrapper">
+                   {% for project1 in similar_projects %}
+
                   <li class="swiper-slide">
-                  <article class="format-card">
-                      <div class="">
-                          {% if project.feed_image %}
-                              {% image slider_image.project.feed_image original as img_url %}
-                              {{ img_url.url }}
-                          {% endif %}
+                  <article class="similar-card">
+                      <div class="similar-card__image">
+                        {% if project1.feed_image %}
+                            {% image project1.feed_image width-192 class="swiper-lazy" style="border-radius: 20px;" %}
+                        {% else %}
+                            <!-- Optionally include a default image if none is set -->
+                            <img src="{% static 'img/default_308х190.png' %}"
+                                 alt="no image in project" class="swiper-lazy"
+                                 style="border-radius: 20px;">
+                        {% endif %}
                       </div>
-                    <div class="format-card__title">
-                    <a href="{% pageurl project %}">
-                        <h3 >{{ project.title }}</h3>
+                    <div class="similar-card__title">
+                    <a href="{% pageurl project1 %}">
+                        <h3 >{{ project1.title }}</h3>
                     </a>
                     </div>
-                    <div class="format-card__text">
-                        <p>{{ project.project_type }}</p>
+                    <div class="similar-card__text">
+                        <p>{{ project1.project_type }}</p>
                     </div>
                   </article>
                 </li>
@@ -165,6 +171,35 @@
             </button>
           </div>
         </div>
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+     <script> {# Similar Slider end #}
+    const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+    200: {
+      slidesPerView: 1,
+    },
+    420: {
+      slidesPerView: 2,
+    },
+    640: {
+      slidesPerView: 3,
+    },
+    860: {
+      slidesPerView: 4,
+    },
+    1080: {
+      slidesPerView: 5,
+    },
+    },
+    navigation: {
+    nextEl: '.chart-arrow-next',
+    prevEl: '.chart-arrow-prev',
+    },
+    });
+  </script> {# Similar Slider end #}
       </section>
 
 {# Slider similar projects end #}
