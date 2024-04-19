@@ -243,7 +243,16 @@ display:none
   .footer-form-title {
     text-align: center;
   }
-
+  .footer-address-block-2,
+  .footer-address-block1,
+  .footer-address-block1-a1 {
+    width: auto;
+    text-align: center;
+    margin-inline:auto;
+  }
+  .footer-address-block2-a1 {
+    margin-inline:auto;
+  }
   .social-icon-block {
     position: absolute;
     top: 50%;
@@ -263,14 +272,5 @@ display:none
   .footer-form-button {
     width: 100%;
   }
-  .footer-address-block-2,
-  .footer-address-block1,
-  .footer-address-block1-a1 {
-    width: auto;
-    text-align: center;
-    margin-inline:auto;
-  }
-  .footer-address-block2-a1 {
-    margin-inline:auto;
-  }
+
 }

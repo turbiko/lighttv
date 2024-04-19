@@ -1,6 +1,5 @@
 .tvchart-title-block {
     max-width: 1380px;
-
     padding-top: 80px;
     padding-bottom: 80px;
     flex-shrink: 0;
@@ -126,7 +125,7 @@
 /* Day chart list  */
 .tvchart-day-list {
     display: flex;
-    width: 1040px;
+    max-width: 1040px;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
@@ -221,7 +220,7 @@ font-weight: 700;
 line-height: normal;
 }
 .tvchart-chart-line-text {
-    width: 506px;
+    max-width: 506px;
     color: var(--text, #4E4E4E);
     font-size: 16px;
     font-style: normal;
