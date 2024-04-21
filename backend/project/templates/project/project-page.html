@@ -122,7 +122,8 @@
         <div class="slider-title">
             <div class="chart-slider-title"><h2>Схожі проєкти</h2></div>
           <div class="chart-link">
-              <span>Всі проєкти</span>
+              <span><a href="{{ self.get_parent.url }}">
+          {{ self.get_parent.title|truncatechars:25 }}</a></span>
               <img src="{% static 'img/arrow-right-thin.png' %}">
           </div>
         </div>
@@ -136,7 +137,6 @@
             <div class="similar-section__container swiper-container">
               <ul class="similar-section__list swiper-wrapper">
                    {% for project1 in similar_projects %}
-
                   <li class="swiper-slide">
                   <article class="similar-card">
                       <div class="similar-card__image">
