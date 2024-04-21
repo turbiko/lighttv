@@ -36,6 +36,7 @@
 .projects-page-title-block h1 {
     leading-trim: both;
     text-edge: cap;
+
     font-size: 60px;
     font-style: normal;
     font-weight: 800;
@@ -110,3 +111,23 @@
     line-height: normal;
 }
 
+@media (max-width: 744px) {
+    .projects-page-title-block h1{
+        font-size: 48px;
+    }
+    .projects-list {
+        justify-content: center;
+    }
+    .project-list-block-element {
+        width: 100%;
+        height: auto;
+    }
+    .project-list-element-picture {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 328 / 207;
+    }
+    .projects-page-buttons-block {
+        margin: 0 auto;
+    }
+}
