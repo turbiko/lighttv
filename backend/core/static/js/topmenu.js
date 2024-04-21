@@ -48,6 +48,7 @@ const iconMenu = document.querySelector('.menu__icon');
 const menuBody = document.querySelector('.menu__body');
 const footer = document.querySelector('footer');
 const swiperContainer = document.querySelector('.swiper.BigSwiper');
+const wrapperContent = document.querySelector('.wrapper-content');
 
 if (iconMenu) {
 	iconMenu.addEventListener("click", function (e) {
@@ -55,18 +56,19 @@ if (iconMenu) {
 		iconMenu.classList.toggle('_active');
 		menuBody.classList.toggle('_active');
 		if (document.body.classList.contains('_lock')) {
+			wrapperContent.classList.add('hidden-command');
             footer.classList.add('hidden-command');
             swiperContainer.classList.add('hidden-command');
         } else {
+			wrapperContent.classList.remove('hidden-command');
             footer.classList.remove('hidden-command');
             swiperContainer.classList.remove('hidden-command');
         }
-
 	});
 }
 
 
-// Прокрутка при клике
+// Прокрутка при виконанні goto
 const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
 if (menuLinks.length > 0) {
 	menuLinks.forEach(menuLink => {
