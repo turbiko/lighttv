@@ -5,26 +5,31 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/week-chart.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 {% endblock extra_css %}
 
 {% block content %}
+
 <section class="tvchart-title-block">
     <div class="tvchart-title-wrapper">
-    <div class="tvchart-title-block-content">
         <div class="tvchart-page-title-block">
-            {{ self.title }}
-        </div>
-        <div class="tvchart-days-buttons-block">
-            {% for day in week_days %}
-            <div class="tvchart-day-button {% if day.is_today %} tvchart-today{% endif %}"  data-day="{{ day.day_date|date:'Ymd' }}">
-                <div class="tvchart-day-name{% if day.is_today %}-today{% endif %}">{{ day.day_name }}</div>
-                <div class="tvchart-day-date{% if day.is_today %}-today{% endif %}">{{ day.day_date|date:"j E" }}</div>
+                {{ self.title }}
             </div>
-            {% endfor %}
+        <div class="swiper12">
+            <div class="swiper-wrapper">
+                <!-- Блоки днів тут -->
+                {% for day in week_days %}
+                <div class="swiper-slide">
+                    <div class="tvchart-day-button {% if day.is_today %} tvchart-today{% endif %}"  data-day="{{ day.day_date|date:'Ymd' }}">
+                        <div class="tvchart-day-name{% if day.is_today %}-today{% endif %}">{{ day.day_name }}</div>
+                        <div class="tvchart-day-date{% if day.is_today %}-today{% endif %}">{{ day.day_date|date:"j E" }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
-    </div>
-</section>
+</div>
 
 {% for day in days_of %}
 <!-- {{ day.day_date|date:"j E" }} | {{day.is_today }} -->
@@ -37,7 +42,6 @@
             <span class="tvchart-time">{{ chart_line.start_time|date:"H:i"  }}</span>
         </div>
         <div class="tvchart-chart-line-pict">
-
             <div class="tvchart-image" >
                 <img src="{% if chart_line.project_of_program.specific.feed_image %}
             {% image chart_line.project_of_program.specific.feed_image original as line_image %}
@@ -53,7 +57,7 @@
                 {% if chart_line.project_of_program.specific.description_short %}
                     {{ chart_line.project_of_program.specific.description_short| safe  | truncatechars:200 }}
                 {% else %}
-                    Немає опису проєкту
+                    Опис проєкту наразі відсутній.
                 {% endif %}
             </div>
         </div>
@@ -63,7 +67,7 @@
 {% endfor %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+<script> {# сховати усі дні. по кліку на дні тижня приховати той що був та показати обраний день #}
 $(document).ready(function() {
     $('.tvchart-day-button').click(function() {
         var dayId = $(this).data('day');
@@ -74,4 +78,53 @@ $(document).ready(function() {
     });
 });
 </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+  var swiper12 = new Swiper('.swiper12', {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    mousewheel: true,
+    breakpoints: {
+      // коли ширина вікна 1240px+, показувати 7 слайдів
+      1220: {
+        slidesPerView: 7,
+      },
+      // коли ширина вікна 1024px+, показувати 5 слайдів
+      1040: {
+        slidesPerView: 6,
+        spaceBetween: 20
+      },
+      880: {
+        slidesPerView: 5,
+        spaceBetween: 20
+      },
+      768: {
+        slidesPerView: 6,
+        spaceBetween: 20
+      },
+      445: {
+        slidesPerView: 5,
+        spaceBetween: 20
+      },
+
+      370: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
+      330: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      300: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      140: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    }
+  });
+</script>
+
 {% endblock content %}
