@@ -127,7 +127,7 @@
         height: auto;
         aspect-ratio: 328 / 207;
     }
-    .projects-page-buttons-block {
+    .projects-page-buttons-block a {
         margin: 0 auto;
     }
 }
