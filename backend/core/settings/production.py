@@ -24,6 +24,9 @@ CSRF_TRUSTED_ORIGINS = [
 # CSRF_COOKIE_SECURE = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 try:
     from .local import *
