@@ -10,6 +10,7 @@ from search import views as search_views
 
 urlpatterns = [
     path('chart/', include('tvweek.urls')),
+    path('home/', include('home.urls'), name='home'),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),

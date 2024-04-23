@@ -158,20 +158,14 @@ background: #F2E9E9;
 
 .slider-title {
   max-width: 1040px;
-    min-width: 580px;
+    /*min-width: 580px;*/
   height: 55px;
   display: flex;
   align-items: center;
   justify-content: space-between;
     margin: 0 auto;
 }
-.chart-slider-title {
-  color: #1b1b1b;
-  font-size: 45px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
+
 .chart-link {
     display: flex;
     align-items: center;
@@ -185,3 +179,13 @@ background: #F2E9E9;
     font-weight: 600;
     line-height: normal;
 }
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 475px) {
+    .chart-link {
+        display: none;
+    }
+}
+
