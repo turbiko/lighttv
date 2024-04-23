@@ -13,6 +13,7 @@ from wagtail.contrib.settings.registry import register_setting
 from wagtail.models import Page, Orderable
 from wagtail.admin.panels import InlinePanel, PageChooserPanel, FieldPanel
 from wagtail.fields import RichTextField
+from wagtail.documents import get_document_model
 
 import tvweek.models
 from core.settings import base as core_base
@@ -44,10 +45,23 @@ class SocialMediaLink(Orderable):
             return ""
 
 
+class ReportPDF(Orderable):
+    site_setting = ParentalKey('ReportPDFSettings', related_name='report_pdf')
+    title = models.CharField(max_length=200)
+    report = models.FileField(max_length=255, help_text='Структура власності')
+
+
 @register_setting
 class SocialMediaSettings(BaseSiteSetting, ClusterableModel):
     panels = [
         InlinePanel('social_media_links', label="Соціальні мережі"),
+    ]
+
+
+@register_setting
+class ReportPDFSettings(BaseSiteSetting, ClusterableModel):
+    panels = [
+        InlinePanel('report_pdf', label="Структура власності"),
     ]
 
 
@@ -117,6 +131,14 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         related_name='+',
         help_text=_('малюнок дло блоку Про нас')
+    )
+    report_pdf = models.ForeignKey(
+        get_document_model(),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        help_text=_('Структура власності'),
     )
     manual_name = models.CharField(_('Налаштування приймача'), max_length=150, blank=True,null=True)
     manual_title = models.CharField(_('Заголовок блоку налаштування'), max_length=250, blank=True,null=True)
