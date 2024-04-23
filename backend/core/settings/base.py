@@ -7,8 +7,11 @@ from decouple import config
 
 from django.utils.translation import gettext_lazy as _
 
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
+print(f'{PROJECT_DIR=}')
+print(f'{BASE_DIR=}')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 print(f'base config: loaded DEBUG={DEBUG}')
@@ -149,12 +152,17 @@ STATICFILES_FINDERS = [
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static"),
 ]
+print(f'{STATICFILES_DIRS=}')
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
+print(f'{STATIC_ROOT=}')
+print(f'{STATIC_URL=}')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+print(f'{MEDIA_ROOT=}')
+print(f'{MEDIA_URL=}')
 
 # Sets default for primary key IDs
 # See https://docs.djangoproject.com/en/4.1/ref/models/fields/#bigautofield

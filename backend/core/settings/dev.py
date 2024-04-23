@@ -1,19 +1,13 @@
 from .base import *
 
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-
 import logging
+
+
 logger = logging.getLogger(__name__)
 logger.info("Loaded DEVELOPER settings.")
 
-
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-+$d#&btb)wb$71i1#0eellbko%#m1+bfm^ek+%(h^9hqo8od9d"
-
-print(f'DEV config DEBUG.dev={DEBUG} | secret {SECRET_KEY=}')
 
 ALLOWED_HOSTS = [
     "selected12309.svitlo.tv",
@@ -31,7 +25,6 @@ CSRF_TRUSTED_ORIGINS = [
 # CSRF_COOKIE_SECURE = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
 
 try:
     from .local import *
