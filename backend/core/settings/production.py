@@ -4,8 +4,9 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-logger.info("Loaded DEVELOPER settings.")
+logger.info("Loaded PRODUCTION settings.")
 
+print(f"Loaded PRODUCTION settings {DEBUG=}")
 
 ALLOWED_HOSTS = [
     "selected12309.svitlo.tv",
