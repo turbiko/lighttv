@@ -14,7 +14,7 @@
     <div class="tvchart-title-wrapper">
         <div class="tvchart-page-title-block">
                 {{ self.title }}
-            </div>
+        </div>
         <div class="swiper12">
             <div class="swiper-wrapper">
                 <!-- Блоки днів тут -->
@@ -26,17 +26,18 @@
                     </div>
                 </div>
                 {% endfor %}
+
             </div>
         </div>
     </div>
-</div>
+</section>
 
 {% for day in days_of %}
 <!-- {{ day.day_date|date:"j E" }} | {{day.is_today }} -->
 <!-- {% if day.is_today == False %} not today{% elif day.is_today == True %} is today {% endif %}-->
 <section class="tvchart-day-list"  id="day-{{ day.day_date|date:'Ymd' }}"
         {% if day.is_today == False %} style="display: none;"{% endif %}>
-{% for chart_line in day.chart_lines %}
+    {% for chart_line in day.chart_lines %}
     <div class="tvchart-chart-line">
         <div class="tvchart-chart-line-time">
             <span class="tvchart-time">{{ chart_line.start_time|date:"H:i"  }}</span>
@@ -62,7 +63,7 @@
             </div>
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
 </section>
 {% endfor %}
 
