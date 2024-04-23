@@ -184,3 +184,10 @@ flex: 1 0 0;
     font-weight: 600;
     line-height: normal;
 }
+
+@media (max-width: 500px) {
+    .chart-arrow-next,
+    .chart-arrow-prev {
+        display: none;
+    }
+}

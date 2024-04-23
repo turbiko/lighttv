@@ -117,3 +117,14 @@
     line-height: 26px; /* 162.5% */
 }
 .project-read-more {}
+
+@media (max-width: 500px) {
+    .project-tags {
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .project-duration {
+        justify-content: center;
+    }
+}
