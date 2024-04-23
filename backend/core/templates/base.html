@@ -1,5 +1,6 @@
 {% load static wagtailcore_tags menus_tags wagtailsettings_tags i18n %}
 {% get_menu "topmenu" as navigation %}
+
 {% get_settings %}
 <!DOCTYPE html>
 <html lang="uk">
@@ -221,7 +222,16 @@
           <div class="footer-address-block">
             <div class="footer-address-block1">
               <div class="footer-address-block1-a1">документи</div>
-              <div class="footer-address-block1-a2">Структура власності</div>
+              <div class="footer-address-block1-a2">
+                   {% for link in settings.home.ReportPDFSettings.report_pdf.all %}
+                    {% if link %}
+                    <!--{{ link.title }}-->
+                        <a href="{{ link.report.url }}" target="_blank" >
+                            {{ link.title }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+              </div>
             </div>
             <div class="footer-address-block2">
               <div class="footer-address-block2-a1">контакти</div>
@@ -235,9 +245,16 @@
               </address>
             </div>
           </div>
-
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
           <div class="footer-form">
-            <form method="post">
+            <form  method="post" action="{% url 'home:submit_contact_form' %}">
           {% csrf_token %}
               <div class="footer-form-title">
                 Є питання? <br>Зв’яжіться з нами!
@@ -264,7 +281,18 @@
           <div class="footer-address-block-2">
             <div class="footer-address-block1">
               <div class="footer-address-block1-a1">документи</div>
-              <div class="footer-address-block1-a2">Структура власності</div>
+                <div class="footer-address-block1-a2">
+                   {% for link in settings.home.ReportPDFSettings.report_pdf.all %}
+                    {% if link %}
+                    <!--{{ link.title }}-->
+                        <a href="{{ link.report.url }}" target="_blank" >
+                            {{ link.title }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+              </div>
+
+
             </div>
             <div class="footer-address-block2">
               <div class="footer-address-block2-a1">контакти</div>
