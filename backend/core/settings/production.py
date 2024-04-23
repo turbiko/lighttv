@@ -1,8 +1,13 @@
 from .base import *
 
+import logging
+logger = logging.getLogger(__name__)
+logger.info("Loaded PRODUCTION settings.")
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 print(f'DEBUG.production={DEBUG} ')
-# DEBUG = False
+
 ALLOWED_HOSTS = [
     "selected12309.svitlo.tv",
     "svitlo.tv",
