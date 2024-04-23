@@ -169,6 +169,14 @@
   flex-shrink: 0;
   border-radius: 20px;
   background: rgba(108, 82, 130, 0.1);
+    display: flex;
+    justify-content: center; /* Центруємо зображення горизонтально */
+    align-items: center;     /* Центруємо зображення вертикально */
+}
+.home-manual-pick img {
+    max-width: 30%;
+    height: auto;
+    width: 80px;
 }
 .home-manual-pick-text {
   width: 192px;
