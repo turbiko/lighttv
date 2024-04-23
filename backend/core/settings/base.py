@@ -193,6 +193,7 @@ WAGTAILSEARCH_BACKENDS = {
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = config('WAGTAILADMIN_BASE_URL', default='https://svitlo.tv/')
 
+WAGTAILIMAGES_EXTENSIONS = ["gif", "jpg", "jpeg", "png", "webp", "svg"]
 
 # Wagtail settings options
 # https://docs.wagtail.org/en/stable/reference/settings.html
