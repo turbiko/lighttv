@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 DEBUG = config('DEBUG', default=False, cast=bool)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY", "not-loaded-secret-key-ryu_zr&i&2ne6kXt9uib5oy8rca6ygb5tv!5hb#po-%%9hn2_43k")
-print(f"{SECRET_KEY=}")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -241,3 +241,5 @@ ACCOUNT_SESSION_REMEMBER = config('ACCOUNT_SESSION_REMEMBER', default=True, cast
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = config('ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE', default=False, cast=bool)
 ACCOUNT_USERNAME_BLACKLIST = config('ACCOUNT_USERNAME_BLACKLIST', default=["admin1", "root1"])
 ACCOUNT_USERNAME_MIN_LENGTH = config('ACCOUNT_USERNAME_MIN_LENGTH', default=4, cast=int)
+
+

@@ -1,6 +1,8 @@
 from .base import *
 
-DEBUG = False
+
+print(f"{DEBUG=} ")
+# DEBUG = False
 ALLOWED_HOSTS = [
     "selected12309.svitlo.tv",
     "svitlo.tv",
