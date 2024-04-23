@@ -67,6 +67,8 @@
     gap: 33px;
 }
 .project-title {
+}
+.project-title h2{
     color: #1B1B1B;
     font-size: 45px;
     font-style: normal;
@@ -126,5 +128,8 @@
     }
     .project-duration {
         justify-content: center;
+    }
+    .project-title h2 {
+        font-size: 28px;
     }
 }

@@ -190,4 +190,7 @@ flex: 1 0 0;
     .chart-arrow-prev {
         display: none;
     }
+    .chart-slider-title h2 {
+        font-size: 28px;
+    }
 }
