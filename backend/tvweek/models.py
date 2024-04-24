@@ -55,8 +55,6 @@ class WeekChart(Page):
 
         context['week_days'] = generate_week_dict(now_day)
         context['days_of'] = this_week_days
-        for oker in context['days_of']:
-            print(f'days_of {oker=}')
 
         return context
 
