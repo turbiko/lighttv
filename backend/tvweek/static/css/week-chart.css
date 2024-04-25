@@ -84,6 +84,7 @@
     border-radius: 20px;
     background: #D89C9C;
 }
+.tvchart-day-name-today,
 .tvchart-day-name {
     color: #D89C9C;
     text-align: center;
@@ -94,19 +95,11 @@
     font-weight: 800;
     line-height: normal;
     text-transform: uppercase;
-
 }
 .tvchart-day-name-today {
     color: #FFF;
-    text-align: center;
-    leading-trim: both;
-    text-edge: cap;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    text-transform: uppercase;
 }
+.tvchart-day-date-today,
 .tvchart-day-date {
     color: #D89C9C;
     text-align: center;
@@ -118,12 +111,6 @@
 }
 .tvchart-day-date-today {
     color: #FFF;
-    text-align: center;
-    /*font-size: 16px;*/
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    min-width: 58px;
 }
 /* Day chart list  */
 .tvchart-day-list {
@@ -272,12 +259,19 @@
         padding: 0;
         width:auto;
     }
-    .tvchart-chart-line-time-playing span[class] {
+    .tvchart-time {
         order: -1;
         width: auto;
     }
-    .tvchart-chart-line-time-playing span {
-        width: 150px;
+    .now-playing {
+        width: auto;
+        display: flex;
+        padding: 4px 10px;
+        align-items: center;
+        gap: 10px;
+        border-radius: 40px;
+        color: #fff;
+        background: #D89C9C;
     }
     .tvchart-chart-line-pict {
         order: -1;

@@ -40,7 +40,7 @@
     {% for chart_line in day.chart_lines %}
     <div class="tvchart-chart-line">
         <div class="tvchart-chart-line-time{% if chart_line.now_playing %}-playing{% endif %}" id="line-{{ chart_line.start_time|date:'YmdHi' }}">
-            {% if chart_line.now_playing %} <span>Зараз в ефірі</span>{% endif %}
+            {% if chart_line.now_playing %} <span class="now-playing">Зараз в ефірі</span>{% endif %}
             <span class="tvchart-time">
                 {{ chart_line.start_time|date:"H:i"  }}
             </span>
