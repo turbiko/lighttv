@@ -1,6 +1,6 @@
 .wrapper-header,
 .wrapper-content,
-.wrapper-footer{
+.wrapper-footer {
   min-height: 100%;
 }
 .wrapper-content {
@@ -40,6 +40,8 @@ gap: 13px;
   width: 100%;
 }
 /* ----media----- */
-@media  (max-width:768px) {
-
+@media (max-width: 768px) {
+  .wrapper-content {
+    margin: 0 5px;
+  }
 }
