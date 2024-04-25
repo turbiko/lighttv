@@ -52,7 +52,38 @@ class WeekChart(Page):
         for line_temp in chart_lines:
             weekday_index = line_temp.start_time.weekday()
             this_week_days[weekday_index]['chart_lines'].append(line_temp)
+            # Оновлення контексту для показу програми, що зараз в ефірі
 
+        today_index = now_day.weekday()  # індекс поточного дня
+        current_time = now_day.time()  # поточний час
+
+        for _day in this_week_days:
+            if _day['is_today']:
+                current_show = None
+                current_show_index = None
+                chart_lines_today = _day['chart_lines']
+
+                for index in range(len(chart_lines_today)):
+                    line = chart_lines_today[index]
+                    next_line_start_time = chart_lines_today[index + 1].start_time.time() if index + 1 < len(
+                        chart_lines_today) else None
+
+                    # Перевіряємо, чи є програма зараз в ефірі
+                    if line.start_time.time() <= current_time and (
+                            next_line_start_time is None or next_line_start_time > current_time):
+                        current_show = line
+                        current_show_index = index
+                        line.now_playing = "Зараз в ефірі"
+                        break
+                    else:
+                        line.now_playing = None
+
+
+                if current_show:
+                    _day['now_playing'] = "Зараз в ефірі"
+                    print(f"Current show={current_show} at index {current_show_index}")
+                break  # Вийти з циклу, оскільки поточний день знайдено
+        print(f"{current_show=}")
         context['week_days'] = generate_week_dict(now_day)
         context['days_of'] = this_week_days
 
