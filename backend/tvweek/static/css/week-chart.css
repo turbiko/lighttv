@@ -142,19 +142,25 @@
     align-items: center;
     align-self: stretch;
 }
-.tvchart-chart-line-time {
+.tvchart-chart-line-time,
+.tvchart-chart-line-time-playing {
     display: flex;
-    width: 130px;
-    padding: 15px 20px;
+    width: 140px;
+    padding: 15px 10px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     border-radius: 50px;
 }
+
+.tvchart-chart-line-time-playing {
+    width:140px;
+    color:#D89C9C;
+    flex-direction: column;
+}
 .tvchart-time {
     width: 125px;
     flex-shrink: 0;
-    color: #1B1B1B;
     text-align: center;
     leading-trim: both;
     text-edge: cap;
@@ -204,22 +210,18 @@
     width: 100%;
     height: 100%;
 }
-.tvchart-chart-line-text-block {
+.tvchart-chart-line-text-block,
+.tvchart-chart-line-text-block-playing {
     max-width: 503px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
 }
-.tvchart-chart-line-title {
-    color: #1B1B1B;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-.tvchart-chart-line-title-now {
+.tvchart-chart-line-text-block-playing {
     color: #D89C9C;
+}
+.tvchart-chart-line-title {
     font-size: 25px;
     font-style: normal;
     font-weight: 700;
@@ -251,7 +253,8 @@
         flex-direction: column;
         align-items: flex-start;
     }
-    .tvchart-chart-line-text-block {
+    .tvchart-chart-line-text-block,
+    .tvchart-chart-line-text-block-playing {
         padding: 0 20px;
     }
     .tvchart-day-name,
@@ -261,6 +264,20 @@
     .tvchart-day-date,
     .tvchart-day-date-today {
         font-size:0.675rem;
+    }
+    .tvchart-chart-line-time-playing {
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left:20px;
+        padding: 0;
+        width:auto;
+    }
+    .tvchart-chart-line-time-playing span[class] {
+        order: -1;
+        width: auto;
+    }
+    .tvchart-chart-line-time-playing span {
+        width: 150px;
     }
     .tvchart-chart-line-pict {
         order: -1;

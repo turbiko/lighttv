@@ -39,8 +39,12 @@
         {% if day.is_today == False %} style="display: none;"{% endif %}>
     {% for chart_line in day.chart_lines %}
     <div class="tvchart-chart-line">
-        <div class="tvchart-chart-line-time">
-            <span class="tvchart-time">{{ chart_line.start_time|date:"H:i"  }}</span>
+        <div class="tvchart-chart-line-time{% if chart_line.now_playing %}-playing{% endif %}" id="line-{{ chart_line.start_time|date:'YmdHi' }}">
+            {% if chart_line.now_playing %} <span>Зараз в ефірі</span>{% endif %}
+            <span class="tvchart-time">
+                {{ chart_line.start_time|date:"H:i"  }}
+            </span>
+
         </div>
         <div class="tvchart-chart-line-pict">
             <div class="tvchart-image" >
@@ -52,7 +56,7 @@
             {% endif %}" style="width: 100%;height: 100%;border-radius: 20px;" alt="">
             </div>
         </div>
-        <div class="tvchart-chart-line-text-block">
+        <div class="tvchart-chart-line-text-block{% if chart_line.now_playing %}-playing{% endif %}">
             <div class="tvchart-chart-line-title">{{ chart_line.program_title }}</div>
             <div class="tvchart-chart-line-text">
                 {% if chart_line.project_of_program.specific.description_short %}
@@ -92,7 +96,7 @@ $(document).ready(function() {
       },
       // коли ширина вікна 1024px+, показувати 5 слайдів
       1040: {
-        slidesPerView: 6,
+        slidesPerView: 7,
         spaceBetween: 20
       },
       880: {
