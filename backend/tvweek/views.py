@@ -5,6 +5,8 @@ import pandas as pd
 from django.db import transaction
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import JsonResponse
+from django.utils import timezone
 
 from project.models import Project
 from .forms import TVChartUploadForm
@@ -94,3 +96,8 @@ def chart_page(request):
     week_days = generate_week_dict(now_day_is)
     context['week_days'] = week_days
     return render(request, 'tvweek/week_chart.html', context)
+
+
+def get_current_time(request):
+    current_time = timezone.now()
+    return JsonResponse({'current_time': current_time.isoformat()})
