@@ -29,7 +29,10 @@
     border: 1px solid #6C5282;
     color: #6C5282;
 }
-
+.projects-type-button:hover {
+    color: #F6F6F6;
+    background: #6C5282;
+}
 .projects-page-title-block {
     color: #1B1B1B;
 }
