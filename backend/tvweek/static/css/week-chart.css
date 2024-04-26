@@ -30,6 +30,7 @@
     font-weight: 800;
     line-height: normal;
     text-transform: uppercase;
+    margin-inline-start: 25px;
 }
 .tvchart-header-block {
     max-width: var(--big-slider-max-width);
