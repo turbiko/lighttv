@@ -103,9 +103,7 @@ flex: 1 0 0;
     font-weight: 700;
     line-height: normal;
 }
-.section {
-  padding: 20px 0;
-}
+
 @media screen and (min-width: 768px) {
   .section {
     padding: 48px 0;
@@ -133,7 +131,8 @@ flex: 1 0 0;
 }
 .similar-section {
     max-width: 1440px;
-    margin: 0 auto;
+    margin-inline: auto;
+    margin-bottom: 140px;
 }
 .similar-section__slider {
     max-width: 1040px;
@@ -163,7 +162,7 @@ flex: 1 0 0;
 
 
 .slider-title {
-  width: 1040px;
+  max-width: 1040px;
   height: 55px;
   display: flex;
   align-items: center;
@@ -198,5 +197,10 @@ flex: 1 0 0;
     }
     .chart-slider-title h2 {
         font-size: 28px;
+    }
+}
+@media (max-width: 410px) {
+    .chart-link {
+        display: none;
     }
 }
