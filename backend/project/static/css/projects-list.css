@@ -130,4 +130,10 @@
     .projects-page-buttons-block a {
         margin: 0 auto;
     }
+    .projects-page-title-block {
+        margin-inline: auto;
+    }
+    .projects-page-buttons-block {
+        margin-inline: auto;
+    }
 }
