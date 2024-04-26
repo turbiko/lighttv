@@ -124,6 +124,7 @@
     /* Hide the desktop background image */
     .project-image-block {
         background-image: none !important; /* Override inline styles */
+        height: 100%;
     }
     /* Display the mobile background image */
     .project-image-block .mobile-image {

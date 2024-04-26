@@ -214,6 +214,22 @@ ul {
     }
     .format-card {
         padding: 15px 10px;
+        width: 150px;
+    }
+
+    .swiper-container {
+        overflow: hidden;
+    }
+    .swiper-wriper {
+    min-width: 343px;
+  }
+}
+@media (max-width: 400px){
+    .formats-section {
+        overflow: hidden;
+    }
+    .container {
+        min-width: 370px;
     }
 }
 
