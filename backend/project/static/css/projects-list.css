@@ -140,3 +140,18 @@
         margin-inline: auto;
     }
 }
+@media (max-width: 400px) {
+    .wrapper-content,
+    .projects-title-block {
+        min-width: 290px;
+    }
+    .projects-page-buttons-block {
+        flex-direction: column;
+    }
+    .projects-type-button {
+        min-width: 250px;
+    }
+    .projects-type-button span {
+        margin: 0 auto;
+    }
+}

@@ -30,9 +30,9 @@
     line-height: normal;
 }
 .project-image-wrapper {
-    max-width:1440px;
-    margin: 20px auto;
-
+    position: relative;
+    max-width: var(--big-slider-max-width);
+    height: 100%;
 }
 .project-image-block {
     width: 100%;
@@ -44,20 +44,53 @@
     background-size: cover;
     background-position: center center;
 }
+.project-mobile-image {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center center;
+}
 .project-image-text-container {
-    max-width:1040px;
+    position: absolute;
     margin-inline: auto;
-    color: #ffffff;
+    width: 80%;
+    left: 5dvw;
+    bottom: 5dvh;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    justify-content: center;
+    color: white; /* Ensures text is visible on dark backgrounds */
+    text-align: center;
+    z-index: 1; /* This ensures it is on top of all other content */
+}
+.project-image-title-block {
+    color: #FFF;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 68px; /* 113.333% */
+    text-transform: uppercase;
+}
+.project-image-title-block-text {
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
 }
 .project-image-text-block {
-
     margin-top: 80%;
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
 }
-
 .project-content-block {
     max-width:1040px;
     margin: 0 auto;
@@ -131,5 +164,18 @@
     }
     .project-title h2 {
         font-size: 28px;
+    }
+    .project-image-block {
+        background-image:none !important;
+        aspect-ratio: 335 / 600;
+    }
+    .project-mobile-image {
+        display: block !important;
+        background-repeat: no-repeat;
+        background-size: cover ;
+    }
+    .project-image-title-block {
+        font-size: 45px;
+        line-height: 68px; /* 151.111% */
     }
 }

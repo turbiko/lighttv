@@ -53,9 +53,12 @@
     </div><!-- breadcrumb -->
 <div class="project-image-wrapper">
     {% image self.image_slider_big original as img %}
+    {% image self.image_slider_mobile original as img_mob %}
     <div class="project-image-block" style="background-image: url('{{ img.url }}');">
+        <div class="project-mobile-image" style="background-image: url('{{ img_mob.url }}');"></div>
         <div class="project-image-text-container">
-            <div class="project-image-title-block"> </div>
+            <div class="project-image-title-block"><h1>{{ self.title }}</h1></div>
+            <div class="project-image-title-block-text"> <span>{{ self.project_type }}</span></div>
         </div>
     </div>
 </div>
@@ -139,7 +142,7 @@
                    {% for project1 in similar_projects %}
                   <li class="swiper-slide">
                   <article class="similar-card">
-                      <div class="similar-card__image">
+                    <div class="similar-card__image">
                         {% if project1.feed_image %}
                             {% image project1.feed_image width-192 class="swiper-lazy" style="border-radius: 20px;" %}
                         {% else %}
@@ -149,25 +152,25 @@
                                  style="border-radius: 20px;">
                         {% endif %}
                       </div>
-                    <div class="similar-card__title">
-                    <a href="{% pageurl project1 %}">
-                        <h3 >{{ project1.title }}</h3>
-                    </a>
-                    </div>
-                    <div class="similar-card__text">
+                    <div class="similar-card__text-block">
+                        <div class="similar-card__title">
+                            <a href="{% pageurl project1 %}">
+                            <h3 >{{ project1.title }}</h3>
+                        </a>
+                        </div>
+                        <div class="similar-card__text">
                         <p>{{ project1.project_type }}</p>
+                    </div>
                     </div>
                   </article>
                 </li>
                   {% endfor %}
               </ul>
-
             </div>
             <button
               class="chart-arrow chart-arrow-next"
               type="button"
             >
-
             </button>
           </div>
         </div>
@@ -179,7 +182,7 @@
     spaceBetween: 20,
     breakpoints: {
     200: {
-      slidesPerView: 1,
+      slidesPerView: 2,
     },
     420: {
       slidesPerView: 2,
@@ -198,6 +201,7 @@
     nextEl: '.chart-arrow-next',
     prevEl: '.chart-arrow-prev',
     },
+      keyboard: true,
     });
   </script> {# Similar Slider end #}
       </section>

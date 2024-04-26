@@ -16,11 +16,11 @@
         </div>
         <div class="projects-page-buttons-block">
             <a href="{% pageurl page %}">
-            <div class="projects-type-button"> Всі проекти</div>
+                <div class="projects-type-button"> <span>Всі проекти</span></div>
                 </a>
             {% for project_type in project_types %}
              <a href="{% pageurl page %}?type={{ project_type.id }}">
-            <div class="projects-type-button"> {{ project_type.name }}</div>
+                 <div class="projects-type-button"> <span>{{ project_type.name }}</span></div>
              </a>
             {% endfor %}
         </div>
