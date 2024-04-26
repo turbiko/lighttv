@@ -255,7 +255,7 @@
         max-width: 100%;
     }
     .home-about-wrapper {
-	display: flex;
+    display: flex;
     flex-wrap: wrap;
     gap: 40px;
     }
@@ -266,7 +266,6 @@
 }
 
 @media (max-width: 620px) {
-
     .home-manual-title h2,
     .home-broadcasters-title h2,
     .home-about-title h2,
@@ -279,9 +278,9 @@
     .home-broadcaster-pic {
         width: 160px;
         height: 160px;
-	flex-shrink: 0;
-	border-radius: 20px;
-}
+        flex-shrink: 0;
+        border-radius: 20px;
+    }
     .home-broadcasters-list-block img {
         width: 160px;
         height: 160px;

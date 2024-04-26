@@ -132,8 +132,8 @@
         border-radius: 20px;
     }
     .BigSwiper {
-    max-width: 100%;
-    height: 100%;
+        max-width: 100%;
+        height: 100%;
         aspect-ratio: 335 / 600;
-}
+    }
 }
