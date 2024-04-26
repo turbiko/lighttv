@@ -3,8 +3,9 @@
     display: flex;
     }
 .BigSwiper {
-      max-width: var(--big-slider-max-width);
-      height: 100%;
+    max-width: var(--big-slider-max-width);
+    height: 100%;
+    aspect-ratio: 1380 / 551;
 }
 .swiper-slide {
     text-align: center;
@@ -100,3 +101,38 @@
       .pagination__button--active {
         background-color: var(--color-brand-normal);
       }
+
+      /* Base styles for the slider */
+.project-image-block {
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* adjust as necessary */
+    height: 300px; /* adjust as necessary */
+}
+
+/* Hide the mobile image by default */
+.project-image-block .mobile-image {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* CSS Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    /* Hide the desktop background image */
+    .project-image-block {
+        background-image: none !important; /* Override inline styles */
+    }
+    /* Display the mobile background image */
+    .project-image-block .mobile-image {
+        display: block;
+        border-radius: 20px;
+    }
+    .BigSwiper {
+    max-width: 100%;
+    height: 100%;
+        aspect-ratio: 335 / 600;
+}
+}

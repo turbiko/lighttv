@@ -68,11 +68,13 @@
 {# big slider content start#}
             {% for slider_image in page.slider_images.all %}
                 {% if slider_image.project.image_slider_big %}
-                {% image slider_image.project.image_slider_big original as img_url %}
+                {% image slider_image.desktop_picture original as img_url %}
+                {% image slider_image.mobile_picture original as img_url_mob %}
+
                 <div class="swiper-slide project-image-block"
                             style="background-image: url('{{ img_url.url }}');
                             background-size: cover; background-position: center;">
-                {{ slider_image.project.title }}
+                    <div class="mobile-image" style="background-image: url('{{ img_url_mob.url }}');"></div>
                 </div>
                 {% endif %}
             {% endfor %}
