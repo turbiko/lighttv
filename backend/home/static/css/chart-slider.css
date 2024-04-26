@@ -64,7 +64,12 @@ ul {
 .chart-button:hover {
   fill: var(--color-primary-light);
 }
-.swiper-slide {}
+.swiper-container {
+    width: 100%;
+}
+.swiper-slide {
+    height: 192px; /* Fixed height for each slide */
+}
 .format-card {
 display: flex;
 padding: 45px 25px;
@@ -178,6 +183,26 @@ background: #F2E9E9;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+/* Desktop gap */
+@media (min-width: 966px) {
+    .swiper-container {
+        --swiper-gap: 20px; /* Gap for desktop */
+    }
+
+    .swiper-slide {
+        margin-right: var(--swiper-gap); /* Apply the gap between slides */
+    }
+}
+/* Mobile gap */
+@media (max-width: 965px) {
+    .swiper-container {
+        --swiper-gap: 15px; /* Gap for mobile */
+    }
+
+    .swiper-slide {
+        margin-right: var(--swiper-gap); /* Apply the gap between slides */
+    }
 }
 @media (max-width: 768px) {
 
