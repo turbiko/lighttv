@@ -67,6 +67,7 @@
             </div>
         </div>
     </div>
+    {% if forloop.last %} {% else %}<hr class="chart-divider">{% endif %}
     {% endfor %}
 </section>
 {% endfor %}

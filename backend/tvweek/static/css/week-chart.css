@@ -1,3 +1,9 @@
+.chart-divider {
+    display:none;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.10);
+}
 .tvchart-title-block {
     max-width: 1380px;
     padding-top: 80px;
@@ -225,6 +231,9 @@
 }
 
 @media (max-width: 768px) {
+    .chart-divider {
+        display: block;
+    }
     .wrapper-content {
         margin: 0 20px;
     }
@@ -243,7 +252,10 @@
     .tvchart-chart-line {
         flex-direction: column;
         align-items: flex-start;
+        gap:10px
+        margin-inline:auto;
     }
+
     .tvchart-chart-line-text-block,
     .tvchart-chart-line-text-block-playing {
         padding: 0 20px;
@@ -289,8 +301,8 @@
     }
     .tvchart-chart-line-pict {
         order: -1;
-        max-height:100%;
-        max-width: 100%;
+        width: 100%;
+        height: 100%;
         padding: 0;
         margin-bottom: 15px;
     }
@@ -308,7 +320,5 @@
         padding: 0;
         line-height: 0.9;
     }
-    .tvchart-chart-line {
-        gap:10px
-    }
+
 }
