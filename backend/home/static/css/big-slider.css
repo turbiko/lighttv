@@ -107,7 +107,7 @@
     background-size: cover;
     background-position: center;
     width: 100%; /* adjust as necessary */
-    height: 300px; /* adjust as necessary */
+    height: 100%; /* adjust as necessary */
 }
 
 /* Hide the mobile image by default */
