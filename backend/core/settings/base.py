@@ -227,8 +227,8 @@ EMAIL_SUBJECT_PREFIX = config('EMAIL_SUBJECT_PREFIX', default='a-email:')
 ADMINS = [('asite admin1', 'a.voznyuk@film.ua'), ('asite admin2', 'andreyv@ukr.net')]
 
 # Email address used to send error messages to ADMINS.
-SERVER_EMAIL = f"Message svitlo.tv {DEFAULT_FROM_EMAIL}"
-
+SERVER_EMAIL = f"{DEFAULT_FROM_EMAIL}"
+SERVER_EMAIL_FROM = "Повідомлення від svitlo.tv"
 # A list in the same format as ADMINS that specifies who should get broken link
 # (404) notifications when BrokenLinkEmailsMiddleware is enabled.
 MANAGERS = ADMINS
