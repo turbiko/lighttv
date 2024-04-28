@@ -1,7 +1,10 @@
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.core.mail import send_mail
+from django.conf import settings
+
 from .forms import ContactForm
+
 
 def submit_contact_form(request):
     if request.method == 'POST':
@@ -10,6 +13,7 @@ def submit_contact_form(request):
             print('Form valid, send some data')
             subject = "Запит від користувача"
             message = f"Від: {form.cleaned_data['name']}<br>Email: {form.cleaned_data['email']}<br>Повідомлення: {form.cleaned_data['message']}"
+            admin_emails = [email for name, email in settings.ADMINS]
             send_mail(
                 subject,
                 message,
