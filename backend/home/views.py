@@ -17,7 +17,7 @@ def submit_contact_form(request):
             send_mail(
                 subject,
                 message,
-                'from@example.com',  # Email відправника
+                settings.SERVER_EMAIL,  # Email відправника
                 admin_emails,  # Отримувачі
                 fail_silently=False,
                 html_message=message  # якщо ви хочете відправити HTML
