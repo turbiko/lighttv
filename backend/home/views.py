@@ -6,6 +6,7 @@ from email.header import Header
 from django.core.mail import get_connection
 
 from .forms import ContactForm
+from .models import Contact
 
 
 def submit_contact_form(request):
@@ -16,36 +17,15 @@ def submit_contact_form(request):
             subject = "site form"
             message = f"From: {form.cleaned_data['name']}<br>Email: {form.cleaned_data['email']}<br>Message: {form.cleaned_data['message']}"
             admin_emails = [email for name, email in settings.ADMINS]
+            Contact.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                message=form.cleaned_data['message']
+            )
 
-            if settings.DEBUG:
-                send_mail(
-                    subject,
-                    message,
-                    settings.SERVER_EMAIL,
-                    admin_emails,
-                    fail_silently=False,
-                    html_message=message,
-                )
-            else:
-                # block send and debug session smtp
-                connection = get_connection()
-                connection.open()
-                connection.connection.set_debuglevel(1)
-                # block send and debug session: send email with debug
-                send_mail(
-                    subject,
-                    message,
-                    settings.SERVER_EMAIL,
-                    admin_emails,
-                    fail_silently=False,
-                    html_message=message,
-                    connection=connection,
-                )
-                connection.close()
-                # block send and debug session: close connection
 
             # Додайте повідомлення або здійсніть перенаправлення
-            messages.success(request, 'Ваше повідомлення успішно надіслано!')
+            messages.success(request, 'Ваше повідомлення успішно збережено!')
             print(f'{message=}')
             return redirect('/')
         else:

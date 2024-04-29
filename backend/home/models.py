@@ -21,6 +21,15 @@ from core.settings import base as core_base
 logger = logging.getLogger('lighttv')
 
 
+class Contact(models.Model):
+    name = models.CharField(max_length=230, verbose_name='Ім’я')
+    email = models.EmailField(max_length=255, verbose_name='Електронна пошта')
+    message = models.TextField(verbose_name='Повідомлення')
+
+    def __str__(self):
+        return f"Contact {self.name}"
+
+
 class SocialMediaLink(Orderable):
     site_setting = ParentalKey('SocialMediaSettings', related_name='social_media_links')
     name = models.CharField(max_length=255, help_text='Назва соціальної мережі')

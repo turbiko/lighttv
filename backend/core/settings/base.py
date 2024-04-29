@@ -13,6 +13,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 print(f'{PROJECT_DIR=}')
 print(f'{BASE_DIR=}')
 
+# DEBUG = False
 DEBUG = config('DEBUG', default=False, cast=bool)
 print(f'base config: loaded DEBUG={DEBUG}')
 
@@ -224,7 +225,8 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_SUBJECT_PREFIX = config('EMAIL_SUBJECT_PREFIX', default='a-email:')
 
-ADMINS = [('asite admin1', 'a.voznyuk@film.ua'), ('asite admin2', 'andreyv@ukr.net')]
+# ADMINS = [('asite admin1', 'a.voznyuk@film.ua'), ('asite admin2', 'andreyv@ukr.net')]
+ADMINS = [('asite admin2', 'andreyv@ukr.net')]
 
 # Email address used to send error messages to ADMINS.
 SERVER_EMAIL = f"{DEFAULT_FROM_EMAIL}"

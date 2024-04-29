@@ -8,6 +8,7 @@ from wagtail.admin.menu import MenuItem
 
 from .models import ProjectType, Genre
 from tvweek.models import ChartLine
+from home.models import Contact
 
 
 class GenreAdmin(ModelAdmin):
@@ -20,6 +21,7 @@ class GenreAdmin(ModelAdmin):
     list_display = ("name",)
     list_filter = ("name",)
     search_fields = ("name",)
+
 
 modeladmin_register(GenreAdmin)
 
@@ -54,3 +56,16 @@ class ChartLineAdmin(ModelAdmin):
 modeladmin_register(ChartLineAdmin)
 
 
+class ContactAdmin(ModelAdmin):
+    model = Contact
+    menu_icon = 'pick'
+    menu_label = 'Contact form'
+    menu_order = 210
+    add_to_settings_menu = False
+    exclude_from_explorer = False
+    list_display = ("name", "email", "message")
+    list_filter = ("name", "email")
+    search_fields = ("name", "email", "message")
+
+
+modeladmin_register(ContactAdmin)

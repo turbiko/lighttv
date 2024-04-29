@@ -24,8 +24,8 @@ CSRF_TRUSTED_ORIGINS = [
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 try:
     from .local import *
 except ImportError:
