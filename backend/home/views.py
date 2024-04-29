@@ -13,32 +13,32 @@ def submit_contact_form(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             print('Form valid, send some data')
-            subject = "Запит від користувача"
-            message = f"Від: {form.cleaned_data['name']}<br>Email: {form.cleaned_data['email']}<br>Повідомлення: {form.cleaned_data['message']}"
+            subject = "site form"
+            message = f"From: {form.cleaned_data['name']}<br>Email: {form.cleaned_data['email']}<br>Message: {form.cleaned_data['message']}"
             admin_emails = [email for name, email in settings.ADMINS]
-            # site_email_from = Header(settings.SERVER_EMAIL_FROM, 'utf-8').encode()
-            if settings.DEBUG :
+
+            if settings.DEBUG:
                 send_mail(
                     subject,
                     message,
-                    settings.SERVER_EMAIL,  # Email відправника
-                    admin_emails,  # Отримувачі
+                    settings.SERVER_EMAIL,
+                    admin_emails,
                     fail_silently=False,
-                    html_message=message,  # якщо ви хочете відправити HTML
+                    html_message=message,
                 )
             else:
                 # block send and debug session smtp
                 connection = get_connection()
                 connection.open()
-                connection.connection.set_debuglevel(1)  # Встановлюємо рівень дебагування для smtplib
+                connection.connection.set_debuglevel(1)
                 # block send and debug session: send email with debug
                 send_mail(
                     subject,
                     message,
-                    settings.SERVER_EMAIL,  # Email відправника
-                    admin_emails,  # Отримувачі
+                    settings.SERVER_EMAIL,
+                    admin_emails,
                     fail_silently=False,
-                    html_message=message,  # якщо ви хочете відправити HTML
+                    html_message=message,
                     connection=connection,
                 )
                 connection.close()
