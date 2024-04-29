@@ -16,12 +16,12 @@ def submit_contact_form(request):
             subject = "Запит від користувача"
             message = f"Від: {form.cleaned_data['name']}<br>Email: {form.cleaned_data['email']}<br>Повідомлення: {form.cleaned_data['message']}"
             admin_emails = [email for name, email in settings.ADMINS]
-            site_email_from = Header(settings.SERVER_EMAIL_FROM, 'utf-8').encode()
+            # site_email_from = Header(settings.SERVER_EMAIL_FROM, 'utf-8').encode()
             if settings.DEBUG :
                 send_mail(
                     subject,
                     message,
-                    f'{site_email_from} <{settings.SERVER_EMAIL}>',  # Email відправника
+                    settings.SERVER_EMAIL,  # Email відправника
                     admin_emails,  # Отримувачі
                     fail_silently=False,
                     html_message=message,  # якщо ви хочете відправити HTML
@@ -35,7 +35,7 @@ def submit_contact_form(request):
                 send_mail(
                     subject,
                     message,
-                    f'{site_email_from} <{settings.SERVER_EMAIL}>',  # Email відправника
+                    settings.SERVER_EMAIL,  # Email відправника
                     admin_emails,  # Отримувачі
                     fail_silently=False,
                     html_message=message,  # якщо ви хочете відправити HTML
