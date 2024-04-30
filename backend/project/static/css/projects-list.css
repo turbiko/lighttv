@@ -89,6 +89,11 @@
     height: 207px;
     border-radius: 20px;
 }
+.project-list-element-picture img{
+    width: 100%;
+    aspect-ratio: 328 / 207;
+    border-radius: 20px;
+}
 .project-list-text-block {
     width: 100%;
     display: flex;
