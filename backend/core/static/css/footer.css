@@ -201,6 +201,11 @@ footer {
   font-weight: 600;
   word-wrap: break-word;
 }
+@media (max-width: 1050px) {
+  footer {
+    padding-inline: 10px;
+  }
+}
 @media (max-width: 900px) {
   footer {
     height: auto;
