@@ -66,7 +66,7 @@
     gap: 30px;
     justify-content: center;
     color: white; /* Ensures text is visible on dark backgrounds */
-    text-align: center;
+    /*text-align: center;*/
     z-index: 1; /* This ensures it is on top of all other content */
 }
 .project-image-title-block {
