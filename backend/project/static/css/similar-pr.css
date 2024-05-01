@@ -96,11 +96,10 @@ flex: 1 0 0;
 }
 
 .similar-card__text {
-    color: #1B1B1B;
-    text-align: center;
-    font-size: 18px;
+    color: #A5A5A5;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
 }
 
