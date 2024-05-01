@@ -55,7 +55,8 @@
 }
 .projects-list-block-wrapper {
     max-width:1040px;
-    margin: 0 auto;
+    margin-inline: auto;
+    margin-bottom: 80px;
 }
 .projects-list-block {
     width:100%;
