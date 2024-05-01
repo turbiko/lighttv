@@ -41,6 +41,7 @@ ul {
     border-radius: 50px;
     cursor: pointer;
     background-color: var(--main-color2);
+    flex-shrink: 0;
 }
 .chart-arrow-next {}
 .chart-arrow-prev {}
