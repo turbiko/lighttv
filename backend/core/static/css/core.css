@@ -44,6 +44,10 @@ a {
   color: inherit;
   outline: none;
 }
+a:hover {
+  outline: none;
+  background-color: none;
+}
 ul,
 ol,
 li {
