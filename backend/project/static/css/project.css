@@ -139,6 +139,9 @@
 .project-read-more {}
 
 @media (max-width: 768px) {
+    .project-image-title-block {
+        font-size:45px;
+    }
     .project-image-block {
         background-image:none !important;
         aspect-ratio: 335 / 600;
@@ -148,8 +151,12 @@
         background-repeat: no-repeat;
         background-size: cover ;
     }
+
 }
 @media (max-width: 500px) {
+    .project-image-title-block {
+        font-size:40px;
+    }
     .project-button-tag {
         justify-content: flex-start;
         padding-inline: 30px;
