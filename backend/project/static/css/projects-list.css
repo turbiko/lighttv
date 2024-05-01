@@ -1,3 +1,4 @@
+
 .projects-title-block {
     max-width: 1380px;
     padding-top: 80px;
@@ -123,6 +124,11 @@
 }
 
 @media (max-width: 744px) {
+
+    .projects-page-buttons-block a,
+    .projects-type-button {
+        outline: none;
+    }
     .projects-page-title-block h1{
         font-size: 48px;
     }
