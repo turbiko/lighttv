@@ -189,12 +189,13 @@ flex: 1 0 0;
     font-weight: 600;
     line-height: normal;
 }
-
-@media (max-width: 500px) {
+@media (max-width: 768px)  {
     .chart-arrow-next,
     .chart-arrow-prev {
         display: none;
     }
+}
+@media (max-width: 500px) {
     .chart-slider-title h2 {
         font-size: 28px;
     }
