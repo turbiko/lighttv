@@ -30,11 +30,17 @@
     border-radius: 60px;
     border: 1px solid #6C5282;
     color: #6C5282;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 16px;
 }
 .projects-type-button:hover {
     color: #F6F6F6;
     background: #6C5282;
-    border-radius: 60px;
 }
 .projects-page-title-block {
     color: #1B1B1B;

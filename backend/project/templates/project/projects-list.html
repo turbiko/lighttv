@@ -14,19 +14,31 @@
         <div class="projects-page-title-block">
             <h1>{{ self.title }}</h1>
         </div>
+{#        <div class="projects-page-buttons-block">#}
+{#            <a href="{% pageurl page %}">#}
+{#                <div class="projects-type-button"> <span>Всі проекти</span></div>#}
+{#                </a>#}
+{#            {% for project_type in project_types %}#}
+{#             <a href="{% pageurl page %}?type={{ project_type.id }}">#}
+{#                 <div class="projects-type-button"> <span>{{ project_type.name }}</span></div>#}
+{#             </a>#}
+{#            {% endfor %}#}
+{#        </div>#}
+
         <div class="projects-page-buttons-block">
-            <a href="{% pageurl page %}">
-                <div class="projects-type-button"> <span>Всі проекти</span></div>
-                </a>
+            <button class="projects-type-button" onclick="location.href='{% pageurl page %}'">
+                <span>Всі проекти</span>
+            </button>
             {% for project_type in project_types %}
-             <a href="{% pageurl page %}?type={{ project_type.id }}">
-                 <div class="projects-type-button"> <span>{{ project_type.name }}</span></div>
-             </a>
+             <button class="projects-type-button" onclick="location.href='{% pageurl page %}?type={{ project_type.id }}'">
+                 <span>{{ project_type.name }}</span>
+             </button>
             {% endfor %}
         </div>
     </div>
     </div>
 </section>
+
 <section class="projects-list-block-wrapper">
     <div class="projects-list-block">
         <div class="projects-list">
