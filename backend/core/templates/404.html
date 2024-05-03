@@ -3,9 +3,38 @@
 {% block title %}Page not found{% endblock %}
 
 {% block body_class %}template-404{% endblock %}
+{% block extra_css %}
+<style>
+.to-home-button {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 60px;
+    border: 1px solid #6C5282;
+    color: #6C5282;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 16px;
+}
+.to-home-button:hover {
+    color: #F6F6F6;
+    background: #6C5282;
+}
+.page__404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+</style>
+{% endblock extra_css %}
 
 {% block content %}
-
         <section class="page__404">
           <div class="page__text">
             <svg
@@ -38,18 +67,8 @@
 
             <p>На жаль, сторінку, яку ви шукаєте, не знайдено</p>
           </div>
-          <div
-            style="
-              width: 125px;
-              height: 50px;
-              padding: 10px;
-              border-radius: 60px;
-              border: 1px #6c5282 solid;
-              justify-content: center;
-              align-items: center;
-              display: inline-flex;
-            "
-          >
+          <div class="to-home-button">
+              <a href="/">
             <div
               style="
                 color: var(--main-color1);
@@ -60,6 +79,7 @@
             >
               На головну
             </div>
+                  </a>
           </div>
         </section>
 {% endblock %}
