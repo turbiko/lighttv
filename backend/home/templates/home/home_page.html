@@ -107,9 +107,13 @@
                     <h3 >{{ line.time }}</h3>
                     </div>
                     <div class="format-card__text">
-{#                        <p>{{ line.program_title }}</p>#}
+                        {% if line.project_title  %}
+                        <p>{{ line.project_title|truncatechars:22 }}</p>
+                        {% else %}
+                        <p>{{ line.program_title|truncatechars:22 }}</p>
+                        {% endif %}
 
-                        <p>{{ line.project_title }}</p>
+
                     </div>
                   </article>
                 </li>
