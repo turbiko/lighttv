@@ -110,6 +110,7 @@ ul {
 }
 /* crop text owerflow */
 /* https://css-tricks.com/almanac/properties/l/line-clamp/ */
+/* https://www.w3schools.com/accessibility/accessibility_text_size.php */
 .format-card__text p {
     display: -webkit-box;
   -webkit-line-clamp: 2;
