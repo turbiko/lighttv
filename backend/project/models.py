@@ -39,7 +39,7 @@ class Project(Page):
     template = 'project' + os.sep + 'project-page.html'
     parent_page_types = ['Projects_List']
     date_production = models.DateField(_('Дата релізу'), blank=True, null=True)  # TODO: use YEAR only
-    chart_name_short = models.CharField(_('Коротка назва для тв-програми'), max_length=30,blank=True, null=True)
+    chart_name_short = models.CharField(_('Коротка назва для тв-програми'), max_length=50, blank=True, null=True)
     duration_minutes = models.IntegerField(_('Хронометраж, хв.'), blank=True, null=True)
     project_type = models.ForeignKey(ProjectType, null=True, on_delete=models.SET_NULL)
     image_slider_big = models.ForeignKey(  # post image big slider
