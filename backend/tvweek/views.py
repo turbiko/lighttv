@@ -83,9 +83,9 @@ def upload_chart(request):
         form = TVChartUploadForm()
     messages.success(request, 'TV Chart data uploaded successfully.')
 
-    # clear chart_line table from old elements
-    # threshold_date = dt.datetime.now() - dt.timedelta(days=60)  #TODO: hardcoded move to site settings
-    # ChartLine.objects.filter(start_time__lt=threshold_date).delete()
+    # if no errors - clear chart_line table from old elements
+    threshold_date = dt.datetime.now() - dt.timedelta(days=30)  #TODO: hardcoded move to site settings
+    ChartLine.objects.filter(start_time__lt=threshold_date).delete()
     return render(request, 'tvweek/upload_chart.html', {'form': form})
 
 
