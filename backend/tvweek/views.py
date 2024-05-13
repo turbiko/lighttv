@@ -20,7 +20,7 @@ def upload_chart(request):
     tv_chart_file = ''
     selected_date = ""  # reset once before load file, continuous value for chart line date control
     chart_line = None # reset
-
+    need_to_erase = True
     if request.method == 'POST':
         form = TVChartUploadForm(request.POST, request.FILES)
         past_time = False
@@ -30,7 +30,7 @@ def upload_chart(request):
 
             # looking for related project for chart_line title
             projects_set = set(Project.objects.values_list('chart_name_short', flat=True))
-            print(f"projects chart names {projects_set}")
+            print(f"upload_chart: projects short chart names {projects_set}")
 
             for index, row in df.iterrows():
                 if isinstance(row.iloc[0], str):  # week day title - take chart_line date value
@@ -39,12 +39,12 @@ def upload_chart(request):
                     selected_date = datetime.strptime(
                         string_dict_date['date_str'].strip(), '%d.%m.%Y'
                         ).date()
-                    # TODO: check correct chart diapason for deleting 6:00 to 5:59 in source
-                    chart_line = ChartLine.objects.filter(
-                        start_time__date=selected_date,
-                        start_time__lte=selected_date
-                    ).delete()
+                    # TODO: think about correct shorter chart diapason for deleting
+                    if need_to_erase:  # delete all lines in future from db
+                        ChartLine.objects.filter(start_time__gte=selected_date).delete()
+                        need_to_erase = False
                     continue
+
                 if isinstance(row.iloc[0], dt.time):
                     if not past_time:
                         past_time = row.iloc[0]
@@ -59,15 +59,14 @@ def upload_chart(request):
 
                     # finalize process by saving chart_line model element
                     chart_line_weekday = selected_date.weekday()
-                    chart_line_date = datetime.combine(selected_date,row.iloc[0])
+                    chart_line_date = datetime.combine(selected_date, row.iloc[0])
 
                     # get ChartLine project
                     chart_project = None
                     for chart_name in projects_set:
                         if chart_name in row.iloc[1].strip():
                             chart_project = Project.objects.filter(chart_name_short=chart_name).first()
-                            if chart_project:
-                                print(f"{chart_project.title=}")
+                            if chart_project:  #  Found project in set
                                 break
 
                     chart_line, _temp = ChartLine.objects.update_or_create(
