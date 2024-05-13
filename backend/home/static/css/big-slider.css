@@ -136,21 +136,21 @@
         height: 100%;
         aspect-ratio: 335 / 600;
     }
-    .swiper-pagination,
-    .swiper-button-next,
-    .swiper-button-next:hover,
-    .swiper-button-prev,
-    .swiper-button-prev:hover,
-    .chart-arrow-prev,
-    .chart-arrow-next{
+    .BigSwiper .swiper-pagination,
+    .BigSwiper .swiper-button-next,
+    .BigSwiper .swiper-button-next:hover,
+    .BigSwiper .swiper-button-prev,
+    .BigSwiper .swiper-button-prev:hover,
+    .BigSwiper .chart-arrow-prev,
+    .BigSwiper .chart-arrow-next{
         display: block !important;
     }
-    .swiper-button-next,
-    .swiper-button-next:hover,
-    .swiper-button-prev,
-    .swiper-button-prev:hover,
-    .chart-arrow-prev,
-    .chart-arrow-next {
+    .BigSwiper .swiper-button-next,
+    .BigSwiper .swiper-button-next:hover,
+    .BigSwiper .swiper-button-prev,
+    .BigSwiper .swiper-button-prev:hover,
+    .BigSwiper .chart-arrow-prev,
+    .BigSwiper .chart-arrow-next {
         bottom: 20px !important;
     }
     .swiper-pagination {
