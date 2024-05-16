@@ -3,9 +3,22 @@
 {% load static  wagtailimages_tags%}
 
 {% block body_class %}template-homepage{% endblock %}
+{% block extra_css %}
+    <style>
+    .upload-form-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+    </style>
+{% endblock extra_css %}
 
 {% block content %}
-{% if request.user.is_authenticated %}
+    <section class="upload-form-block">
+    {% if request.user.is_authenticated %}
+
     <h2>Upload TV Chart</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -13,4 +26,6 @@
         <button type="submit">Upload</button>
     </form>
 {% endif %}
+    </section>
+
 {% endblock content %}
