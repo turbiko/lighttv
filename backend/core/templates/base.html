@@ -234,15 +234,24 @@
               </div>
             </div>
             <div class="footer-address-block2">
+
               <div class="footer-address-block2-a1">контакти</div>
 
               <address class="footer-address-block2-a2">
-                <div class="footer-address-block2-a2-b1">+38 044 000 00 00</div>
-                <div class="footer-address-block2-a2-b1">info@svitlo.tv</div>
-                <div class="footer-address-block2-a2-b1">
-                  Київ, вул. Миколи Закревського, 22
+{% if settings.home.ContactDataSettings.get_contact_data.phone  %}
+                <div class="footer-address-block2-a2-b1"> {{ settings.home.ContactDataSettings.get_contact_data.phone }}
                 </div>
+{% endif %}
+              {% if settings.home.ContactDataSettings.get_contact_data.email %}
+                <div class="footer-address-block2-a2-b1">
+                    <a href="mailto:{{settings.home.ContactDataSettings.get_contact_data.email}}">
+                    {{ settings.home.ContactDataSettings.get_contact_data.email }} </a> </div>
+{% endif %}
+              {% if settings.home.ContactDataSettings.get_contact_data.post_addr %}
+                <div class="footer-address-block2-a2-b1">{{ settings.home.ContactDataSettings.get_contact_data.post_addr }}</div>
+              {% endif %}
               </address>
+
             </div>
           </div>
         {% if messages %}

@@ -59,6 +59,11 @@ class ReportPDF(Orderable):
     title = models.CharField(max_length=200)
     report = models.FileField(max_length=255, help_text='Структура власності')
 
+class ContactData(Orderable):
+    site_setting = ParentalKey('ContactDataSettings', related_name='contact_data')
+    phone = models.CharField(max_length=200, blank=True, null=True)
+    post_addr = models.CharField(max_length=200, blank=True, null=True)
+    email = models.EmailField(max_length=50, blank=True, null=True)
 
 @register_setting
 class SocialMediaSettings(BaseSiteSetting, ClusterableModel):
@@ -73,6 +78,17 @@ class ReportPDFSettings(BaseSiteSetting, ClusterableModel):
         InlinePanel('report_pdf', label="Структура власності"),
     ]
 
+@register_setting
+class ContactDataSettings(BaseSiteSetting, ClusterableModel):
+    panels = [
+        InlinePanel('contact_data', label="Контактні дані", max_num=1),
+    ]
+
+    def get_contact_data(self):
+        return self.contact_data.first()  # Повертаємо перший запис
+
+    class Meta:
+        verbose_name = "Налаштування контактних даних"
 
 class HomePageSliderImages(Orderable):
     """big slider images for slider on home page"""
