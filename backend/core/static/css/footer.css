@@ -67,6 +67,8 @@ footer {
   text-transform: uppercase;
 }
 .footer-address-block1-a2 {
+  flex-direction: column;
+  display: flex;
   color: var(--main-color2);
   font-size: 16px;
   font-style: normal;
