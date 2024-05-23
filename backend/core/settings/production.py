@@ -11,6 +11,7 @@ print(f"Loaded PRODUCTION settings {DEBUG=}")
 ALLOWED_HOSTS = [
     "selected12309.svitlo.tv",
     "svitlo.tv",
+    "beta.svitlo.tv",
     "10.1.100.174",
     "127.0.0.1",
     "localhost",
