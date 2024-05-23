@@ -15,6 +15,8 @@
             {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
+        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
         {% if page.search_description %}
         <meta name="description" content="{{ page.search_description }}" >
         {% endif %}
