@@ -24,4 +24,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Postgres Entrypoint
 #COPY entrypoint.sh /usr/src/app/entrypoint.sh
 COPY entrypoint.prod.sh /usr/src/app/entrypoint.prod.sh
+# Add execution permissions to the entrypoint script
+RUN chmod +x /usr/src/app/entrypoint.prod.sh
+
 ENTRYPOINT ["/usr/src/app/entrypoint.prod.sh"]
