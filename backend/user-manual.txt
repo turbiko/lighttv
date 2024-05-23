@@ -20,7 +20,7 @@ git pull
 docker compose up  --build
 docker compose exec svitlotv python manage.py createsuperuser
 docker compose exec svitlotv python manage.py collectstatic
-
+docker-compose exec svitlotv python manage.py createsuperuser --settings=app.settings.production
 ## daemonize
 docker-compose up -d --build
 # Docker additional
