@@ -11,14 +11,14 @@ print(f"Loaded PRODUCTION settings {DEBUG=}")
 ALLOWED_HOSTS = [
     "selected12309.svitlo.tv",
     "svitlo.tv",
-    "10.1.100.173",
+    "10.1.100.174",
     "127.0.0.1",
     "localhost",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.svitlo.tv',
-    'http://10.1.100.173',
+    'http://10.1.100.174',
 ]
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True

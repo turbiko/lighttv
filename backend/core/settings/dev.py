@@ -17,7 +17,7 @@ SECRET_KEY = "django-insecure-+$d#&btb)wb$71i1#0eellbko%#m1+bfm^ek+%(h^9hqo8od9d
 ALLOWED_HOSTS = [
     "selected12309.svitlo.tv",
     "svitlo.tv",
-    "10.1.100.173",
+    "10.1.100.174",
     "127.0.0.1",
     "localhost",
 ]
