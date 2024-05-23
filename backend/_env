@@ -1,9 +1,16 @@
 # example .env file
 DEBUG=True
 SECRET_KEY=a_secret-string-many-chars-long-think-about-security
-ENVIRONMENT=NOT_PRODUCTION
 ALLOWED_HOSTS=localhost, 127.0.0.1
 WAGTAILADMIN_BASE_URL=http://domain.tld
+
+SQL_ENGINE=django.db.backends.postgresql_psycopg2
+SQL_DATABASE=demo_wagtail
+SQL_USER=demouser
+SQL_PASSWORD=DemoPass
+SQL_HOST=db
+SQL_PORT=5432
+DATABASE=postgres
 
 EMAIL_HOST=mail.domain.tld
 EMAIL_PORT=465

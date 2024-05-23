@@ -1,0 +1,3 @@
+POSTGRES_USER=demouser
+POSTGRES_PASSWORD=DemoPass
+POSTGRES_DB=demo_wagtail

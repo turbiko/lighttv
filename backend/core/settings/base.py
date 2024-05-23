@@ -92,16 +92,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        }
     }
-}
+else:
+    # Database PostgreSQL
+    DATABASES = {
+        'default': {
+            'ENGINE': config('SQL_ENGINE', default=''),
+            'NAME': config('SQL_DATABASE', default=''),
+            'USER': config("SQL_USER", default=''),
+            'PASSWORD': config("SQL_PASSWORD", default=''),
+            'HOST': config("SQL_HOST", default=''),
+            'PORT': config("SQL_PORT", default=''),
+        }
+    }
 
 
 # Password validation
@@ -153,17 +162,13 @@ STATICFILES_FINDERS = [
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static"),
 ]
-print(f'{STATICFILES_DIRS=}')
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
-print(f'{STATIC_ROOT=}')
-print(f'{STATIC_URL=}')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-print(f'{MEDIA_ROOT=}')
-print(f'{MEDIA_URL=}')
+
 
 # Sets default for primary key IDs
 # See https://docs.djangoproject.com/en/4.1/ref/models/fields/#bigautofield
