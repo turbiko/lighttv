@@ -64,7 +64,12 @@ def upload_chart(request):
                     # get ChartLine project
                     chart_project = None
                     for chart_name in projects_set:
-                        if chart_name in row.iloc[1].strip():
+                        row_project_name = row.iloc[1].strip()
+                        if chart_name == row_project_name:  # Check for exact match
+                            chart_project = Project.objects.filter(chart_name_short=chart_name).first()
+                            if chart_project:  # Found project in set
+                                break
+                        if chart_name in row_project_name:
                             chart_project = Project.objects.filter(chart_name_short=chart_name).first()
                             if chart_project:  #  Found project in set
                                 break
