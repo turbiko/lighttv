@@ -28,6 +28,8 @@ class ProjectGenres(Orderable):
     panels = [
         FieldPanel('genre'),
     ]
+
+
 class ProjectType(models.Model):
     name = models.CharField(_('Тип проєкту'), max_length=255)
 
