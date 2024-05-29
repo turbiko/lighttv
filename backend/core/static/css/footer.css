@@ -115,6 +115,18 @@ footer {
   gap: 20px;
 }
 
+.contact-input {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+
+  border: none;
+  overflow: hidden;
+  resize:none;
+}
 .footer-form-title {
   margin-bottom: 20px;
   align-self: stretch;
