@@ -13,11 +13,12 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # DEBUG = False
 DEBUG = config('DEBUG', default=False, cast=bool)
+PROD_MODE = config('PROD_MODE', default=True, cast=bool)
 print(f'base config: loaded DEBUG={DEBUG}')
+print(f'base config: loaded PROD_MODE={PROD_MODE}')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY", "not-loaded-secret-key-ryu_zr&i&2ne6kXt9uib5oy8rca6ygb5tv!5hb#po-%%9hn2_43k")
-
 
 
 # Application definition
@@ -87,7 +88,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-if DEBUG:
+if not PROD_MODE:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
