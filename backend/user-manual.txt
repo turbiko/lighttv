@@ -20,7 +20,7 @@ git pull
 docker compose up  --build
 docker compose exec svitlotv python manage.py createsuperuser
 docker compose exec svitlotv python manage.py collectstatic
-docker-compose exec svitlotv python manage.py createsuperuser --settings=app.settings.production
+docker-compose exec svitlotv python manage.py createsuperuser --settings=core.settings.production
 ## daemonize
 docker-compose up -d --build
 # Docker additional
@@ -37,7 +37,7 @@ docker ps --all
 $ docker kill <name>
 docker volume prune
 ##
-docker-compose exec web python manage.py createsuperuser --settings=app.settings.production
+docker-compose exec web python manage.py createsuperuser --settings=core.settings.production
 
 ### ubuntu system DateTime
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-time-synchronization-on-ubuntu-18-04
