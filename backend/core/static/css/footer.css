@@ -42,7 +42,7 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   gap: 50px;
-  width: 175px;
+  min-width: 200px;
 }
 .footer-address-block-2 {
   display: inline-flex;
