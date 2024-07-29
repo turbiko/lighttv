@@ -13,7 +13,6 @@ from .forms import TVChartUploadForm
 from .models import ChartLine
 from .tools import get_date_from_cell_0, generate_week_dict
 
-
 def upload_chart(request):
 
     TAB_NAME_IN_XLS = 'Укр'  # TODO: it was hardcoded, refactor it
