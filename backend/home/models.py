@@ -17,6 +17,8 @@ from wagtail.documents import get_document_model
 
 import tvweek.models
 from core.settings import base as core_base
+from tools.owerwritefile import OverwriteStorage
+
 
 logger = logging.getLogger('lighttv')
 
@@ -57,7 +59,11 @@ class SocialMediaLink(Orderable):
 class ReportPDF(Orderable):
     site_setting = ParentalKey('ReportPDFSettings', related_name='report_pdf')
     title = models.CharField(max_length=200)
-    report = models.FileField(max_length=255, help_text='Структура власності')
+    report = models.FileField(
+        max_length=255,
+        help_text='Структура власності',
+        storage=OverwriteStorage()
+    )
 
 class ContactData(Orderable):
     site_setting = ParentalKey('ContactDataSettings', related_name='contact_data')
@@ -187,6 +193,7 @@ class HomePage(Page):
         FieldPanel('online_title'),
         FieldPanel('online_text'),
         InlinePanel('online_tv', label="Логотип онлайн провайдера"),
+        FieldPanel('report_pdf'),
     ]
 
     def get_context(self, request):

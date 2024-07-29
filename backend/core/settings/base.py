@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "menus.apps.MenusConfig",
     "project.apps.ProjectConfig",
     "tvweek.apps.TvweekConfig",
+    "tools.apps.ToolsConfig",
 ]
 
 MIDDLEWARE = [
